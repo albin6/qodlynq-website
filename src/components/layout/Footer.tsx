@@ -8,7 +8,7 @@ export function Footer() {
           <div className="font-headline-sm text-headline-sm font-bold text-on-surface mb-sm tracking-tight">
             Qodlynq
           </div>
-          <p className="font-body-md text-body-md text-secondary max-w-sm mb-lg">
+          <p className="font-body-md text-body-md text-secondary max-w-[24rem] mb-lg">
             Premium digital products engineered for scale.
           </p>
           <p className="font-body-md text-body-md text-secondary text-sm">

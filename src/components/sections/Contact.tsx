@@ -26,7 +26,7 @@ export function Contact() {
             <h2 className="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-on-surface mb-md tracking-tight">
               Let's build something meaningful.
             </h2>
-            <p className="font-body-lg text-body-lg text-on-surface-variant mb-xl max-w-md">
+            <p className="font-body-lg text-body-lg text-on-surface-variant mb-xl max-w-[28rem]">
               Ready to discuss your project? Fill out the form, and an engineer will get back to you within 24 hours to schedule a discovery call.
             </p>
             <div className="space-y-md">
