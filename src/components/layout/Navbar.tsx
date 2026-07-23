@@ -38,17 +38,17 @@ export function Navbar() {
       <motion.nav
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut" as any }}
-        className={`fixed top-0 w-full z-50 transition-all duration-300 border-b ${
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] as any }}
+        className={`fixed top-0 w-full z-50 transition-all duration-500 border-b ${
           isScrolled
-            ? "bg-surface/90 backdrop-blur-md border-outline-variant/20 shadow-sm"
+            ? "bg-surface-container-lowest/70 backdrop-blur-xl border-outline-variant/10 shadow-[0_4px_30px_rgba(0,0,0,0.03)]"
             : "bg-transparent border-transparent"
         }`}
       >
-        <div className="flex justify-between items-center h-20 px-gutter max-w-container_max mx-auto">
+        <div className={`flex justify-between items-center px-gutter max-w-container_max mx-auto transition-all duration-500 ${isScrolled ? 'h-16' : 'h-24'}`}>
           <Link
             href="/"
-            className="font-headline-sm text-headline-sm font-bold text-on-surface tracking-tight"
+            className="font-headline-sm text-headline-sm font-bold text-on-surface tracking-tighter"
           >
             Qodlynq
           </Link>
@@ -58,15 +58,15 @@ export function Navbar() {
               <Link
                 key={link.name}
                 href={link.href}
-                className="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md relative group"
+                className="text-on-surface-variant hover:text-on-surface transition-colors duration-300 font-body-md text-sm font-medium relative group"
               >
                 {link.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute -bottom-1.5 left-0 w-0 h-[2px] rounded-full bg-primary transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:w-full opacity-70"></span>
               </Link>
             ))}
             <Link
               href="#contact"
-              className="bg-on-surface text-surface-container-lowest font-label-md text-label-md px-md py-sm rounded hover:bg-surface-tint hover:text-on-primary transition-colors shadow-sm transform hover:scale-105 duration-200"
+              className="bg-on-surface text-surface-container-lowest font-label-md text-label-md px-md py-2.5 rounded-lg hover:bg-on-surface/90 transition-all shadow-[0_2px_10px_rgba(0,0,0,0.1)] hover:shadow-[0_4px_20px_rgba(0,0,0,0.15)] transform hover:-translate-y-0.5 duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]"
             >
               Book a Call
             </Link>

@@ -39,24 +39,25 @@ export function Services() {
   };
 
   const cardVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 30, filter: "blur(5px)" },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: "easeOut" as any },
+      filter: "blur(0px)",
+      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as any },
     },
   };
 
   return (
     <section id="services" className="max-w-container_max mx-auto px-gutter py-huge">
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 20, filter: "blur(5px)" }}
+        whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
         viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.6, ease: "easeOut" as any }}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] as any }}
         className="mb-xxl text-center max-w-3xl mx-auto"
       >
-        <h2 className="font-headline-md text-headline-md text-on-surface mb-sm tracking-tight">
+        <h2 className="font-headline-md text-headline-md text-on-surface mb-4 tracking-tighter">
           What We Build
         </h2>
         <p className="font-body-lg text-body-lg text-on-surface-variant">
@@ -75,8 +76,7 @@ export function Services() {
           <motion.div
             key={idx}
             variants={cardVariants}
-            whileHover={{ y: -5, transition: { duration: 0.2 } }}
-            className="bg-surface-container-lowest p-xl rounded shadow-sm hover:shadow-md transition-shadow duration-300 border border-transparent hover:border-outline-variant/30"
+            className="bg-white p-10 rounded-2xl shadow-[0_2px_10px_rgba(0,0,0,0.02)] border border-outline-variant/10 hover:shadow-[0_12px_40px_rgba(0,0,0,0.06)] hover:border-outline-variant/20 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1.5"
           >
             <h3 className="font-headline-sm text-headline-sm text-on-surface mb-sm">
               {service.title}

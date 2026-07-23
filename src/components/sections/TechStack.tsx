@@ -6,9 +6,9 @@ export function TechStack() {
   const techs = ["Next.js", "React", "TypeScript", "Node.js", "PostgreSQL", "Redis", "AWS"];
 
   return (
-    <section className="py-xl bg-surface-bright mt-huge border-t border-outline-variant/10">
+    <section className="py-24 bg-white mt-huge border-t border-outline-variant/10">
       <div className="max-w-container_max mx-auto px-gutter">
-        <p className="font-label-sm text-label-sm text-outline/50 text-center mb-lg uppercase tracking-widest">
+        <p className="font-label-sm text-label-sm text-outline/40 text-center mb-lg uppercase tracking-widest font-medium">
           Technologies we trust
         </p>
         <motion.div 

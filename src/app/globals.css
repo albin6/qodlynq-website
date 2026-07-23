@@ -122,7 +122,7 @@
 
   --text-label-sm: 12px;
   --text-label-sm--line-height: 1.5;
-  --text-label-sm--letter-spacing: 0.04em;
+  --text-label-sm--letter-spacing: 0.08em;
   --text-label-sm--font-weight: 500;
 
   --text-headline-sm: 24px;
@@ -136,13 +136,13 @@
   --text-label-md--font-weight: 500;
 
   --text-display-lg-mobile: 36px;
-  --text-display-lg-mobile--line-height: 1.2;
-  --text-display-lg-mobile--letter-spacing: -0.02em;
+  --text-display-lg-mobile--line-height: 1.15;
+  --text-display-lg-mobile--letter-spacing: -0.03em;
   --text-display-lg-mobile--font-weight: 600;
 
   --text-display-lg: 48px;
-  --text-display-lg--line-height: 1.1;
-  --text-display-lg--letter-spacing: -0.02em;
+  --text-display-lg--line-height: 1.05;
+  --text-display-lg--letter-spacing: -0.04em;
   --text-display-lg--font-weight: 600;
 
   --text-body-md: 16px;
@@ -155,8 +155,8 @@
 }
 
 :root {
-  --background: oklch(0.978 0.007 266.398); /* #f9f9ff approx */
-  --foreground: oklch(0.2 0.01 266); /* #151c27 approx */
+  --background: oklch(0.985 0 0); /* #fafafa premium background */
+  --foreground: oklch(0.205 0 0); /* #111827 softer slate */
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);

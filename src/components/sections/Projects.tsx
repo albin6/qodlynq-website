@@ -8,13 +8,13 @@ export function Projects() {
   return (
     <section id="work" className="max-w-container_max mx-auto px-gutter py-huge">
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 20, filter: "blur(5px)" }}
+        whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
         viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] as any }}
         className="mb-xxl text-center max-w-3xl mx-auto"
       >
-        <h2 className="font-headline-md text-headline-md text-on-surface mb-sm tracking-tight">
+        <h2 className="font-headline-md text-headline-md text-on-surface mb-4 tracking-tighter">
           Featured Work
         </h2>
         <p className="font-body-lg text-body-lg text-on-surface-variant">
@@ -40,11 +40,11 @@ export function Projects() {
         />
 
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 30, filter: "blur(5px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-          className="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm flex flex-col group border border-outline-variant/30 border-dashed"
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] as any }}
+          className="bg-white rounded-2xl overflow-hidden shadow-[0_2px_10px_rgba(0,0,0,0.02)] flex flex-col group border border-outline-variant/10 border-dashed"
         >
           <div className="bg-surface-container-low p-huge flex items-center justify-center min-h-[400px]">
             <span className="text-on-surface-variant/50 font-headline-sm text-headline-sm text-center px-lg">
@@ -81,14 +81,14 @@ function ProjectCard({ title, category, description, imageSrc, imageBg }: any) {
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0, y: 30, filter: "blur(5px)" }}
+      whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
       viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.6 }}
-      className="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm flex flex-col group border border-outline-variant/10"
+      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] as any }}
+      className="bg-white rounded-2xl overflow-hidden shadow-[0_2px_10px_rgba(0,0,0,0.02)] flex flex-col group border border-outline-variant/10 hover:shadow-[0_12px_40px_rgba(0,0,0,0.06)] hover:border-outline-variant/20 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1"
     >
-      <div className={`${imageBg} p-lg flex items-center justify-center overflow-hidden h-[300px] md:h-[500px]`}>
-        <motion.div style={{ y }} className="w-full h-full relative">
+      <div className={`${imageBg} p-lg flex items-center justify-center overflow-hidden h-[300px] md:h-[500px] relative`}>
+        <motion.div style={{ y }} className="w-full h-full relative transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03]">
           <Image
             src={imageSrc}
             alt={title}
