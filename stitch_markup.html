@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Qodlynq | Premium Digital Product Studio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary": "#ffffff",
+                        "on-primary-container": "#eeefff",
+                        "tertiary-container": "#bc4800",
+                        "background": "#f9f9ff",
+                        "on-surface": "#151c27",
+                        "outline": "#737686",
+                        "inverse-on-surface": "#ebf1ff",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#dce2f3",
+                        "surface-bright": "#f9f9ff",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "secondary-fixed": "#dce2f7",
+                        "on-secondary-fixed": "#141b2b",
+                        "on-surface-variant": "#434655",
+                        "on-secondary-fixed-variant": "#404758",
+                        "on-error-container": "#93000a",
+                        "inverse-surface": "#2a313d",
+                        "surface-container": "#e7eefe",
+                        "secondary": "#575e70",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed": "#ffdbcd",
+                        "tertiary": "#943700",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#f9f9ff",
+                        "primary-fixed": "#dbe1ff",
+                        "on-background": "#151c27",
+                        "on-secondary-container": "#5c6274",
+                        "outline-variant": "#c3c6d7",
+                        "tertiary-fixed-dim": "#ffb596",
+                        "primary": "#004ac6",
+                        "surface-container-low": "#f0f3ff",
+                        "secondary-fixed-dim": "#c0c6db",
+                        "surface-dim": "#d3daea",
+                        "error-container": "#ffdad6",
+                        "secondary-container": "#d9dff5",
+                        "on-tertiary-fixed-variant": "#7d2d00",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed": "#360f00",
+                        "surface-variant": "#dce2f3",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-container": "#ffede6",
+                        "inverse-primary": "#b4c5ff",
+                        "surface-tint": "#0053db",
+                        "primary-container": "#2563eb",
+                        "surface-container-high": "#e2e8f8",
+                        "on-primary-fixed": "#00174b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "sm": "8px",
+                        "xs": "4px",
+                        "container_max": "1280px",
+                        "xl": "32px",
+                        "xxl": "48px",
+                        "unit": "8px",
+                        "huge": "80px",
+                        "md": "16px",
+                        "lg": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "label-sm": ["JetBrains Mono"],
+                        "headline-sm": ["Inter"],
+                        "label-md": ["JetBrains Mono"],
+                        "display-lg-mobile": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["30px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "1.5", "letterSpacing": "0.04em", "fontWeight": "500" }],
+                        "headline-sm": ["24px", { "lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+                        "label-md": ["14px", { "lineHeight": "1.5", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                        "display-lg-mobile": ["36px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f9f9ff; color: #151c27; }
+        .hero-image-container { position: relative; width: 100%; padding-top: 60%; }
+        .hero-image-container img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; }
+    </style>
+</head>
+<body class="bg-background text-on-background selection:bg-primary-container selection:text-on-primary">
+<!-- TopNavBar -->
+<nav class="bg-surface/90 backdrop-blur-md fixed top-0 w-full z-50 transition-all duration-300 border-b border-transparent" id="main-nav">
+<div class="flex justify-between items-center h-20 px-gutter max-w-container_max mx-auto">
+<div class="font-headline-sm text-headline-sm font-bold text-on-surface tracking-tight">
+                Qodlynq
+            </div>
+<div class="hidden md:flex space-x-lg items-center">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#services">Services</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#work">Work</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#process">Process</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#about">About</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#contact">Contact</a>
+<a class="bg-on-surface text-surface-container-lowest font-label-md text-label-md px-md py-sm rounded-DEFAULT hover:bg-surface-tint hover:text-on-primary transition-colors shadow-sm" href="#contact">Book a Call</a>
+</div>
+<!-- Mobile Menu Button -->
+<button aria-label="Menu" class="md:hidden text-on-surface" id="mobile-menu-btn">
+<span class="material-symbols-outlined text-[24px]">menu</span>
+</button>
+</div>
+</nav>
+<!-- Mobile Menu Overlay -->
+<div class="fixed inset-0 bg-surface z-40 hidden flex-col pt-24 px-gutter" id="mobile-menu">
+<a class="text-headline-md font-headline-md text-on-surface py-md border-b border-outline-variant/30 mobile-nav-link" href="#services">Services</a>
+<a class="text-headline-md font-headline-md text-on-surface py-md border-b border-outline-variant/30 mobile-nav-link" href="#work">Work</a>
+<a class="text-headline-md font-headline-md text-on-surface py-md border-b border-outline-variant/30 mobile-nav-link" href="#process">Process</a>
+<a class="text-headline-md font-headline-md text-on-surface py-md border-b border-outline-variant/30 mobile-nav-link" href="#about">About</a>
+<a class="text-headline-md font-headline-md text-on-surface py-md border-b border-outline-variant/30 mobile-nav-link" href="#contact">Contact</a>
+</div>
+<main class="pt-24 md:pt-32">
+<!-- Hero Section -->
+<section class="max-w-container_max mx-auto px-gutter py-huge grid md:grid-cols-2 gap-huge items-center">
+<div class="space-y-xl">
+<h1 class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-on-surface tracking-tight">
+                    Building digital products that move businesses forward.
+                </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">
+                    We partner with startups and growing businesses to design, build, and scale reliable software—from MVPs to enterprise platforms.
+                </p>
+<div class="flex flex-col sm:flex-row gap-md pt-sm">
+<a class="bg-on-surface text-surface-container-lowest font-label-md text-label-md px-lg py-md rounded-DEFAULT hover:bg-surface-tint hover:text-on-primary shadow-sm transition-colors text-center inline-flex items-center justify-center gap-sm" href="#contact">
+                        Book Discovery Call
+                        <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+<a class="bg-transparent text-on-surface font-label-md text-label-md px-lg py-md rounded-DEFAULT hover:bg-surface-container-low transition-colors text-center inline-flex items-center justify-center" href="#work">
+                        View Our Work
+                    </a>
+</div>
+</div>
+<div class="w-full">
+<img alt="Premium software product presentation" class="w-full h-auto drop-shadow-2xl rounded-xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrPQsIW4PYFHZPPEup0YB8ThpPB6x7c4WEcBOeNY2aYtnSODjlvdBreFn2AVfAsT8J-lZN7RIeslv6LhG5R9QmqoQihUspkYEsabCVtRJ7uwyiSSMumll5tDDdSQzqXpV9imGsTln7U-EpXrpxev79wGGLHY2gqs1BtyRud1iXQq3IF24WFzCXBUUxg7tes7C9WKcDqCG4mwSO-2r2oT6VRRSM4UJ-zzj-ixDn0snUX6JvMDLAgzBYQnK-X735XNMkFogdcZdOCyvy"/>
+</div>
+</section>
+<!-- Services / What We Build -->
+<section class="max-w-container_max mx-auto px-gutter py-huge" id="services">
+<div class="mb-xxl text-center max-w-3xl mx-auto">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-sm tracking-tight">What We Build</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Business-focused solutions designed for impact, scale, and seamless user experiences.</p>
+</div>
+<div class="grid md:grid-cols-3 gap-lg">
+<div class="bg-surface-container-lowest p-xl rounded-DEFAULT shadow-sm hover:shadow-md transition-shadow duration-300">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-sm">Web Applications</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">High-performance, scalable platforms tailored to your core business logic and user needs.</p>
+</div>
+<div class="bg-surface-container-lowest p-xl rounded-DEFAULT shadow-sm hover:shadow-md transition-shadow duration-300">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-sm">AI Solutions</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Intelligent integrations that automate workflows, generate insights, and enhance product value.</p>
+</div>
+<div class="bg-surface-container-lowest p-xl rounded-DEFAULT shadow-sm hover:shadow-md transition-shadow duration-300">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-sm">Business Platforms</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Comprehensive SaaS and enterprise solutions built for reliability and long-term growth.</p>
+</div>
+<div class="bg-surface-container-lowest p-xl rounded-DEFAULT shadow-sm hover:shadow-md transition-shadow duration-300">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-sm">Mobile Applications</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Native-feeling, cross-platform experiences that keep your users engaged on the go.</p>
+</div>
+<div class="bg-surface-container-lowest p-xl rounded-DEFAULT shadow-sm hover:shadow-md transition-shadow duration-300">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-sm">Internal Tools</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Custom dashboards and portals that streamline operations and empower your team.</p>
+</div>
+<div class="bg-surface-container-lowest p-xl rounded-DEFAULT shadow-sm hover:shadow-md transition-shadow duration-300">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-sm">Automation Systems</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Robust data pipelines and integrations that eliminate manual work and reduce errors.</p>
+</div>
+</div>
+</section>
+<!-- Projects -->
+<section class="max-w-container_max mx-auto px-gutter py-huge" id="work">
+<div class="mb-xxl text-center max-w-3xl mx-auto">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-sm tracking-tight">Featured Work</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">A selection of recent products we've engineered.</p>
+</div>
+<div class="flex flex-col gap-xxl">
+<!-- Project 1 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm flex flex-col group">
+<div class="bg-surface-container-high p-lg flex items-center justify-center">
+<img alt="Data Sync Automation Platform Dashboard" class="w-full h-auto rounded shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkNWDXfu-NAtHuFEgnzWWSRq142SguIOweGG5zAVdeA5uTXCbTStB1yukSiS6vBzUaoEphppvnxBKbphzHhM3Bk52oBqNALpEw1coL2bVLg1pi8bT_-C-DzOxnrOmneeoCRcLGojnp5oJi3JdqtMBsqPntdRuVOzM3GxT4LyCzjRbjq2iH_E7vVnKipptAomnVysw6mgmQP_hX2fhBI4Y2nc92OUliT57snL6ymO2civRVbMq6r-W8AeD_ANErH1-HgE0UcQ_x18b3"/>
+</div>
+<div class="p-xl flex flex-col justify-center">
+<div class="mb-md">
+<span class="inline-block text-primary font-label-sm text-label-sm uppercase tracking-wider">Internal Platform</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-sm">Data Sync Automation Platform</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">A centralized microservice architecture coordinating real-time webhooks, achieving 99.9% uptime and drastically reducing manual data entry.</p>
+</div>
+</div>
+<!-- Project 2 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm flex flex-col group">
+<div class="bg-[#1e2329] p-lg flex items-center justify-center">
+<img alt="Financial Dashboard MVP" class="w-full h-auto rounded shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvQqC4LTr5LgAQ5aFhW-ojR_wvmXUuz2gIsUSGe0zF-wHZOGkDNGu84X7N3Rfnlna9iDI49wVDZX-rn4PWk43T7Ovdu0Q065Te8WLb-wAVVzHpItnhuPReGQ1yqJH32dQq0pHlmryGttPTQRGyUL4CIQMUAYDRxF7egZA5DFYh8rbwE2MzLtyOoMTF1BtYnIuyq9yMQ_U6mPBelajgjwWKDZygt6td8meFeUzud-IRttIrAI2iR5-r2ss6fglYUA55I5o5ULC5gSOA"/>
+</div>
+<div class="p-xl flex flex-col justify-center">
+<div class="mb-md">
+<span class="inline-block text-primary font-label-sm text-label-sm uppercase tracking-wider">Personal Product</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-sm">Financial Dashboard MVP</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">A secure, high-performance portal designed to visualize complex datasets, utilizing advanced caching strategies for optimal speed.</p>
+</div>
+</div>
+<!-- Project 3 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm flex flex-col group border border-outline-variant/30 border-dashed">
+<div class="bg-surface-container-low p-huge flex items-center justify-center min-h-[400px]">
+<span class="text-on-surface-variant/50 font-headline-sm text-headline-sm">Client Project (Coming Soon)</span>
+</div>
+<div class="p-xl flex flex-col justify-center">
+<div class="mb-md">
+<span class="inline-block text-outline font-label-sm text-label-sm uppercase tracking-wider">Client Project</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-sm">Enterprise SaaS Solution</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Currently under NDA. A large-scale enterprise platform redefining workflow management.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Process -->
+<section class="bg-surface-container-lowest py-huge" id="process">
+<div class="max-w-container_max mx-auto px-gutter">
+<div class="mb-xxl text-center max-w-3xl mx-auto">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-sm tracking-tight">How We Work</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">A refined, outcome-driven methodology.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-xl">
+<div class="flex flex-col items-start gap-md">
+<div class="font-headline-md text-headline-md text-outline/30">01</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface mb-xs">Discover</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Aligning on goals, scope, and technical requirements.</p>
+</div>
+</div>
+<div class="flex flex-col items-start gap-md">
+<div class="font-headline-md text-headline-md text-outline/30">02</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface mb-xs">Design</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Crafting user experiences and defining system architecture.</p>
+</div>
+</div>
+<div class="flex flex-col items-start gap-md">
+<div class="font-headline-md text-headline-md text-outline/30">03</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface mb-xs">Develop</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Iterative engineering with strict quality control.</p>
+</div>
+</div>
+<div class="flex flex-col items-start gap-md">
+<div class="font-headline-md text-headline-md text-outline/30">04</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface mb-xs">Launch</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Deployment, scaling, and ongoing support.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Why Qodlynq -->
+<section class="py-huge bg-surface-bright">
+<div class="max-w-container_max mx-auto px-gutter">
+<div class="mb-xl text-center">
+<h2 class="font-headline-md text-headline-md text-on-surface tracking-tight">Why Choose Qodlynq</h2>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-lg text-center">
+<div class="p-lg">
+<span class="material-symbols-outlined text-[32px] text-on-surface mb-sm">architecture</span>
+<h4 class="font-label-md text-label-md font-bold text-on-surface mb-sm">Engineering Excellence</h4>
+</div>
+<div class="p-lg">
+<span class="material-symbols-outlined text-[32px] text-on-surface mb-sm">forum</span>
+<h4 class="font-label-md text-label-md font-bold text-on-surface mb-sm">Transparent Communication</h4>
+</div>
+<div class="p-lg">
+<span class="material-symbols-outlined text-[32px] text-on-surface mb-sm">layers</span>
+<h4 class="font-label-md text-label-md font-bold text-on-surface mb-sm">Scalable Architecture</h4>
+</div>
+<div class="p-lg">
+<span class="material-symbols-outlined text-[32px] text-on-surface mb-sm">handshake</span>
+<h4 class="font-label-md text-label-md font-bold text-on-surface mb-sm">Long-Term Partnership</h4>
+</div>
+<div class="p-lg">
+<span class="material-symbols-outlined text-[32px] text-on-surface mb-sm">bolt</span>
+<h4 class="font-label-md text-label-md font-bold text-on-surface mb-sm">Fast Delivery</h4>
+</div>
+</div>
+</div>
+</section>
+<!-- About / Story Section -->
+<section class="max-w-container_max mx-auto px-gutter py-huge" id="about">
+<div class="max-w-3xl mx-auto text-center space-y-lg">
+<h2 class="font-headline-md text-headline-md text-on-surface tracking-tight">Our Story</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                Qodlynq was founded on the belief that great digital products require more than just writing code. They demand deep collaboration, a relentless focus on the user, and uncompromising architectural integrity. 
+            </p>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                We operate as an extension of your team, bringing premium craftsmanship to every pixel and every API endpoint. Our goal isn't just to launch software, but to build durable assets that drive your business forward.
+            </p>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="max-w-container_max mx-auto px-gutter py-huge" id="contact">
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-xl md:p-xxl">
+<div class="grid md:grid-cols-2 gap-huge items-center">
+<div>
+<h2 class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-on-surface mb-md tracking-tight">
+                        Let's build something meaningful.
+                    </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-xl max-w-md">
+                        Ready to discuss your project? Fill out the form, and an engineer will get back to you within 24 hours to schedule a discovery call.
+                    </p>
+<div class="space-y-md">
+<div class="flex items-center gap-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]">mail</span>
+<span class="font-body-md text-body-md">hello@qodlynq.com</span>
+</div>
+<div class="flex items-center gap-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]">location_on</span>
+<span class="font-body-md text-body-md">Remote Global</span>
+</div>
+</div>
+</div>
+<div>
+<form class="space-y-md">
+<div class="grid grid-cols-2 gap-md">
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface mb-xs" for="name">Name</label>
+<input class="w-full bg-surface-bright border-none bg-surface-container-low rounded-DEFAULT px-md py-sm focus:ring-2 focus:ring-on-surface text-body-md font-body-md text-on-surface outline-none transition-shadow" id="name" type="text"/>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface mb-xs" for="email">Email</label>
+<input class="w-full bg-surface-bright border-none bg-surface-container-low rounded-DEFAULT px-md py-sm focus:ring-2 focus:ring-on-surface text-body-md font-body-md text-on-surface outline-none transition-shadow" id="email" type="email"/>
+</div>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface mb-xs" for="project">Project Details</label>
+<textarea class="w-full bg-surface-bright border-none bg-surface-container-low rounded-DEFAULT px-md py-sm focus:ring-2 focus:ring-on-surface text-body-md font-body-md text-on-surface outline-none transition-shadow" id="project" rows="4"></textarea>
+</div>
+<div class="pt-sm flex flex-col sm:flex-row gap-md">
+<button class="bg-on-surface text-surface-container-lowest font-label-md text-label-md px-lg py-md rounded-DEFAULT hover:bg-surface-tint hover:text-on-primary transition-colors shadow-sm w-full sm:w-auto text-center" type="button">
+                                Book Discovery Call
+                            </button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</section>
+<!-- Tech Stack -->
+<section class="py-xl bg-surface-bright mt-huge">
+<div class="max-w-container_max mx-auto px-gutter">
+<p class="font-label-sm text-label-sm text-outline/50 text-center mb-lg uppercase tracking-widest">Technologies we trust</p>
+<div class="flex flex-wrap justify-center gap-xl md:gap-xxl opacity-40 grayscale">
+<span class="font-label-md text-label-md text-on-surface font-bold">Next.js</span>
+<span class="font-label-md text-label-md text-on-surface font-bold">React</span>
+<span class="font-label-md text-label-md text-on-surface font-bold">TypeScript</span>
+<span class="font-label-md text-label-md text-on-surface font-bold">Node.js</span>
+<span class="font-label-md text-label-md text-on-surface font-bold">PostgreSQL</span>
+<span class="font-label-md text-label-md text-on-surface font-bold">Redis</span>
+<span class="font-label-md text-label-md text-on-surface font-bold">AWS</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant/20 w-full py-xxl transition-opacity duration-300 mt-0">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-lg px-gutter max-w-container_max mx-auto">
+<div class="col-span-1 md:col-span-2">
+<div class="font-headline-sm text-headline-sm font-bold text-on-surface mb-sm tracking-tight">
+                    Qodlynq
+                </div>
+<p class="font-body-md text-body-md text-secondary max-w-sm mb-lg">
+                    Premium digital products engineered for scale.
+                </p>
+<p class="font-body-md text-body-md text-secondary text-sm">
+                    © 2024 Qodlynq.
+                </p>
+</div>
+<div>
+<h4 class="font-label-md text-label-md font-bold text-on-surface mb-md">Navigation</h4>
+<ul class="space-y-sm">
+<li><a class="font-body-md text-body-md text-secondary hover:text-on-surface transition-colors" href="#services">Services</a></li>
+<li><a class="font-body-md text-body-md text-secondary hover:text-on-surface transition-colors" href="#work">Work</a></li>
+<li><a class="font-body-md text-body-md text-secondary hover:text-on-surface transition-colors" href="#process">Process</a></li>
+<li><a class="font-body-md text-body-md text-secondary hover:text-on-surface transition-colors" href="#about">About</a></li>
+<li><a class="font-body-md text-body-md text-secondary hover:text-on-surface transition-colors" href="#contact">Contact</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-md text-label-md font-bold text-on-surface mb-md">Legal &amp; Social</h4>
+<ul class="space-y-sm">
+<li><a class="font-body-md text-body-md text-secondary hover:text-on-surface transition-colors" href="#">GitHub</a></li>
+<li><a class="font-body-md text-body-md text-secondary hover:text-on-surface transition-colors" href="#">LinkedIn</a></li>
+<li><a class="font-body-md text-body-md text-secondary hover:text-on-surface transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="font-body-md text-body-md text-secondary hover:text-on-surface transition-colors" href="#">Terms of Service</a></li>
+</ul>
+</div>
+</div>
+</footer>
+<script>
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = menuBtn.querySelector('span');
+        const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+        function toggleMenu() {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('flex');
+            if(mobileMenu.classList.contains('hidden')) {
+                menuIcon.textContent = 'menu';
+                document.body.style.overflow = 'auto';
+            } else {
+                menuIcon.textContent = 'close';
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        menuBtn.addEventListener('click', toggleMenu);
+        
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', toggleMenu);
+        });
+
+        const nav = document.getElementById('main-nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 10) {
+                nav.classList.add('shadow-sm');
+            } else {
+                nav.classList.remove('shadow-sm');
+            }
+        });
+    </script>
+</body></html>
