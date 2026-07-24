@@ -1,0 +1,118 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: #F5F3ED;
+  --color-primary: #000000;
+  --color-secondary: #5f5f5a;
+  --color-vellum: #F5F3ED;
+  --color-surface-tint: #5e5e5e;
+
+  --spacing-margin: 48px;
+  --spacing-gutter: 24px;
+
+  --font-playfair: var(--font-playfair);
+  --font-jetbrains: var(--font-jetbrains);
+
+  --font-headline-xl: var(--font-playfair);
+  --font-headline-lg: var(--font-playfair);
+  --font-headline-md: var(--font-playfair);
+  
+  --font-body-lg: var(--font-jetbrains);
+  --font-body-md: var(--font-jetbrains);
+  --font-label-caps: var(--font-jetbrains);
+  --font-button: var(--font-jetbrains);
+
+  --text-headline-xl: 64px;
+  --text-headline-xl--line-height: 1.1;
+  --text-headline-xl--letter-spacing: -0.02em;
+  --text-headline-xl--font-weight: 700;
+
+  --text-headline-lg: 48px;
+  --text-headline-lg--line-height: 1.2;
+  --text-headline-lg--letter-spacing: -0.01em;
+  --text-headline-lg--font-weight: 600;
+
+  --text-headline-md: 32px;
+  --text-headline-md--line-height: 1.3;
+  --text-headline-md--font-weight: 500;
+
+  --text-body-lg: 18px;
+  --text-body-lg--line-height: 1.6;
+  --text-body-lg--font-weight: 400;
+
+  --text-body-md: 14px;
+  --text-body-md--line-height: 1.5;
+  --text-body-md--font-weight: 400;
+
+  --text-label-caps: 12px;
+  --text-label-caps--line-height: 1;
+  --text-label-caps--letter-spacing: 0.1em;
+  --text-label-caps--font-weight: 700;
+
+  --text-button: 14px;
+  --text-button--line-height: 1;
+  --text-button--font-weight: 700;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-primary);
+  font-family: var(--font-jetbrains);
+}
+
+/* Structural Blueprint Grid Background Overlay */
+.blueprint-grid {
+    background-image: 
+        linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+    background-size: 24px 24px;
+    pointer-events: none;
+}
+
+/* 12-Column Grid Lines */
+.col-lines {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: var(--spacing-gutter);
+    position: absolute;
+    inset: 0;
+    padding: 0 var(--spacing-margin);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.col-lines > div {
+    border-left: 1px solid rgba(0,0,0,0.05);
+    border-right: 1px solid rgba(0,0,0,0.05);
+    height: 100%;
+}
+
+@media (max-width: 1024px) {
+    .col-lines {
+        grid-template-columns: repeat(8, minmax(0, 1fr));
+        gap: 16px;
+        padding: 0 32px;
+    }
+    .col-lines > div:nth-child(n+9) { display: none; }
+}
+
+@media (max-width: 768px) {
+    .col-lines {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 16px;
+        padding: 0 16px;
+    }
+    .col-lines > div:nth-child(n+5) { display: none; }
+}
+
+/* Hide scrollbar for clean look */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--color-background); 
+    border-left: 1px solid #000;
+}
+::-webkit-scrollbar-thumb {
+    background: #000; 
+}
