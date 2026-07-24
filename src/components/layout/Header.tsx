@@ -30,7 +30,8 @@ export function Header() {
   ];
 
   return (
-    <header className="bg-background/90 backdrop-blur-md text-primary top-0 border-b border-primary flex justify-between items-center w-full px-margin h-20 sticky z-50">
+    <>
+      <header className="bg-background/90 backdrop-blur-md text-primary top-0 border-b border-primary flex justify-between items-center w-full px-margin h-20 sticky z-40">
       <Link href="/" className="flex items-center justify-between h-full" onClick={() => setIsOpen(false)}>
         <Image
           src="/logo-spinner.svg"
@@ -78,7 +79,9 @@ export function Header() {
         </button>
       </div>
 
-      {/* Mobile Menu Overlay */}
+      </header>
+
+      {/* Mobile Menu Overlay (Moved outside <header> to avoid backdrop-filter containing block bug) */}
       <AnimatePresence>
         {isOpen && (
           <>
@@ -131,6 +134,6 @@ export function Header() {
           </>
         )}
       </AnimatePresence>
-    </header>
+    </>
   );
 }

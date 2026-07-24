@@ -52,7 +52,7 @@ export function Services() {
           {/* Row 1 */}
           <motion.div variants={itemVariants} className="grid grid-cols-4 md:grid-cols-8 lg:grid-cols-9 border-b border-primary p-margin hover:bg-black hover:text-vellum transition-colors group cursor-crosshair">
             <div className="col-span-1 font-body-lg text-body-lg flex items-center md:items-start">[01]</div>
-            <div className="col-span-3 font-label-caps text-label-caps text-xl flex items-center mb-4 md:mb-0">
+            <div className="col-span-3 font-label-caps text-label-caps text-base md:text-xl flex items-center mb-4 md:mb-0 text-balance">
               SYSTEM ARCHITECTURE
             </div>
             <div className="col-span-4 md:col-span-4 lg:col-span-5 font-body-md text-body-md opacity-80 pl-4 border-l border-primary group-hover:border-vellum">
@@ -62,7 +62,7 @@ export function Services() {
           {/* Row 2 */}
           <motion.div variants={itemVariants} className="grid grid-cols-4 md:grid-cols-8 lg:grid-cols-9 border-b border-primary p-margin hover:bg-black hover:text-vellum transition-colors group cursor-crosshair">
             <div className="col-span-1 font-body-lg text-body-lg flex items-center md:items-start">[02]</div>
-            <div className="col-span-3 font-label-caps text-label-caps text-xl flex items-center mb-4 md:mb-0">
+            <div className="col-span-3 font-label-caps text-label-caps text-base md:text-xl flex items-center mb-4 md:mb-0 text-balance">
               INFRASTRUCTURE AS CODE
             </div>
             <div className="col-span-4 md:col-span-4 lg:col-span-5 font-body-md text-body-md opacity-80 pl-4 border-l border-primary group-hover:border-vellum">
@@ -72,7 +72,7 @@ export function Services() {
           {/* Row 3 */}
           <motion.div variants={itemVariants} className="grid grid-cols-4 md:grid-cols-8 lg:grid-cols-9 p-margin hover:bg-black hover:text-vellum transition-colors group cursor-crosshair">
             <div className="col-span-1 font-body-lg text-body-lg flex items-center md:items-start">[03]</div>
-            <div className="col-span-3 font-label-caps text-label-caps text-xl flex items-center mb-4 md:mb-0">
+            <div className="col-span-3 font-label-caps text-label-caps text-base md:text-xl flex items-center mb-4 md:mb-0 text-balance">
               API REGISTRY
             </div>
             <div className="col-span-4 md:col-span-4 lg:col-span-5 font-body-md text-body-md opacity-80 pl-4 border-l border-primary group-hover:border-vellum">

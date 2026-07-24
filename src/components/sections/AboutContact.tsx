@@ -14,13 +14,13 @@ export function AboutContact() {
           </h2>
           <div className="space-y-8 flex-grow">
             <div className="border-l-4 border-primary pl-4">
-              <h3 className="font-label-caps text-label-caps text-lg mb-2">DR. ELARA VANCE [ ARCHITECT ]</h3>
+              <h3 className="font-label-caps text-label-caps text-base md:text-lg mb-2 text-balance">DR. ELARA VANCE [ ARCHITECT ]</h3>
               <p className="font-body-md text-body-md opacity-80">
                 Ph.D. in Distributed Systems. Former Lead Infrastructure Engineer at global cloud provider. Architected systems handling 10M+ concurrent TCP connections.
               </p>
             </div>
             <div className="border-l-4 border-primary pl-4">
-              <h3 className="font-label-caps text-label-caps text-lg mb-2">MARCUS REY [ SYSTEMS ]</h3>
+              <h3 className="font-label-caps text-label-caps text-base md:text-lg mb-2 text-balance">MARCUS REY [ SYSTEMS ]</h3>
               <p className="font-body-md text-body-md opacity-80">
                 Specialist in immutable infrastructure and zero-trust networks. 15 years designing fault-tolerant financial ledgers. Obsessed with mathematical provability in code.
               </p>
@@ -31,7 +31,7 @@ export function AboutContact() {
         {/* Contact (Brutalist Form) */}
         <div id="contact" className="col-span-4 md:col-span-4 lg:col-span-7 p-margin flex flex-col justify-between">
           <div className="mb-12">
-            <h2 className="font-label-caps text-label-caps text-xl mb-4">[ INITIATE SECURE HANDSHAKE ]</h2>
+            <h2 className="font-label-caps text-label-caps text-base md:text-xl mb-4 text-balance">[ INITIATE SECURE HANDSHAKE ]</h2>
             <p className="font-body-md text-body-md opacity-80 max-w-md">
               Transmit project parameters for evaluation. Only structurally sound propositions will receive a response.
             </p>

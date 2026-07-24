@@ -26,9 +26,9 @@ export function Work() {
         }}
       />
       
-      <div className="px-margin mb-12 flex justify-between items-end border-b border-vellum pb-4 relative z-10">
-        <h2 className="font-headline-lg text-headline-lg uppercase">STRUCTURAL OVERVIEW</h2>
-        <span className="font-label-caps text-label-caps tracking-widest">[ PROJECT ARCHIVE ]</span>
+      <div className="px-margin mb-12 flex justify-between items-end border-b border-vellum pb-4 relative z-10 flex-wrap gap-4">
+        <h2 className="font-headline-lg text-headline-lg uppercase text-balance">STRUCTURAL OVERVIEW</h2>
+        <span className="font-label-caps text-label-caps tracking-widest text-balance text-right sm:text-left">[ PROJECT ARCHIVE ]</span>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-gutter px-margin pb-margin relative z-10">
