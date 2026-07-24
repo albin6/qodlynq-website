@@ -1,83 +1,64 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { fadeUp, staggerContainer } from "@/lib/motion";
 
 const steps = [
   {
     num: "01",
     title: "Discover",
-    desc: "Aligning on goals, scope, and technical requirements.",
+    desc: "We align on goals, defining strict scope and technical architecture before writing a single line of code.",
   },
   {
     num: "02",
     title: "Design",
-    desc: "Crafting user experiences and defining system architecture.",
+    desc: "We craft structural user experiences and define exact system requirements to ensure frictionless execution.",
   },
   {
     num: "03",
     title: "Develop",
-    desc: "Iterative engineering with strict quality control.",
+    desc: "Iterative, high-velocity engineering governed by strict quality control and continuous integration.",
   },
   {
     num: "04",
     title: "Launch",
-    desc: "Deployment, scaling, and ongoing support.",
+    desc: "Seamless deployment, scaling protocols, and continuous monitoring to ensure zero downtime.",
   },
 ];
 
 export function Process() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.15 },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, x: -20 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.5, ease: "easeOut" as any },
-    },
-  };
-
   return (
-    <section id="process" className="bg-surface-container-lowest py-huge border-y border-outline-variant/10">
+    <section id="process" className="bg-surface-bright py-24 md:py-40">
       <div className="max-w-container_max mx-auto px-gutter">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-          className="mb-xxl text-center max-w-3xl mx-auto"
+          variants={fadeUp}
+          className="mb-20 md:mb-32"
         >
-          <h2 className="font-headline-md text-headline-md text-on-surface mb-sm tracking-tight">
-            How We Work
+          <h2 className="font-headline-md text-2xl md:text-4xl font-medium text-on-surface tracking-tighter">
+            Methodology
           </h2>
-          <p className="font-body-lg text-body-lg text-on-surface-variant">
-            A refined, outcome-driven methodology.
-          </p>
         </motion.div>
 
         <motion.div
-          variants={containerVariants}
+          variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-xl"
+          className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8"
         >
           {steps.map((step) => (
-            <motion.div key={step.num} variants={itemVariants} className="flex flex-col items-start gap-md group">
-              <div className="font-headline-md text-headline-md text-outline/30 group-hover:text-primary transition-colors duration-300">
+            <motion.div key={step.num} variants={fadeUp} className="flex flex-col items-start group border-t border-outline/20 pt-8 transition-colors duration-500 hover:border-on-surface">
+              <div className="font-label-sm text-label-sm text-outline tracking-widest mb-12 group-hover:text-on-surface transition-colors duration-500">
                 {step.num}
               </div>
               <div>
-                <h4 className="font-headline-sm text-headline-sm text-on-surface mb-xs">
+                <h4 className="font-headline-sm text-xl md:text-2xl text-on-surface mb-6 tracking-tight">
                   {step.title}
                 </h4>
-                <p className="font-body-md text-body-md text-on-surface-variant">
+                <p className="font-body-md text-lg text-on-surface-variant leading-relaxed pr-4">
                   {step.desc}
                 </p>
               </div>
