@@ -1,9 +1,17 @@
+import dynamic from "next/dynamic";
 import { Header } from "@/components/layout/Header";
 import { Hero } from "@/components/sections/Hero";
-import { Services } from "@/components/sections/Services";
-import { Work } from "@/components/sections/Work";
-import { AboutContact } from "@/components/sections/AboutContact";
-import { Footer } from "@/components/layout/Footer";
+
+const Services = dynamic(() => import("@/components/sections/Services").then((mod) => mod.Services), {
+  loading: () => <div className="w-full min-h-[50vh] bg-background" />,
+});
+const Work = dynamic(() => import("@/components/sections/Work").then((mod) => mod.Work), {
+  loading: () => <div className="w-full min-h-[50vh] bg-background" />,
+});
+const AboutContact = dynamic(() => import("@/components/sections/AboutContact").then((mod) => mod.AboutContact), {
+  loading: () => <div className="w-full min-h-[50vh] bg-background" />,
+});
+const Footer = dynamic(() => import("@/components/layout/Footer").then((mod) => mod.Footer));
 
 export default function Home() {
   return (

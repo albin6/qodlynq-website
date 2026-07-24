@@ -17,7 +17,7 @@ export function Hero() {
   return (
     <AnimatedSection
       id="architecture"
-      className="w-full border-b border-primary min-h-[calc(100vh-5rem)] lg:min-h-[870px] flex flex-col justify-center relative overflow-hidden"
+      className="w-full border-b border-primary min-h-[calc(100vh-5rem)] lg:min-h-217.5 flex flex-col justify-center relative overflow-hidden"
     >
       <div className="grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12 gap-gutter px-margin w-full relative z-10" ref={ref}>
         {/* Left: Asymmetrical Headline */}
@@ -38,7 +38,7 @@ export function Hero() {
           </div>
           <motion.div 
             style={{ y: yBackground }}
-            className="flex-grow w-full border border-primary p-4 relative overflow-hidden bg-white/50 backdrop-blur-sm min-h-[300px]"
+            className="grow w-full border border-primary p-4 relative overflow-hidden bg-white/50 backdrop-blur-sm min-h-75"
           >
             {/* Abstract schematic representation using CSS shapes */}
             <div className="absolute inset-4 border border-primary border-dashed" />

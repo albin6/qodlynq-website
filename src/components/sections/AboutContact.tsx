@@ -12,7 +12,7 @@ export function AboutContact() {
           <h2 className="font-headline-md text-headline-md uppercase mb-8 border-b border-primary pb-4">
             FOUNDERS // PEDIGREE
           </h2>
-          <div className="space-y-8 flex-grow">
+          <div className="space-y-8 grow">
             <div className="border-l-4 border-primary pl-4">
               <h3 className="font-label-caps text-label-caps text-base md:text-lg mb-2 text-balance">DR. ELARA VANCE [ ARCHITECT ]</h3>
               <p className="font-body-md text-body-md opacity-80">
@@ -37,7 +37,7 @@ export function AboutContact() {
             </p>
           </div>
           
-          <form className="space-y-12 flex-grow flex flex-col justify-end">
+          <form className="space-y-12 grow flex flex-col justify-end">
             <div className="relative">
               <input 
                 type="text" 

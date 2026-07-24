@@ -61,7 +61,7 @@ export function Header() {
         <Link href="#contact" className="hidden md:block">
           <motion.div
             className={cn(
-              "font-button text-button px-4 lg:px-6 py-2 uppercase tracking-widest flex items-center justify-center gap-2 border transition-colors duration-150 border-primary hover:bg-primary hover:text-vellum cursor-pointer min-h-[44px]"
+              "font-button text-button px-4 lg:px-6 py-2 uppercase tracking-widest flex items-center justify-center gap-2 border transition-colors duration-150 border-primary hover:bg-primary hover:text-vellum cursor-pointer min-h-11"
             )}
             whileHover={{ scale: 0.98 }}
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
@@ -71,7 +71,7 @@ export function Header() {
           </motion.div>
         </Link>
         <button 
-          className="lg:hidden flex items-center justify-center min-h-[44px] min-w-[44px]"
+          className="lg:hidden flex items-center justify-center min-h-11 min-w-11"
           onClick={() => setIsOpen(true)}
           aria-label="Open menu"
         >
@@ -98,11 +98,11 @@ export function Header() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 h-full w-[80vw] max-w-[400px] bg-background border-l border-primary z-50 lg:hidden flex flex-col p-6 overflow-y-auto shadow-2xl"
+              className="fixed top-0 right-0 h-full w-[80vw] max-w-100 bg-background border-l border-primary z-50 lg:hidden flex flex-col p-6 overflow-y-auto shadow-2xl"
             >
               <div className="flex justify-end mb-8">
                 <button 
-                  className="flex items-center justify-center min-h-[44px] min-w-[44px]"
+                  className="flex items-center justify-center min-h-11 min-w-11"
                   onClick={() => setIsOpen(false)}
                   aria-label="Close menu"
                 >
@@ -123,7 +123,7 @@ export function Header() {
                 <div className="w-full h-px bg-primary/20 my-4" />
                 <Link href="#contact" className="w-full md:hidden" onClick={() => setIsOpen(false)}>
                   <motion.div
-                    className="w-full font-button text-button px-6 py-4 uppercase tracking-widest flex items-center justify-center border border-primary bg-primary text-vellum cursor-pointer min-h-[44px]"
+                    className="w-full font-button text-button px-6 py-4 uppercase tracking-widest flex items-center justify-center border border-primary bg-primary text-vellum cursor-pointer min-h-11"
                     whileTap={{ scale: 0.98 }}
                   >
                     INITIATE PROJECT //

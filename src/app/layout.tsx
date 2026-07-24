@@ -13,8 +13,32 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "QODLYNQ // ARCHITECTURE // INFRASTRUCTURE",
-  description: "We architect precision software systems.",
+  title: {
+    default: "QODLYNQ | Precision Software Systems",
+    template: "%s | QODLYNQ",
+  },
+  description: "We architect precision software systems, immutable infrastructure, and enterprise-grade APIs. Designing resilient blueprints for scalable workflows.",
+  keywords: ["Software Architecture", "Infrastructure as Code", "API Design", "Distributed Systems", "Enterprise Tech"],
+  authors: [{ name: "QODLYNQ Core" }],
+  creator: "QODLYNQ",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://qodlynq.com",
+    title: "QODLYNQ | Precision Software Systems",
+    description: "Deploying structural integrity across complex technical environments. We engineer digital concrete.",
+    siteName: "QODLYNQ",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "QODLYNQ | Precision Software Systems",
+    description: "Deploying structural integrity across complex technical environments. We engineer digital concrete.",
+    creator: "@qodlynq",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  }
 };
 
 export default function RootLayout({
