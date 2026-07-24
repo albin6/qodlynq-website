@@ -17,11 +17,11 @@ export function Hero() {
   return (
     <AnimatedSection
       id="architecture"
-      className="w-full border-b border-primary min-h-[870px] flex flex-col justify-center relative overflow-hidden"
+      className="w-full border-b border-primary min-h-[calc(100vh-5rem)] lg:min-h-[870px] flex flex-col justify-center relative overflow-hidden"
     >
       <div className="grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12 gap-gutter px-margin w-full relative z-10" ref={ref}>
         {/* Left: Asymmetrical Headline */}
-        <div className="col-span-4 md:col-span-6 lg:col-span-8 flex flex-col justify-center border-r border-primary pr-gutter py-24">
+        <div className="col-span-4 md:col-span-6 lg:col-span-8 flex flex-col justify-center border-b md:border-b-0 md:border-r border-primary pb-16 pt-16 md:pr-gutter md:pb-24 md:pt-24">
           <h1 className="font-headline-xl text-headline-xl text-primary leading-none uppercase">
             WE ARCHITECT <br />
             <span className="italic text-surface-tint">/ PRECISION /</span> <br />
@@ -29,7 +29,7 @@ export function Hero() {
           </h1>
         </div>
         {/* Right: UVP & Schematic */}
-        <div className="col-span-4 md:col-span-2 lg:col-span-4 flex flex-col justify-between pl-gutter py-24 relative">
+        <div className="col-span-4 md:col-span-2 lg:col-span-4 flex flex-col justify-between pt-16 pb-16 md:pl-gutter md:py-24 relative">
           <div className="font-body-md text-body-md uppercase tracking-wider text-secondary border-b border-primary pb-8 mb-8">
             <p>[ STATUS: ACTIVE ]</p>
             <p className="mt-4">

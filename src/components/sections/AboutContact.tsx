@@ -6,9 +6,9 @@ import { Button } from "@/components/ui/Button";
 export function AboutContact() {
   return (
     <AnimatedSection id="archive" className="w-full border-b border-primary">
-      <div className="grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12 gap-0 w-full min-h-[716px]">
+      <div className="grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12 gap-0 w-full">
         {/* About (Pedigree) */}
-        <div className="col-span-4 md:col-span-4 lg:col-span-5 border-r border-b md:border-b-0 border-primary p-margin flex flex-col">
+        <div className="col-span-4 md:col-span-4 lg:col-span-5 border-b md:border-b-0 md:border-r border-primary p-margin flex flex-col">
           <h2 className="font-headline-md text-headline-md uppercase mb-8 border-b border-primary pb-4">
             FOUNDERS // PEDIGREE
           </h2>
@@ -47,7 +47,7 @@ export function AboutContact() {
               />
               <label 
                 htmlFor="identifier" 
-                className="absolute left-0 -top-6 font-label-caps text-label-caps transition-all peer-placeholder-shown:text-4xl peer-placeholder-shown:top-4 peer-placeholder-shown:font-headline-md peer-focus:-top-6 peer-focus:text-label-caps peer-focus:font-label-caps pointer-events-none"
+                className="absolute left-0 -top-6 font-label-caps text-label-caps transition-all peer-placeholder-shown:text-headline-md peer-placeholder-shown:top-4 peer-placeholder-shown:font-headline-md peer-focus:-top-6 peer-focus:text-label-caps peer-focus:font-label-caps pointer-events-none"
               >
                 IDENTIFIER [NAME]
               </label>
@@ -61,7 +61,7 @@ export function AboutContact() {
               />
               <label 
                 htmlFor="vector" 
-                className="absolute left-0 -top-6 font-label-caps text-label-caps transition-all peer-placeholder-shown:text-4xl peer-placeholder-shown:top-4 peer-placeholder-shown:font-headline-md peer-focus:-top-6 peer-focus:text-label-caps peer-focus:font-label-caps pointer-events-none"
+                className="absolute left-0 -top-6 font-label-caps text-label-caps transition-all peer-placeholder-shown:text-headline-md peer-placeholder-shown:top-4 peer-placeholder-shown:font-headline-md peer-focus:-top-6 peer-focus:text-label-caps peer-focus:font-label-caps pointer-events-none"
               >
                 VECTOR [EMAIL]
               </label>

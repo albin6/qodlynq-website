@@ -34,8 +34,8 @@ export function Work() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-gutter px-margin pb-margin relative z-10">
         {/* Project 1 */}
         <div className="border border-vellum group relative overflow-hidden bg-black">
-          <div className="aspect-video relative p-4 flex flex-col justify-between">
-            <div className="flex justify-between font-label-caps text-label-caps border-b border-vellum pb-2 z-10">
+          <div className="aspect-square md:aspect-video relative p-4 md:p-6 flex flex-col justify-between">
+            <div className="flex justify-between font-label-caps text-label-caps border-b border-vellum pb-2 z-10 flex-wrap gap-2">
               <span>ID: NEXUS-VII</span>
               <span>FINTECH</span>
             </div>
@@ -76,8 +76,8 @@ export function Work() {
 
         {/* Project 2 */}
         <div className="border border-vellum group relative overflow-hidden bg-black">
-          <div className="aspect-video relative p-4 flex flex-col justify-between">
-            <div className="flex justify-between font-label-caps text-label-caps border-b border-vellum pb-2 z-10">
+          <div className="aspect-square md:aspect-video relative p-4 md:p-6 flex flex-col justify-between">
+            <div className="flex justify-between font-label-caps text-label-caps border-b border-vellum pb-2 z-10 flex-wrap gap-2">
               <span>ID: AETHER-OS</span>
               <span>LOGISTICS</span>
             </div>

@@ -15,7 +15,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       <motion.button
         ref={ref}
         className={cn(
-          "font-button text-button px-6 py-2 uppercase tracking-widest flex items-center justify-center gap-2 border transition-colors duration-150",
+          "font-button text-button px-6 py-2 uppercase tracking-widest flex items-center justify-center gap-2 border transition-colors duration-150 min-h-[44px]",
           variant === "primary"
             ? "border-primary hover:bg-primary hover:text-vellum"
             : "bg-black text-vellum border-black hover:bg-vellum hover:text-black",

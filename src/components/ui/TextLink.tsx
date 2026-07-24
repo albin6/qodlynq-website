@@ -16,7 +16,7 @@ export function TextLink({ href, children, className, active, ...props }: TextLi
     <Link
       href={href}
       className={cn(
-        "relative group h-full flex items-center px-4 font-label-caps text-label-caps transition-colors duration-75",
+        "relative group h-full flex items-center px-4 font-label-caps text-label-caps transition-colors duration-75 min-h-[44px]",
         active ? "text-primary" : "text-secondary hover:text-primary",
         className
       )}
