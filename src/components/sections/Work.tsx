@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
-import { Network, Server, Database, CloudCog } from "lucide-react";
+import { LineChart, Smartphone, Globe, Zap } from "lucide-react";
 
 export function Work() {
   const ref1 = useRef(null);
@@ -16,7 +16,7 @@ export function Work() {
   const y2 = useTransform(scrollYProgress2, [0, 1], ["0%", "20%"]);
 
   return (
-    <AnimatedSection id="registry" className="w-full border-b border-primary bg-black text-vellum relative overflow-hidden py-margin">
+    <AnimatedSection id="portfolio" className="w-full border-b border-primary bg-black text-vellum relative overflow-hidden py-margin">
       {/* Inverse Blueprint Grid for Dark Mode */}
       <div 
         className="absolute inset-0 pointer-events-none" 
@@ -27,8 +27,8 @@ export function Work() {
       />
       
       <div className="px-margin mb-12 flex justify-between items-end border-b border-vellum pb-4 relative z-10 flex-wrap gap-4">
-        <h2 className="font-headline-lg text-headline-lg uppercase text-balance">STRUCTURAL OVERVIEW</h2>
-        <span className="font-label-caps text-label-caps tracking-widest text-balance text-right sm:text-left">[ PROJECT ARCHIVE ]</span>
+        <h2 className="font-headline-lg text-headline-lg uppercase text-balance">RECENT PROJECTS</h2>
+        <span className="font-label-caps text-label-caps tracking-widest text-balance text-right sm:text-left">[ OUR PORTFOLIO ]</span>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-gutter px-margin pb-margin relative z-10">
@@ -36,7 +36,7 @@ export function Work() {
         <div className="border border-vellum group relative overflow-hidden bg-black">
           <div className="aspect-square md:aspect-video relative p-4 md:p-6 flex flex-col justify-between">
             <div className="flex justify-between font-label-caps text-label-caps border-b border-vellum pb-2 z-10 flex-wrap gap-2">
-              <span>ID: NEXUS-VII</span>
+              <span>Client: Nexus Financial</span>
               <span>FINTECH</span>
             </div>
             
@@ -63,14 +63,14 @@ export function Work() {
                   <rect x="340" y="140" width="20" height="20" fill="none" stroke="currentColor" />
                 </svg>
                 <div className="absolute flex gap-4 text-vellum/50">
-                  <Network className="w-6 h-6" />
-                  <Database className="w-6 h-6" />
-                  <Server className="w-6 h-6" />
+                  <LineChart className="w-6 h-6" />
+                  <Globe className="w-6 h-6" />
+                  <Smartphone className="w-6 h-6" />
                 </div>
               </motion.div>
             </div>
             
-            <h3 className="font-body-lg text-body-lg uppercase mt-2 z-10">Distributed Ledger Node System</h3>
+            <h3 className="font-body-lg text-body-lg uppercase mt-2 z-10">Secure Financial Dashboard</h3>
           </div>
         </div>
 
@@ -78,7 +78,7 @@ export function Work() {
         <div className="border border-vellum group relative overflow-hidden bg-black">
           <div className="aspect-square md:aspect-video relative p-4 md:p-6 flex flex-col justify-between">
             <div className="flex justify-between font-label-caps text-label-caps border-b border-vellum pb-2 z-10 flex-wrap gap-2">
-              <span>ID: AETHER-OS</span>
+              <span>Client: Aether Logistics</span>
               <span>LOGISTICS</span>
             </div>
             
@@ -99,12 +99,12 @@ export function Work() {
                   <circle cx="190" cy="100" r="5" fill="currentColor"/>
                 </svg>
                 <div className="absolute flex gap-4 text-vellum/50 bottom-8">
-                  <CloudCog className="w-6 h-6" />
+                  <Zap className="w-6 h-6" />
                 </div>
               </motion.div>
             </div>
             
-            <h3 className="font-body-lg text-body-lg uppercase mt-2 z-10">Real-time Freight Telemetry</h3>
+            <h3 className="font-body-lg text-body-lg uppercase mt-2 z-10">Real-Time Tracking Platform</h3>
           </div>
         </div>
       </div>

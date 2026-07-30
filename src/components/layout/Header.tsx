@@ -23,10 +23,10 @@ export function Header() {
   }, [isOpen]);
 
   const navLinks = [
-    { name: "ARCHITECTURE", href: "#architecture" },
-    { name: "INFRASTRUCTURE", href: "#infrastructure" },
-    { name: "REGISTRY", href: "#registry" },
-    { name: "ARCHIVE", href: "#archive" },
+    { name: "SERVICES", href: "#services" },
+    { name: "PROCESS", href: "#process" },
+    { name: "PORTFOLIO", href: "#portfolio" },
+    { name: "ABOUT", href: "#about" },
   ];
 
   return (
@@ -66,8 +66,8 @@ export function Header() {
             whileHover={{ scale: 0.98 }}
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
           >
-            <span className="hidden lg:inline">INITIATE PROJECT //</span>
-            <span className="lg:hidden">INITIATE //</span>
+            <span className="hidden lg:inline">START YOUR PROJECT</span>
+            <span className="lg:hidden">START PROJECT</span>
           </motion.div>
         </Link>
         <button 
@@ -126,7 +126,7 @@ export function Header() {
                     className="w-full font-button text-button px-6 py-4 uppercase tracking-widest flex items-center justify-center border border-primary bg-primary text-vellum cursor-pointer min-h-11"
                     whileTap={{ scale: 0.98 }}
                   >
-                    INITIATE PROJECT //
+                    START YOUR PROJECT
                   </motion.div>
                 </Link>
               </nav>
