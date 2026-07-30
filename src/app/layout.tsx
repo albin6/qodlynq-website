@@ -49,6 +49,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
+        suppressHydrationWarning
         className={`${playfair.variable} ${jetbrains.variable} bg-background text-primary font-body-md antialiased min-h-screen relative overflow-x-hidden selection:bg-primary selection:text-vellum flex flex-col`}
       >
         {/* Global Grid Overlay */}
