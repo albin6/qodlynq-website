@@ -103,7 +103,7 @@ export function ThreeJSBackground() {
     };
   }, []);
 
-  return <div ref={containerRef} className="absolute inset-0 z-0 opacity-40 w-full h-full" />;
+  return <div ref={containerRef} className="absolute inset-0 z-0 opacity-20 w-full h-full" />;
 }
 
 // Helpers to clean up Three.js memory

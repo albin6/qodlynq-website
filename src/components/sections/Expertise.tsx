@@ -10,8 +10,8 @@ export function Expertise() {
       <div className="max-w-[1600px] mx-auto">
         <Reveal>
           <div className="flex justify-between items-end mb-48 border-b border-outline-variant/30 pb-12">
-            <h2 className="font-display-lg text-7xl">Expertise</h2>
-            <p className="font-label-sm text-outline uppercase max-w-[240px] text-right">Reducing friction. <br/>Restoring velocity.</p>
+            <h2 className="font-display-lg text-7xl">Services</h2>
+            <p className="font-label-sm text-outline uppercase max-w-[240px] text-right">How we help you.</p>
           </div>
         </Reveal>
 
@@ -32,17 +32,17 @@ export function Expertise() {
             </div>
             <div className="col-span-12 md:col-span-4 md:col-start-9">
               <Reveal delay={200}>
-                <span className="font-label-sm opacity-40 uppercase mb-8 block">02 / Legacy Rehabilitaton</span>
-                <h3 className="font-headline-md text-5xl mb-10 leading-tight">Restoring systems to their peak performance.</h3>
-                <p className="font-body-md text-secondary mb-12">
-                  Transition from monolithic systems to modular architecture. We rehabilitate aging software to restore speed, security, and developer confidence.
+                <span className="font-label-sm opacity-40 uppercase mb-8 block">02 / Modernize Your Software</span>
+                <h3 className="font-headline-md text-5xl mb-10 leading-tight text-balance">Make your existing systems fast again.</h3>
+                <p className="font-body-md text-secondary mb-12 text-pretty">
+                  We upgrade old software so your team can work without interruptions. Stop fighting with slow tools and get back to business.
                 </p>
                 <div className="flex flex-col gap-4 font-label-sm text-primary uppercase">
                   <div className="flex items-center gap-6 border-b border-outline-variant/20 py-4 group cursor-pointer">
                     <span className="text-xs opacity-30">01</span> Cloud Migration
                   </div>
                   <div className="flex items-center gap-6 border-b border-outline-variant/20 py-4 group cursor-pointer">
-                    <span className="text-xs opacity-30">02</span> System Refactoring
+                    <span className="text-xs opacity-30">02</span> System Upgrades
                   </div>
                 </div>
               </Reveal>
@@ -53,13 +53,13 @@ export function Expertise() {
           <div className="editorial-grid items-center">
             <div className="col-span-12 md:col-span-4 order-2 md:order-1">
               <Reveal>
-                <span className="font-label-sm opacity-40 uppercase mb-8 block">03 / Operational Efficiency</span>
-                <h3 className="font-headline-md text-5xl mb-10 leading-tight">Eliminate manual bottlenecks.</h3>
-                <p className="font-body-md text-secondary mb-12">
-                  Intelligent pipelines that handle the heavy lifting, freeing your core team for higher-value strategic work. Architecture that automates complexity.
+                <span className="font-label-sm opacity-40 uppercase mb-8 block">03 / Automate Daily Tasks</span>
+                <h3 className="font-headline-md text-5xl mb-10 leading-tight text-balance">Stop wasting time on manual work.</h3>
+                <p className="font-body-md text-secondary mb-12 text-pretty">
+                  We build custom tools that connect your systems and speed up your daily operations, freeing your team for higher-value work.
                 </p>
-                <MagneticLink className="border border-primary px-10 py-4 font-label-sm uppercase tracking-[0.2em] hover:bg-primary hover:text-on-primary transition-all">
-                  Inquire for Audit
+                <MagneticLink href="#about" className="border border-primary px-10 py-4 font-label-sm uppercase tracking-[0.2em] hover:bg-primary hover:text-on-primary transition-all">
+                  Discuss Your Idea
                 </MagneticLink>
               </Reveal>
             </div>

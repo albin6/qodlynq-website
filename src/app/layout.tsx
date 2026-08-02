@@ -32,7 +32,7 @@ export default function RootLayout({
       </head>
       <body
         suppressHydrationWarning
-        className={`${hanken.variable} ${inter.variable} bg-surface text-on-surface font-body-md antialiased min-h-screen relative overflow-x-hidden selection:bg-primary selection:text-on-primary flex flex-col`}
+        className={`${hanken.variable} ${inter.variable} bg-surface text-on-surface font-body-md antialiased min-h-screen relative selection:bg-primary selection:text-on-primary flex flex-col`}
       >
         <CustomCursor />
         {children}

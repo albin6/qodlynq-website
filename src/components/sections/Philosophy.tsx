@@ -15,15 +15,15 @@ export function Philosophy() {
         </div>
         <div className="col-span-12 md:col-span-8 md:col-start-4">
           <Reveal delay={100}>
-            <h2 className="font-display-lg text-display-lg leading-none mb-24">
+            <h2 className="font-display-lg text-display-lg leading-none mb-24 text-balance">
               Software is an <span className="italic font-normal opacity-50">investment</span>, not a cost center. We architect for the next decade.
             </h2>
           </Reveal>
           <div className="editorial-grid">
             <div className="col-span-12 md:col-span-6 md:col-start-7">
               <Reveal delay={200}>
-                <p className="font-body-md text-secondary leading-relaxed">
-                  Infrastructure requires a foundation that can withstand scale, market shifts, and the inherent gravity of growth. Our method eliminates technical debt before it becomes a liability.
+                <p className="font-body-md text-secondary leading-relaxed text-pretty">
+                  Software should make your business faster, not slow it down. We build systems designed to last, so you can focus on your customers instead of fixing broken code.
                 </p>
               </Reveal>
             </div>

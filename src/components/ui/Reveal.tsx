@@ -22,7 +22,10 @@ export function Reveal({ children, className, type = "text", delay = 0 }: { chil
 
     observer.observe(currentRef);
 
+    const fallback = setTimeout(() => setIsVisible(true), 1500);
+
     return () => {
+      clearTimeout(fallback);
       if (currentRef) observer.unobserve(currentRef);
     };
   }, [delay]);

@@ -29,10 +29,12 @@ export function Works() {
             <div className="col-span-12 md:col-span-3 md:col-start-10 mt-12 self-end">
               <Reveal delay={200}>
                 <p className="font-label-sm uppercase mb-4 opacity-40">Fintech / 2023</p>
-                <h3 className="font-headline-md text-4xl mb-6">Vanguard Asset Management</h3>
-                <p className="font-body-md text-secondary mb-10">Real-time asset tracking for global investment firms, reducing reporting latency by 40%.</p>
+                <h3 className="font-headline-md text-4xl mb-6 text-balance">Vanguard Asset Management</h3>
+                <p className="font-body-md text-secondary mb-10 text-pretty">
+                  A live dashboard that helps financial teams track their investments instantly and make better decisions.
+                </p>
                 <MagneticLink href="#" className="inline-flex items-center gap-4 font-label-sm tracking-widest uppercase hover:gap-6 transition-all group">
-                  View Case Study 
+                  See Our Work 
                   <span className="material-symbols-outlined text-sm">arrow_forward</span>
                 </MagneticLink>
               </Reveal>
@@ -44,10 +46,12 @@ export function Works() {
             <div className="col-span-12 md:col-span-3 md:col-start-1 self-end order-2 md:order-1 mt-12 md:mt-0">
               <Reveal delay={200}>
                 <p className="font-label-sm uppercase mb-4 opacity-40">Logistics / 2024</p>
-                <h3 className="font-headline-md text-4xl mb-6">Nexus Supply Chain</h3>
-                <p className="font-body-md text-secondary mb-10">Automating international documentation with an AI-assisted validation engine.</p>
+                <h3 className="font-headline-md text-4xl mb-6 text-balance">Nexus Supply Chain</h3>
+                <p className="font-body-md text-secondary mb-10 text-pretty">
+                  A unified platform that automates international shipping documents, saving hundreds of hours of manual entry.
+                </p>
                 <MagneticLink href="#" className="inline-flex items-center gap-4 font-label-sm tracking-widest uppercase hover:gap-6 transition-all group">
-                  View Case Study 
+                  See Our Work 
                   <span className="material-symbols-outlined text-sm">arrow_forward</span>
                 </MagneticLink>
               </Reveal>

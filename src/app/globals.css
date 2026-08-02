@@ -139,11 +139,11 @@ body {
     transition: transform 0.2s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.reveal-clip { clip-path: inset(100% 0 0 0); transition: clip-path 1.5s cubic-bezier(0.19, 1, 0.22, 1); }
-.reveal-clip.active { clip-path: inset(0 0 0 0); }
+.reveal-clip { opacity: 0; transform: translateY(20px); transition: all 1.5s cubic-bezier(0.19, 1, 0.22, 1); }
+.reveal-clip.active { opacity: 1; transform: translateY(0); }
 
-.image-mask { clip-path: inset(0 100% 0 0); transition: clip-path 1.8s cubic-bezier(0.19, 1, 0.22, 1); }
-.image-mask.active { clip-path: inset(0 0 0 0); }
+.image-mask { opacity: 0; transform: translateY(20px); transition: all 1.8s cubic-bezier(0.19, 1, 0.22, 1); }
+.image-mask.active { opacity: 1; transform: translateY(0); }
 
 .parallax { transform: translateY(var(--p-y, 0)); transition: transform 0.1s linear; }
 
