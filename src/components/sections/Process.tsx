@@ -14,23 +14,23 @@ export function Process() {
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8">
             <div className="flex items-center text-on-surface-variant">
               <span className="font-label-sm text-[14px] font-medium uppercase tracking-[0.02em]">Understand</span>
-              <span className="material-symbols-outlined mx-4 hidden md:block text-outline" data-icon="arrow_forward">arrow_forward</span>
-              <span className="material-symbols-outlined my-2 md:hidden text-outline" data-icon="arrow_downward">arrow_downward</span>
+              <span className="material-symbols-outlined mx-4 !hidden md:!block text-outline" data-icon="arrow_forward">arrow_forward</span>
+              <span className="material-symbols-outlined my-2 !block md:!hidden text-outline" data-icon="arrow_downward">arrow_downward</span>
             </div>
             <div className="flex items-center text-on-surface-variant">
               <span className="font-label-sm text-[14px] font-medium uppercase tracking-[0.02em]">Strategize</span>
-              <span className="material-symbols-outlined mx-4 hidden md:block text-outline" data-icon="arrow_forward">arrow_forward</span>
-              <span className="material-symbols-outlined my-2 md:hidden text-outline" data-icon="arrow_downward">arrow_downward</span>
+              <span className="material-symbols-outlined mx-4 !hidden md:!block text-outline" data-icon="arrow_forward">arrow_forward</span>
+              <span className="material-symbols-outlined my-2 !block md:!hidden text-outline" data-icon="arrow_downward">arrow_downward</span>
             </div>
             <div className="flex items-center text-primary font-medium">
               <span className="font-label-sm text-[14px] uppercase tracking-[0.02em] active-step-glow">Build</span>
-              <span className="material-symbols-outlined mx-4 hidden md:block text-outline" data-icon="arrow_forward">arrow_forward</span>
-              <span className="material-symbols-outlined my-2 md:hidden text-outline" data-icon="arrow_downward">arrow_downward</span>
+              <span className="material-symbols-outlined mx-4 !hidden md:!block text-outline" data-icon="arrow_forward">arrow_forward</span>
+              <span className="material-symbols-outlined my-2 !block md:!hidden text-outline" data-icon="arrow_downward">arrow_downward</span>
             </div>
             <div className="flex items-center text-on-surface-variant">
               <span className="font-label-sm text-[14px] font-medium uppercase tracking-[0.02em]">Refine</span>
-              <span className="material-symbols-outlined mx-4 hidden md:block text-outline" data-icon="arrow_forward">arrow_forward</span>
-              <span className="material-symbols-outlined my-2 md:hidden text-outline" data-icon="arrow_downward">arrow_downward</span>
+              <span className="material-symbols-outlined mx-4 !hidden md:!block text-outline" data-icon="arrow_forward">arrow_forward</span>
+              <span className="material-symbols-outlined my-2 !block md:!hidden text-outline" data-icon="arrow_downward">arrow_downward</span>
             </div>
             <div className="flex items-center text-on-surface-variant">
               <span className="font-label-sm text-[14px] font-medium uppercase tracking-[0.02em]">Support</span>

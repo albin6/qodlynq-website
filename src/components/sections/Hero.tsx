@@ -1,17 +1,18 @@
 "use client";
 
 import { Reveal } from "../ui/Reveal";
+import { DotPattern } from "../ui/dot-pattern";
+import { cn } from "@/lib/utils";
 
 export function Hero() {
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)] overflow-hidden pt-10 mb-12">
-      <div className="absolute inset-0 z-0">
-        <img 
-          src="/images/blueprint.png" 
-          className="absolute w-[600px] h-[600px] object-cover opacity-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none animate-float"
-          alt="Blueprint"
-        />
-      </div>
+      <DotPattern
+        className={cn(
+          "[mask-image:radial-gradient(800px_circle_at_center,white,transparent)]",
+          "opacity-40"
+        )}
+      />
       <div className="relative z-10 max-w-[var(--spacing-container-max)] mx-auto text-center w-full">
         <Reveal>
           <h1 className="font-display-mobile md:font-display text-[40px] md:text-[64px] font-semibold tracking-[-0.02em] leading-[1.1] text-primary max-w-4xl mx-auto mb-6">
