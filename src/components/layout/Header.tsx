@@ -1,62 +1,43 @@
 "use client";
 
-import Link from "next/link";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { useEffect, useState } from "react";
+import { MagneticLink } from "../ui/MagneticLink";
 
 export function Header() {
-  const { scrollY } = useScroll();
-  
-  // Header becomes slightly smaller and borders appear on scroll
-  const borderOpacity = useTransform(scrollY, [0, 50], [0, 1]);
-  const paddingY = useTransform(scrollY, [0, 50], ["2rem", "1rem"]);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <motion.header
-      className="fixed top-0 w-full z-50 bg-background border-b border-border"
-      style={{
-        borderBottomColor: useTransform(borderOpacity, (val) => `rgba(34, 34, 34, ${val})`),
-        paddingTop: paddingY,
-        paddingBottom: paddingY,
-      }}
+    <nav
+      className={`fixed top-0 left-0 w-full z-50 flex justify-between items-center px-8 md:px-16 transition-all duration-300 mix-blend-difference ${
+        scrolled ? "bg-surface/80 backdrop-blur-md py-6" : "py-10"
+      }`}
+      id="top-nav"
     >
-      <div className="max-w-[var(--spacing-container-max)] mx-auto px-gutter w-full flex justify-between items-center">
-        <Link href="/" className="group flex flex-col">
-          <span className="font-mono text-sm tracking-tight text-on-background">
-            QODLYNQ
-          </span>
-          <span className="font-mono text-[10px] text-on-surface-variant group-hover:text-on-background transition-colors">
-            Engineering Studio
-          </span>
-        </Link>
-
-        <div className="hidden md:flex items-center gap-12">
-          <Link
-            href="#beliefs"
-            className="text-on-surface-variant hover:text-on-background transition-colors duration-300 font-mono text-xs uppercase tracking-widest"
-          >
-            Beliefs
-          </Link>
-          <Link
-            href="#approach"
-            className="text-on-surface-variant hover:text-on-background transition-colors duration-300 font-mono text-xs uppercase tracking-widest"
-          >
-            Approach
-          </Link>
-          <Link
-            href="#work"
-            className="text-on-surface-variant hover:text-on-background transition-colors duration-300 font-mono text-xs uppercase tracking-widest"
-          >
-            Work
-          </Link>
-        </div>
-
-        <Link
-          href="#contact"
-          className="font-mono text-xs uppercase tracking-widest border border-border hover:border-on-background px-4 py-2 transition-colors"
-        >
-          Contact
-        </Link>
+      <div className="font-display-lg text-xl tracking-tighter text-on-surface hover:opacity-70 transition-opacity cursor-pointer">
+        S_ARCH
       </div>
-    </motion.header>
+      <div className="hidden md:flex gap-16 items-center">
+        <MagneticLink href="#work" className="font-label-sm uppercase hover:opacity-50 transition-all duration-300">
+          Work
+        </MagneticLink>
+        <MagneticLink href="#services" className="font-label-sm uppercase hover:opacity-50 transition-all duration-300">
+          Capabilities
+        </MagneticLink>
+        <MagneticLink href="#process" className="font-label-sm uppercase hover:opacity-50 transition-all duration-300">
+          The Method
+        </MagneticLink>
+        <MagneticLink className="border border-on-surface/20 px-8 py-3 font-label-sm uppercase tracking-widest hover:bg-on-surface hover:text-surface transition-all duration-500 text-[10px] active:scale-95">
+          Inquire
+        </MagneticLink>
+      </div>
+    </nav>
   );
 }

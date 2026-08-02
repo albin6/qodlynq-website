@@ -1,20 +1,23 @@
 import type { Metadata } from "next";
-import { Geist, JetBrains_Mono } from "next/font/google";
+import { Hanken_Grotesk, Inter } from "next/font/google";
 import "./globals.css";
+import { CustomCursor } from "@/components/ui/CustomCursor";
 
-const geist = Geist({
+const hanken = Hanken_Grotesk({
   subsets: ["latin"],
-  variable: "--font-geist",
+  variable: "--font-hanken-grotesk",
+  weight: ["400", "500", "600", "800"]
 });
 
-const jetbrains = JetBrains_Mono({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-jetbrains",
+  variable: "--font-inter",
+  weight: ["400", "500", "600"]
 });
 
 export const metadata: Metadata = {
-  title: "Qodlynq | Engineering Studio",
-  description: "We solve complex engineering problems.",
+  title: "STUDIO_ARCH | Business-Driven Software Engineering",
+  description: "Structural Engineering for Software",
 };
 
 export default function RootLayout({
@@ -23,14 +26,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark scroll-smooth">
+    <html lang="en" className="scroll-smooth">
       <head>
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
       </head>
       <body
         suppressHydrationWarning
-        className={`${geist.variable} ${jetbrains.variable} bg-background text-on-background font-geist antialiased min-h-screen relative overflow-x-hidden selection:bg-on-background selection:text-background flex flex-col`}
+        className={`${hanken.variable} ${inter.variable} bg-surface text-on-surface font-body-md antialiased min-h-screen relative overflow-x-hidden selection:bg-primary selection:text-on-primary flex flex-col`}
       >
+        <CustomCursor />
         {children}
       </body>
     </html>

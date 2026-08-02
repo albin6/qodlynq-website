@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>STUDIO_ARCH | Business-Driven Software Engineering</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-tint": "#5f5e5e",
+                    "surface-container-high": "#e9e8e7",
+                    "outline-variant": "#c4c7c7",
+                    "surface-container": "#efeded",
+                    "inverse-surface": "#121212",
+                    "on-primary-fixed": "#1c1b1b",
+                    "surface": "#fbf9f8",
+                    "error-container": "#ffdad6",
+                    "on-secondary": "#ffffff",
+                    "on-surface": "#121212",
+                    "on-primary-container": "#858383",
+                    "on-secondary-fixed-variant": "#464746",
+                    "on-secondary-fixed": "#1a1c1b",
+                    "inverse-primary": "#c8c6c5",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed-dim": "#ffb4a6",
+                    "on-tertiary-fixed-variant": "#900d00",
+                    "tertiary-fixed": "#ffdad4",
+                    "on-error-container": "#93000a",
+                    "on-error": "#ffffff",
+                    "secondary-fixed": "#e3e2e0",
+                    "tertiary": "#000000",
+                    "error": "#ba1a1a",
+                    "primary-container": "#1c1b1b",
+                    "secondary-container": "#e0dfde",
+                    "on-primary-fixed-variant": "#474646",
+                    "primary-fixed": "#e5e2e1",
+                    "background": "#fbf9f8",
+                    "outline": "#747878",
+                    "primary-fixed-dim": "#c8c6c5",
+                    "on-background": "#1b1c1c",
+                    "surface-container-highest": "#e4e2e2",
+                    "on-surface-variant": "#444748",
+                    "on-secondary-container": "#626361",
+                    "inverse-on-surface": "#f2f0f0",
+                    "primary": "#121212",
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed-dim": "#c7c6c5",
+                    "tertiary-container": "#3f0200",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-dim": "#dbdad9",
+                    "on-tertiary-container": "#e84e36",
+                    "secondary": "#5e5e5d",
+                    "surface-variant": "#e4e2e2",
+                    "on-tertiary-fixed": "#3f0200",
+                    "surface-bright": "#fbf9f8",
+                    "surface-container-low": "#f5f3f3"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0px",
+                    "lg": "2px",
+                    "xl": "4px",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-max": "1440px",
+                    "margin-mobile": "24px",
+                    "unit": "8px",
+                    "gutter": "40px",
+                    "margin-desktop": "80px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Hanken Grotesk"],
+                    "display-lg-mobile": ["Hanken Grotesk"],
+                    "body-lg": ["Inter"],
+                    "headline-md": ["Hanken Grotesk"],
+                    "label-sm": ["Inter"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "display-hero": ["clamp(64px, 12vw, 160px)", {"lineHeight": "0.9", "letterSpacing": "-0.05em", "fontWeight": "600"}],
+                    "display-lg": ["clamp(48px, 8vw, 96px)", {"lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "600"}],
+                    "display-lg-mobile": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "body-lg": ["clamp(18px, 2vw, 22px)", {"lineHeight": "1.5", "letterSpacing": "-0.01em", "fontWeight": "400"}],
+                    "headline-md": ["36px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "500"}],
+                    "label-sm": ["10px", {"lineHeight": "1", "letterSpacing": "0.2em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { cursor: none; }
+        .custom-cursor {
+            width: 8px; height: 8px; background: #121212; border-radius: 50%;
+            position: fixed; pointer-events: none; z-index: 9999;
+            transition: transform 0.1s ease-out; mix-blend-mode: difference;
+        }
+        .cursor-follower {
+            width: 40px; height: 40px; border: 1px solid #121212; border-radius: 50%;
+            position: fixed; pointer-events: none; z-index: 9998;
+            transition: transform 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .reveal-clip { clip-path: inset(100% 0 0 0); transition: clip-path 1.5s cubic-bezier(0.19, 1, 0.22, 1); }
+        .reveal-clip.active { clip-path: inset(0 0 0 0); }
+
+        .image-mask { clip-path: inset(0 100% 0 0); transition: clip-path 1.8s cubic-bezier(0.19, 1, 0.22, 1); }
+        .image-mask.active { clip-path: inset(0 0 0 0); }
+
+        .parallax { transform: translateY(var(--p-y, 0)); transition: transform 0.1s linear; }
+
+        .editorial-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--gutter); }
+
+        .magnetic-link { display: inline-block; transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1); }
+
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #121212; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md selection:bg-primary selection:text-on-primary overflow-x-hidden">
+<div class="custom-cursor" id="cursor"></div>
+<div class="cursor-follower" id="cursor-follower"></div>
+<!-- Navigation -->
+<nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-8 md:px-16 py-10 mix-blend-difference" id="top-nav">
+<div class="font-display-lg text-xl tracking-tighter text-on-surface hover:opacity-70 transition-opacity cursor-pointer">S_ARCH</div>
+<div class="hidden md:flex gap-16 items-center">
+<a class="font-label-sm uppercase hover:opacity-50 transition-all duration-300 relative group magnetic-link" href="#work">Work</a>
+<a class="font-label-sm uppercase hover:opacity-50 transition-all duration-300 relative group magnetic-link" href="#services">Capabilities</a>
+<a class="font-label-sm uppercase hover:opacity-50 transition-all duration-300 relative group magnetic-link" href="#process">The Method</a>
+<button class="border border-on-surface/20 px-8 py-3 font-label-sm uppercase tracking-widest hover:bg-on-surface hover:text-surface transition-all duration-500 text-[10px] active:scale-95 magnetic-link">
+            Inquire
+        </button>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="relative w-full h-screen flex items-center px-margin-mobile md:px-margin-desktop overflow-hidden border-b border-outline-variant/10">
+<div class="absolute inset-0 z-0 opacity-40" id="animation-container"></div>
+<div class="relative z-10 w-full max-w-[1600px] mx-auto">
+<div class="editorial-grid items-end">
+<div class="col-span-12 md:col-span-10">
+<h1 class="font-display-hero text-display-hero reveal-clip active">
+                    Engineering<br/>
+<span class="md:ml-32">Durability.</span>
+</h1>
+</div>
+<div class="col-span-12 md:col-span-4 md:col-start-8 mt-12 md:mt-0">
+<div class="reveal-clip active transition-delay-500">
+<p class="font-body-lg text-secondary mb-10 border-l border-primary/20 pl-8">
+                        We build software as infrastructure. Partnering with leaders to resolve complex technical friction through architectural precision.
+                    </p>
+<a class="group inline-flex items-center gap-6 font-label-sm uppercase tracking-widest border-b border-primary pb-3 hover:pb-4 transition-all magnetic-link" href="#work">
+                        Selected Projects
+                        <span class="material-symbols-outlined text-sm">arrow_outward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Philosophy Section -->
+<section class="py-64 px-margin-mobile md:px-margin-desktop bg-surface relative overflow-hidden">
+<div class="max-w-container-max mx-auto editorial-grid">
+<div class="col-span-12 md:col-span-2 mb-12 md:mb-0">
+<span class="font-label-sm text-outline uppercase block border-t border-outline/20 pt-4 reveal-clip">01 / Foundation</span>
+</div>
+<div class="col-span-12 md:col-span-8 md:col-start-4">
+<h2 class="font-display-lg text-display-lg reveal-clip leading-none mb-24">
+                Software is an <span class="italic font-normal opacity-50">investment</span>, not a cost center. We architect for the next decade.
+            </h2>
+<div class="editorial-grid">
+<div class="col-span-12 md:col-span-6 md:col-start-7">
+<p class="font-body-md text-secondary leading-relaxed reveal-clip">
+                        Infrastructure requires a foundation that can withstand scale, market shifts, and the inherent gravity of growth. Our method eliminates technical debt before it becomes a liability.
+                    </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Expertise Section -->
+<section class="py-64 bg-surface-container-low px-margin-mobile md:px-margin-desktop relative" id="services">
+<div class="max-w-[1600px] mx-auto">
+<div class="flex justify-between items-end mb-48 border-b border-outline-variant/30 pb-12 reveal-clip">
+<h2 class="font-display-lg text-7xl">Expertise</h2>
+<p class="font-label-sm text-outline uppercase max-w-[240px] text-right">Reducing friction. <br/>Restoring velocity.</p>
+</div>
+<div class="space-y-64">
+<!-- Cap 1: Legacy Rehab -->
+<div class="editorial-grid items-center">
+<div class="col-span-12 md:col-span-7 image-mask parallax" data-speed="0.05">
+<img alt="Server Infrastructure" class="w-full aspect-[4/3] object-cover grayscale brightness-90 hover:grayscale-0 transition-all duration-1000" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzm4sC8SWL03KABl4Jz2zc1jD-z9F4_3_gmJXNtFtZpY9FggPV-ZAYwb6-kSpzNQb-P4LtgS_C3IWLvhzEIGa2yYY3Gp0djsRowsiAtc007e2rJJEsP05LVVEicM_mkz-FoIM9xM6sCwayWRo7EUnu_Ec-5PdtHPiuFyhWk1Eus0bh0rGz8s6pVnpD6271tF3NrpYLPC_2RIylpz-aYxTeDfupBrK35XexWe2meaHJu-8csgzOvuto"/>
+</div>
+<div class="col-span-12 md:col-span-4 md:col-start-9 reveal-clip">
+<span class="font-label-sm opacity-40 uppercase mb-8 block">02 / Legacy Rehabilitaton</span>
+<h3 class="font-headline-md text-5xl mb-10 leading-tight">Restoring systems to their peak performance.</h3>
+<p class="font-body-md text-secondary mb-12">
+                        Transition from monolithic systems to modular architecture. We rehabilitate aging software to restore speed, security, and developer confidence.
+                    </p>
+<div class="flex flex-col gap-4 font-label-sm text-primary uppercase">
+<div class="flex items-center gap-6 border-b border-outline-variant/20 py-4 group cursor-pointer">
+<span class="text-xs opacity-30">01</span> Cloud Migration
+                        </div>
+<div class="flex items-center gap-6 border-b border-outline-variant/20 py-4 group cursor-pointer">
+<span class="text-xs opacity-30">02</span> System Refactoring
+                        </div>
+</div>
+</div>
+</div>
+<!-- Cap 2: Operational Efficiency -->
+<div class="editorial-grid items-center">
+<div class="col-span-12 md:col-span-4 order-2 md:order-1 reveal-clip">
+<span class="font-label-sm opacity-40 uppercase mb-8 block">03 / Operational Efficiency</span>
+<h3 class="font-headline-md text-5xl mb-10 leading-tight">Eliminate manual bottlenecks.</h3>
+<p class="font-body-md text-secondary mb-12">
+                        Intelligent pipelines that handle the heavy lifting, freeing your core team for higher-value strategic work. Architecture that automates complexity.
+                    </p>
+<button class="border border-primary px-10 py-4 font-label-sm uppercase tracking-[0.2em] hover:bg-primary hover:text-on-primary transition-all magnetic-link">
+                        Inquire for Audit
+                    </button>
+</div>
+<div class="col-span-12 md:col-span-7 md:col-start-6 order-1 md:order-2 image-mask parallax" data-speed="-0.03">
+<img alt="Data Analytics" class="w-full aspect-[3/2] object-cover grayscale brightness-75" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxvDy1iTvuBUoQE8pGg3or9ak0QcrBnz-bbSela7DAwrAiF4FPy2vffQK4b9U0qu2mknJsI0WA2r3ws55qr_wEUsByTEdaG8PnncSiyBeLPTVpLiiPnjXB42d3L-ytakLo30N99t-tA_Tc-KL0Fohj8T6yhSbgGSdZ-72Y_uUtSF_BL-gabpGHv8DiOAgnE87TIkllpzojC4cMJmAWBeLuU8wmCxKnYfBBYBhD_A8bMwwReDQr4JGR"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Selected Works -->
+<section class="py-64 px-margin-mobile md:px-margin-desktop bg-surface overflow-hidden" id="work">
+<div class="max-w-[1600px] mx-auto">
+<h2 class="font-display-lg text-[10vw] leading-none mb-48 reveal-clip">Selected<br/><span class="md:ml-48">Projects.</span></h2>
+<div class="space-y-96">
+<!-- Project 1 -->
+<div class="editorial-grid">
+<div class="col-span-12 md:col-span-8 image-mask">
+<img alt="Finance Interface" class="w-full aspect-[16/9] object-cover grayscale transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOtsQ2I-qeFKOibEAQT9LBiMkpdrRfVkDOL_IOwdSaPnP3Ej1Fu_QoZPadXh326wHuMrDxpzDWpv2rlOR4XhFAj9METWPEmnkTGncWL-yanaxu_7D9gHbR7S4nZT0ApUxW3ZOFPahayCIHQzTxD2K_oLM0MsUNzbHDw7g_rric5C9swArDJeALGhKvqqZncZG6Fw1MtzCMsVkJjEmqIuvieec4D2VJGQK_jQhasFODrO3Lxgo-fHOE"/>
+</div>
+<div class="col-span-12 md:col-span-3 md:col-start-10 mt-12 self-end reveal-clip">
+<p class="font-label-sm uppercase mb-4 opacity-40">Fintech / 2023</p>
+<h3 class="font-headline-md text-4xl mb-6">Vanguard Asset Management</h3>
+<p class="font-body-md text-secondary mb-10">Real-time asset tracking for global investment firms, reducing reporting latency by 40%.</p>
+<a class="inline-flex items-center gap-4 font-label-sm tracking-widest uppercase hover:gap-6 transition-all group magnetic-link" href="#">
+                        View Case Study 
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Project 2 -->
+<div class="editorial-grid">
+<div class="col-span-12 md:col-span-3 md:col-start-1 self-end reveal-clip order-2 md:order-1 mt-12 md:mt-0">
+<p class="font-label-sm uppercase mb-4 opacity-40">Logistics / 2024</p>
+<h3 class="font-headline-md text-4xl mb-6">Nexus Supply Chain</h3>
+<p class="font-body-md text-secondary mb-10">Automating international documentation with an AI-assisted validation engine.</p>
+<a class="inline-flex items-center gap-4 font-label-sm tracking-widest uppercase hover:gap-6 transition-all group magnetic-link" href="#">
+                        View Case Study 
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<div class="col-span-12 md:col-span-8 md:col-start-5 image-mask order-1 md:order-2">
+<img alt="Supply Chain Dashboard" class="w-full aspect-[16/9] object-cover grayscale transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWQ2Gn-27UryBYw3tUe3AePdGAR3P9X3Jcm5vzTSwlI8xyoDXFHMr1AAobfb5pM-Wiyi-U3UYZ6COGzgGnlOb10l92CCPV7zw15ZjXyp97MAh7i2_70N679JE1McsfbRi2IkZhnSuB34F_sbrpuibNfjAppSxe5yHwbE8pLbuXGEsiuN9_fL215ySaTKP4JGHZiZXWqGYOD_UHuUlOXMGMEYRszfV4yAnJ6oTyn9PzuVufMBHQk-s9"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Method Section -->
+<section class="py-64 bg-inverse-surface text-surface overflow-hidden" id="process">
+<div class="px-margin-mobile md:px-margin-desktop mb-48 editorial-grid">
+<div class="col-span-12 md:col-span-12 border-b border-surface/10 pb-20">
+<h2 class="font-display-lg text-[8vw] leading-none reveal-clip">The Method.</h2>
+</div>
+</div>
+<div class="editorial-grid px-margin-mobile md:px-margin-desktop items-start">
+<div class="col-span-12 md:col-span-4 border-l border-surface/10 pl-8 pt-8 reveal-clip">
+<span class="font-display-lg text-4xl opacity-10 block mb-12">01</span>
+<h3 class="font-headline-md mb-8">Diagnostic</h3>
+<p class="font-body-md opacity-60 leading-relaxed">Radical honesty about technical debt. We audit ecosystems to identify where legacy systems are hindering revenue.</p>
+</div>
+<div class="col-span-12 md:col-span-4 border-l border-surface/10 pl-8 pt-8 reveal-clip" style="transition-delay: 0.2s;">
+<span class="font-display-lg text-4xl opacity-10 block mb-12">02</span>
+<h3 class="font-headline-md mb-8">Architecture</h3>
+<p class="font-body-md opacity-60 leading-relaxed">Mapping technical blueprints that prioritize stability and modularity over quick, fragile fixes.</p>
+</div>
+<div class="col-span-12 md:col-span-4 border-l border-surface/10 pl-8 pt-8 reveal-clip" style="transition-delay: 0.4s;">
+<span class="font-display-lg text-4xl opacity-10 block mb-12">03</span>
+<h3 class="font-headline-md mb-8">Deployment</h3>
+<p class="font-body-md opacity-60 leading-relaxed">Iterative delivery with rigorous testing. We ship code that integrates seamlessly with your existing infrastructure.</p>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="py-64 px-margin-mobile md:px-margin-desktop bg-surface" id="about">
+<div class="max-w-[1600px] mx-auto editorial-grid">
+<div class="col-span-12 md:col-span-5 mb-24 md:mb-0">
+<h2 class="font-display-lg text-7xl mb-24 reveal-clip">Let's talk<br/>systems.</h2>
+<div class="space-y-16 reveal-clip">
+<div class="group cursor-pointer">
+<p class="font-label-sm uppercase tracking-widest opacity-40 mb-4">Email</p>
+<a class="text-3xl font-display-lg block hover:opacity-50 transition-opacity" href="mailto:hello@studioarch.com">hello@studioarch.com</a>
+</div>
+<div>
+<p class="font-label-sm uppercase tracking-widest opacity-40 mb-4">Base</p>
+<p class="text-3xl font-display-lg">London, SE1</p>
+</div>
+</div>
+</div>
+<form class="col-span-12 md:col-span-6 md:col-start-7 space-y-20 reveal-clip">
+<div class="border-b border-outline-variant/30 py-6 focus-within:border-primary transition-colors">
+<label class="font-label-sm uppercase tracking-widest opacity-40 mb-4 block">Name</label>
+<input class="w-full bg-transparent border-none focus:ring-0 py-4 px-0 text-2xl font-display-lg placeholder:opacity-20" placeholder="Identity" type="text"/>
+</div>
+<div class="border-b border-outline-variant/30 py-6 focus-within:border-primary transition-colors">
+<label class="font-label-sm uppercase tracking-widest opacity-40 mb-4 block">Email</label>
+<input class="w-full bg-transparent border-none focus:ring-0 py-4 px-0 text-2xl font-display-lg placeholder:opacity-20" placeholder="Address" type="email"/>
+</div>
+<div class="border-b border-outline-variant/30 py-6 focus-within:border-primary transition-colors">
+<label class="font-label-sm uppercase tracking-widest opacity-40 mb-4 block">Brief</label>
+<textarea class="w-full bg-transparent border-none focus:ring-0 py-4 px-0 text-2xl font-display-lg placeholder:opacity-20" placeholder="System challenge..." rows="3"></textarea>
+</div>
+<button class="bg-primary text-surface px-16 py-6 font-label-sm uppercase tracking-[0.25em] hover:bg-neutral-800 transition-all magnetic-link">
+                Send Inquiry
+            </button>
+</form>
+</div>
+</section>
+<!-- Footer -->
+<footer class="w-full px-margin-desktop py-24 bg-primary text-surface relative overflow-hidden">
+<div class="max-w-[1600px] mx-auto editorial-grid items-end">
+<div class="col-span-12 md:col-span-6">
+<div class="font-display-lg text-4xl tracking-tighter opacity-100 mb-8">STUDIO_ARCH</div>
+<p class="font-label-sm uppercase tracking-[0.3em] opacity-40">Structural Engineering for Software</p>
+</div>
+<div class="col-span-12 md:col-span-6 md:text-right space-x-12 mt-12 md:mt-0">
+<a class="font-label-sm uppercase tracking-widest hover:opacity-50 transition-all magnetic-link" href="#">LinkedIn</a>
+<a class="font-label-sm uppercase tracking-widest hover:opacity-50 transition-all magnetic-link" href="#">Twitter</a>
+<a class="font-label-sm uppercase tracking-widest hover:opacity-50 transition-all magnetic-link" href="#">Clutch</a>
+</div>
+</div>
+<div class="max-w-[1600px] mx-auto mt-24 pt-12 border-t border-surface/5 flex flex-col md:flex-row justify-between gap-8 opacity-30">
+<p class="font-label-sm uppercase tracking-widest">© 2024 Studio Arch. London.</p>
+<div class="flex gap-12 font-label-sm uppercase tracking-widest">
+<span class="hover:text-surface cursor-pointer transition-colors">Privacy</span>
+<span class="hover:text-surface cursor-pointer transition-colors">Terms</span>
+</div>
+</div>
+</footer>
+<script>
+    // Custom Cursor Logic
+    const cursor = document.getElementById('cursor');
+    const follower = document.getElementById('cursor-follower');
+    
+    window.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+        
+        follower.style.left = (e.clientX - 16) + 'px';
+        follower.style.top = (e.clientY - 16) + 'px';
+    });
+
+    // Magnetic Links
+    document.querySelectorAll('.magnetic-link').forEach(link => {
+        link.addEventListener('mousemove', (e) => {
+            const rect = link.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            link.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+        });
+        link.addEventListener('mouseleave', () => {
+            link.style.transform = 'translate(0px, 0px)';
+        });
+    });
+
+    // Intersection Observer for Reveals
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal-clip, .image-mask').forEach(el => observer.observe(el));
+
+    // Parallax logic
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        document.querySelectorAll('.parallax').forEach(el => {
+            const speed = el.dataset.speed || 0.1;
+            el.style.setProperty('--p-y', `${scrolled * speed}px`);
+        });
+
+        const nav = document.getElementById('top-nav');
+        if (scrolled > 50) {
+            nav.classList.add('bg-surface/80', 'backdrop-blur-md', 'py-6');
+            nav.classList.remove('py-10');
+        } else {
+            nav.classList.remove('bg-surface/80', 'backdrop-blur-md', 'py-6');
+            nav.classList.add('py-10');
+        }
+    });
+
+    // Three.js Architectural Lattice Animation
+    (function() {
+        const container = document.getElementById('animation-container');
+        const width = container.clientWidth || window.innerWidth;
+        const height = container.clientHeight || window.innerHeight;
+
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+        camera.position.z = 5;
+
+        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+        renderer.setSize(width, height);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        container.appendChild(renderer.domElement);
+
+        const group = new THREE.Group();
+        scene.add(group);
+
+        // Grid structure
+        const boxGeom = new THREE.BoxGeometry(4, 4, 4, 6, 6, 6);
+        const wireframe = new THREE.WireframeGeometry(boxGeom);
+        const lineMat = new THREE.LineBasicMaterial({ 
+            color: 0x121212, 
+            transparent: true, 
+            opacity: 0.1 
+        });
+        const lattice = new THREE.LineSegments(wireframe, lineMat);
+        group.add(lattice);
+
+        // Nodes
+        const nodeGeom = new THREE.SphereGeometry(0.015, 8, 8);
+        const nodeMat = new THREE.MeshBasicMaterial({ color: 0x121212, transparent: true, opacity: 0.4 });
+        for(let i=0; i<60; i++) {
+            const node = new THREE.Mesh(nodeGeom, nodeMat);
+            node.position.set(
+                (Math.random() - 0.5) * 6,
+                (Math.random() - 0.5) * 6,
+                (Math.random() - 0.5) * 6
+            );
+            group.add(node);
+        }
+
+        let mouseX = 0, mouseY = 0, targetX = 0, targetY = 0;
+        window.addEventListener('mousemove', (e) => {
+            mouseX = (e.clientX / window.innerWidth) - 0.5;
+            mouseY = (e.clientY / window.innerHeight) - 0.5;
+        });
+
+        window.addEventListener('resize', () => {
+            const w = container.clientWidth || window.innerWidth;
+            const h = container.clientHeight || window.innerHeight;
+            camera.aspect = w / h;
+            camera.updateProjectionMatrix();
+            renderer.setSize(w, h);
+        });
+
+        function animate() {
+            requestAnimationFrame(animate);
+            targetX += (mouseX - targetX) * 0.03;
+            targetY += (mouseY - targetY) * 0.03;
+            group.rotation.y += 0.001;
+            group.rotation.x = targetY * 0.4;
+            group.rotation.y += targetX * 0.4;
+            renderer.render(scene, camera);
+        }
+        animate();
+    })();
+</script>
+</body></html>

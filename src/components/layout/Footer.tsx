@@ -1,50 +1,26 @@
-import Link from "next/link";
+"use client";
+
+import { MagneticLink } from "../ui/MagneticLink";
 
 export function Footer() {
   return (
-    <footer className="bg-background border-t border-border py-24 mt-32">
-      <div className="max-w-[var(--spacing-container-max)] mx-auto px-gutter flex flex-col md:flex-row justify-between items-start gap-16">
-        <div className="max-w-md">
-          <span className="font-mono text-sm tracking-tight text-on-background mb-4 block">
-            QODLYNQ
-          </span>
-          <p className="font-geist text-on-surface-variant text-lg leading-relaxed mb-8">
-            We build software for teams that care about architecture, performance, and long-term viability.
-          </p>
-          <div className="flex gap-6">
-            <Link
-              href="#"
-              className="text-on-surface-variant hover:text-on-background transition-colors font-mono text-xs uppercase tracking-widest"
-            >
-              Github
-            </Link>
-            <Link
-              href="#"
-              className="text-on-surface-variant hover:text-on-background transition-colors font-mono text-xs uppercase tracking-widest"
-            >
-              LinkedIn
-            </Link>
-            <Link
-              href="#"
-              className="text-on-surface-variant hover:text-on-background transition-colors font-mono text-xs uppercase tracking-widest"
-            >
-              Twitter
-            </Link>
-          </div>
+    <footer className="w-full px-margin-desktop py-24 bg-primary text-surface relative overflow-hidden">
+      <div className="max-w-[1600px] mx-auto editorial-grid items-end">
+        <div className="col-span-12 md:col-span-6">
+          <div className="font-display-lg text-4xl tracking-tighter opacity-100 mb-8">STUDIO_ARCH</div>
+          <p className="font-label-sm uppercase tracking-[0.3em] opacity-40">Structural Engineering for Software</p>
         </div>
-        
-        <div className="flex gap-24">
-          <div className="flex flex-col gap-4">
-            <Link href="#beliefs" className="font-mono text-xs uppercase tracking-widest text-on-surface-variant hover:text-on-background">
-              Beliefs
-            </Link>
-            <Link href="#approach" className="font-mono text-xs uppercase tracking-widest text-on-surface-variant hover:text-on-background">
-              Approach
-            </Link>
-            <Link href="#work" className="font-mono text-xs uppercase tracking-widest text-on-surface-variant hover:text-on-background">
-              Work
-            </Link>
-          </div>
+        <div className="col-span-12 md:col-span-6 md:text-right space-x-12 mt-12 md:mt-0">
+          <MagneticLink href="#" className="font-label-sm uppercase tracking-widest hover:opacity-50 transition-all">LinkedIn</MagneticLink>
+          <MagneticLink href="#" className="font-label-sm uppercase tracking-widest hover:opacity-50 transition-all">Twitter</MagneticLink>
+          <MagneticLink href="#" className="font-label-sm uppercase tracking-widest hover:opacity-50 transition-all">Clutch</MagneticLink>
+        </div>
+      </div>
+      <div className="max-w-[1600px] mx-auto mt-24 pt-12 border-t border-surface/5 flex flex-col md:flex-row justify-between gap-8 opacity-30">
+        <p className="font-label-sm uppercase tracking-widest">© 2024 Studio Arch. London.</p>
+        <div className="flex gap-12 font-label-sm uppercase tracking-widest">
+          <span className="hover:text-surface cursor-pointer transition-colors">Privacy</span>
+          <span className="hover:text-surface cursor-pointer transition-colors">Terms</span>
         </div>
       </div>
     </footer>

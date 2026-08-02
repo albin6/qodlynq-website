@@ -1,24 +1,38 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ReactNode } from "react";
+import { useEffect, useRef, useState } from "react";
 
-interface RevealProps {
-  children: ReactNode;
-  delay?: number;
-  className?: string;
-}
+export function Reveal({ children, className, type = "text", delay = 0 }: { children: React.ReactNode, className?: string, type?: "text" | "image", delay?: number }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
 
-export function Reveal({ children, delay = 0, className = "" }: RevealProps) {
+  useEffect(() => {
+    const currentRef = ref.current;
+    if (!currentRef) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => setIsVisible(true), delay);
+          observer.unobserve(currentRef);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(currentRef);
+
+    return () => {
+      if (currentRef) observer.unobserve(currentRef);
+    };
+  }, [delay]);
+
+  const baseClass = type === "image" ? "image-mask" : "reveal-clip";
+  const activeClass = isVisible ? "active" : "";
+
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-10%" }}
-      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay }}
-      className={className}
-    >
+    <div ref={ref} className={`${baseClass} ${activeClass} ${className || ""}`}>
       {children}
-    </motion.div>
+    </div>
   );
 }
