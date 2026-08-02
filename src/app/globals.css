@@ -1,114 +1,45 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-background: #F5F3ED;
-  --color-primary: #000000;
-  --color-secondary: #5f5f5a;
-  --color-vellum: #F5F3ED;
-  --color-surface-tint: #5e5e5e;
-
-  --spacing-margin: clamp(24px, 5vw, 48px);
-  --spacing-gutter: clamp(16px, 2.5vw, 24px);
-
-  --font-playfair: var(--font-playfair);
-  --font-jetbrains: var(--font-jetbrains);
-
-  --font-headline-xl: var(--font-playfair);
-  --font-headline-lg: var(--font-playfair);
-  --font-headline-md: var(--font-playfair);
+  --color-background: #000000;
+  --color-on-background: #ffffff;
   
-  --font-body-lg: var(--font-jetbrains);
-  --font-body-md: var(--font-jetbrains);
-  --font-label-caps: var(--font-jetbrains);
-  --font-button: var(--font-jetbrains);
+  --color-surface: #0a0a0a;
+  --color-on-surface: #ffffff;
+  
+  --color-surface-variant: #111111;
+  --color-on-surface-variant: #888888;
+  
+  --color-border: #222222;
+  --color-border-hover: #444444;
 
-  --text-headline-xl: clamp(40px, 6vw, 64px);
-  --text-headline-xl--line-height: 1.1;
-  --text-headline-xl--letter-spacing: -0.02em;
-  --text-headline-xl--font-weight: 700;
+  --font-geist: var(--font-geist);
+  --font-mono: var(--font-jetbrains);
 
-  --text-headline-lg: clamp(32px, 5vw, 48px);
-  --text-headline-lg--line-height: 1.2;
-  --text-headline-lg--letter-spacing: -0.01em;
-  --text-headline-lg--font-weight: 600;
-
-  --text-headline-md: clamp(24px, 4vw, 32px);
-  --text-headline-md--line-height: 1.3;
-  --text-headline-md--font-weight: 500;
-
-  --text-body-lg: clamp(16px, 2vw, 18px);
-  --text-body-lg--line-height: 1.6;
-  --text-body-lg--font-weight: 400;
-
-  --text-body-md: 14px;
-  --text-body-md--line-height: 1.5;
-  --text-body-md--font-weight: 400;
-
-  --text-label-caps: 12px;
-  --text-label-caps--line-height: 1;
-  --text-label-caps--letter-spacing: 0.1em;
-  --text-label-caps--font-weight: 700;
-
-  --text-button: 14px;
-  --text-button--line-height: 1;
-  --text-button--font-weight: 700;
+  --spacing-container-max: 1440px;
+  --spacing-gutter: 24px;
 }
 
 body {
-  background: var(--color-background);
-  color: var(--color-primary);
-  font-family: var(--font-jetbrains);
+    background-color: var(--color-background);
+    color: var(--color-on-background);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-/* Structural Blueprint Grid Background Overlay */
-.blueprint-grid {
-    background-image: 
-        linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
-    background-size: 24px 24px;
-    pointer-events: none;
+/* Custom utility for intentional asymmetrical borders */
+.border-sculpted {
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
 }
 
-/* 12-Column Grid Lines */
-.col-lines {
-    display: grid;
-    grid-template-columns: repeat(12, minmax(0, 1fr));
-    gap: var(--spacing-gutter);
-    position: absolute;
-    inset: 0;
-    padding: 0 var(--spacing-margin);
-    pointer-events: none;
-    z-index: 0;
-}
+/* Custom scrollbar to keep it clean */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--color-background); }
+::-webkit-scrollbar-thumb { background: var(--color-surface-variant); border-radius: 0px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-border-hover); }
 
-.col-lines > div {
-    border-left: 1px solid rgba(0,0,0,0.05);
-    border-right: 1px solid rgba(0,0,0,0.05);
-    height: 100%;
-}
-
-@media (max-width: 1024px) {
-    .col-lines {
-        grid-template-columns: repeat(8, minmax(0, 1fr));
-    }
-    .col-lines > div:nth-child(n+9) { display: none; }
-}
-
-@media (max-width: 768px) {
-    .col-lines {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
-    .col-lines > div:nth-child(n+5) { display: none; }
-}
-
-/* Hide scrollbar for clean look */
-::-webkit-scrollbar {
-    width: 8px;
-}
-::-webkit-scrollbar-track {
-    background: var(--color-background); 
-    border-left: 1px solid #000;
-}
-::-webkit-scrollbar-thumb {
-    background: #000; 
+/* Remove any focus outlines globally except when keyboard navigating */
+*:focus:not(:focus-visible) {
+    outline: none;
 }

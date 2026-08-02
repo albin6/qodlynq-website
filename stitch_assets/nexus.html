@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nexus Engineering | Premier Software Development Agency</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-bright": "#3a3939",
+                    "on-secondary": "#3c0091",
+                    "tertiary": "#c6c6c7",
+                    "on-primary": "#002387",
+                    "on-secondary-fixed": "#23005c",
+                    "primary-container": "#2d5bff",
+                    "surface-container-low": "#1c1b1b",
+                    "on-surface-variant": "#c4c5d9",
+                    "surface-variant": "#353534",
+                    "secondary-fixed": "#e9ddff",
+                    "primary-fixed-dim": "#b8c3ff",
+                    "primary": "#b8c3ff",
+                    "error-container": "#93000a",
+                    "outline-variant": "#434656",
+                    "on-error-container": "#ffdad6",
+                    "surface-container": "#201f1f",
+                    "error": "#ffb4ab",
+                    "on-secondary-container": "#c4abff",
+                    "outline": "#8e90a2",
+                    "on-primary-fixed-variant": "#0035bd",
+                    "on-tertiary": "#2f3131",
+                    "tertiary-fixed-dim": "#c6c6c7",
+                    "on-tertiary-fixed-variant": "#454747",
+                    "surface": "#131313",
+                    "inverse-on-surface": "#313030",
+                    "tertiary-container": "#6c6d6d",
+                    "on-tertiary-container": "#f0f0f0",
+                    "on-background": "#e5e2e1",
+                    "surface-container-lowest": "#0e0e0e",
+                    "on-error": "#690005",
+                    "primary-fixed": "#dde1ff",
+                    "secondary-fixed-dim": "#d0bcff",
+                    "surface-tint": "#b8c3ff",
+                    "on-secondary-fixed-variant": "#5516be",
+                    "surface-container-high": "#2a2a2a",
+                    "on-surface": "#e5e2e1",
+                    "inverse-primary": "#104af0",
+                    "surface-dim": "#131313",
+                    "tertiary-fixed": "#e2e2e2",
+                    "on-primary-container": "#efefff",
+                    "inverse-surface": "#e5e2e1",
+                    "on-primary-fixed": "#001355",
+                    "on-tertiary-fixed": "#1a1c1c",
+                    "background": "#131313",
+                    "surface-container-highest": "#353534",
+                    "secondary-container": "#571bc1",
+                    "secondary": "#d0bcff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-gap-md": "24px",
+                    "section-padding-lg": "160px",
+                    "unit": "8px",
+                    "gutter": "32px",
+                    "container-max": "1280px",
+                    "margin-mobile": "20px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Geist"],
+                    "headline-lg": ["Geist"],
+                    "headline-xl": ["Geist"],
+                    "label-mono": ["JetBrains Mono"],
+                    "body-md": ["Geist"],
+                    "caption": ["Geist"],
+                    "headline-xl-mobile": ["Geist"],
+                    "body-lg": ["Geist"]
+            },
+            "fontSize": {
+                    "headline-md": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "headline-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "headline-xl": ["72px", {"lineHeight": "80px", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                    "label-mono": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400"}],
+                    "caption": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                    "headline-xl-mobile": ["40px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .engineering-grid {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stagger-1 { transition-delay: 100ms; }
+        .stagger-2 { transition-delay: 200ms; }
+        .stagger-3 { transition-delay: 300ms; }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #131313; }
+        ::-webkit-scrollbar-thumb { background: #353534; border-radius: 10px; }
+    </style>
+</head>
+<body class="font-body-md text-body-md overflow-x-hidden">
+<!-- Navigation -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-white/10 h-20 flex items-center">
+<div class="max-w-container-max mx-auto px-gutter w-full flex justify-between items-center">
+<div class="flex items-center gap-2">
+<span class="font-headline-md text-headline-md font-bold text-on-surface tracking-tighter">Nexus Engineering</span>
+</div>
+<div class="hidden md:flex items-center gap-10">
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-body-md text-body-md" href="#">Services</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-body-md text-body-md" href="#">Projects</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-body-md text-body-md" href="#">Process</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-body-md text-body-md" href="#">Insights</a>
+</div>
+<button class="bg-primary-container text-white px-6 py-3 rounded-xl font-body-md text-body-md font-semibold hover:opacity-90 active:scale-95 transition-all">
+                Start a Project
+            </button>
+</div>
+</nav>
+<main>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center pt-20 engineering-grid overflow-hidden">
+<!-- Shader Background -->
+<!-- STITCH_SHADER_START:ANIMATION_2 class="absolute inset-0 w-full h-full opacity-40 mix-blend-screen" -->
+<div class="absolute inset-0 w-full h-full opacity-40 mix-blend-screen" style="display:block;">
+<canvas id="shader-canvas-ANIMATION_2" style="display:block;width:100%;height:100%"></canvas>
+<script>
+(function() {
+  const canvas = document.getElementById('shader-canvas-ANIMATION_2');
+
+  // Sync the WebGL drawing-buffer size with the CSS-driven layout size.
+  // This fires on initial layout and whenever the element is resized.
+  function syncSize() {
+    const w = canvas.clientWidth  || 1280;
+    const h = canvas.clientHeight || 720;
+    if (canvas.width !== w || canvas.height !== h) {
+      canvas.width  = w;
+      canvas.height = h;
+    }
+  }
+  if (typeof ResizeObserver !== 'undefined') {
+    new ResizeObserver(syncSize).observe(canvas);
+  }
+  syncSize();
+
+  const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+  if (!gl) return;
+  const vs = `attribute vec2 a_position;
+varying vec2 v_texCoord;
+void main() {
+  v_texCoord = a_position * 0.5 + 0.5;
+  gl_Position = vec4(a_position, 0.0, 1.0);
+}`;
+  const fs = `precision highp float;
+uniform float u_time;
+uniform vec2 u_resolution;
+
+void main() {
+    vec2 uv = gl_FragCoord.xy / u_resolution.xy;
+    
+    // Subtle moving grain/noise
+    float noise = fract(sin(dot(uv + u_time * 0.01, vec2(12.9898, 78.233))) * 43758.5453);
+    
+    // Very faint gradient shift
+    vec3 color1 = vec3(0.01, 0.01, 0.02); // Near black
+    vec3 color2 = vec3(0.02, 0.02, 0.04); // Slightly lighter
+    
+    float mask = smoothstep(0.4, 0.6, uv.y + sin(uv.x * 2.0 + u_time * 0.2) * 0.1);
+    vec3 finalColor = mix(color1, color2, mask);
+    
+    // Add noise for texture
+    finalColor += noise * 0.015;
+    
+    gl_FragColor = vec4(finalColor, 1.0);
+}`;
+  function cs(type, src) {
+    const s = gl.createShader(type);
+    gl.shaderSource(s, src);
+    gl.compileShader(s);
+    return s;
+  }
+  const prog = gl.createProgram();
+  gl.attachShader(prog, cs(gl.VERTEX_SHADER, vs));
+  gl.attachShader(prog, cs(gl.FRAGMENT_SHADER, fs));
+  gl.linkProgram(prog);
+  gl.useProgram(prog);
+  const buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+  const pos = gl.getAttribLocation(prog, 'a_position');
+  gl.enableVertexAttribArray(pos);
+  gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
+  const uTime = gl.getUniformLocation(prog, 'u_time');
+  const uRes = gl.getUniformLocation(prog, 'u_resolution');
+  const uMouse = gl.getUniformLocation(prog, 'u_mouse');
+
+  // u_mouse is in pixel coordinates matching u_resolution (ShaderToy convention).
+  // Shaders that need normalized coords should use: u_mouse / u_resolution.
+  let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
+  window.addEventListener('mousemove', (event) => {
+    const rect = canvas.getBoundingClientRect();
+    if (rect.width && rect.height) {
+      const nx = (event.clientX - rect.left) / rect.width;
+      const ny = 1.0 - (event.clientY - rect.top) / rect.height;
+      mouse.x = nx * canvas.width;
+      mouse.y = ny * canvas.height;
+    }
+  });
+
+  function render(t) {
+    if (typeof ResizeObserver === 'undefined') syncSize();
+    gl.viewport(0, 0, canvas.width, canvas.height);
+    if (uTime) gl.uniform1f(uTime, t * 0.001);
+    if (uRes) gl.uniform2f(uRes, canvas.width, canvas.height);
+    if (uMouse) gl.uniform2f(uMouse, mouse.x, mouse.y);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    requestAnimationFrame(render);
+  }
+  render(0);
+})();
+</script>
+</div>
+<!-- STITCH_SHADER_END:ANIMATION_2 -->
+<div class="max-w-container-max mx-auto px-gutter relative w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div class="reveal active stagger-1">
+<span class="font-label-mono text-label-mono text-primary uppercase tracking-[0.2em] mb-6 block">Premium Systems Engineering</span>
+<h1 class="font-headline-xl text-headline-xl-mobile md:text-headline-xl leading-none mb-8">
+                        We engineer software that <span class="text-primary-fixed-dim">scales.</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mb-12">
+                        High-performance product engineering for the next generation of industry leaders. We blend technical rigor with creative craftsmanship.
+                    </p>
+<div class="flex flex-wrap gap-6">
+<button class="bg-[#2D5BFF] text-white px-8 py-4 rounded-xl font-body-md text-body-md font-bold hover:shadow-[0_0_20px_rgba(45,91,255,0.4)] transition-all">
+                            Start a Project
+                        </button>
+<button class="bg-white/5 border border-white/10 text-white px-8 py-4 rounded-xl font-body-md text-body-md font-bold hover:bg-white/10 transition-all">
+                            View our Work
+                        </button>
+</div>
+</div>
+<div class="relative h-[600px] w-full hidden lg:block reveal active stagger-3">
+<!-- STITCH_THREEJS_START:ANIMATION_3 class="absolute inset-0 w-full h-full" -->
+<div class="absolute inset-0 w-full h-full" style="display:block;">
+<script src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
+<div id="threejs-container-ANIMATION_3" style="width:100%;height:100%"></div>
+<script>
+(function() {
+  const container = document.getElementById('threejs-container-ANIMATION_3');
+  const devicePixelRatio = window.devicePixelRatio || 1;
+  const width = container.clientWidth || window.innerWidth;
+const height = container.clientHeight || window.innerHeight;
+
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+camera.position.z = 5;
+
+const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+renderer.setSize(width, height);
+renderer.setPixelRatio(window.device_ratio || 1);
+container.appendChild(renderer.domElement);
+
+// Create a minimalist geometric "core" representing engineering
+const group = new THREE.Group();
+scene.add(group);
+
+const geometry = new THREE.IcosahedronGeometry(2, 1);
+const material = new THREE.MeshPhongMaterial({
+    color: 0x2d5bff,
+    wireframe: true,
+    transparent: true,
+    opacity: 0.3
+});
+const core = new THREE.Mesh(geometry, material);
+group.add(core);
+
+// Inner solid core
+const innerGeom = new THREE.IcosahedronGeometry(0.8, 2);
+const innerMat = new THREE.MeshPhongMaterial({ color: 0xffffff, emissive: 0x2d5bff, emissiveIntensity: 0.5 });
+const innerCore = new THREE.Mesh(innerGeom, innerMat);
+group.add(innerCore);
+
+// Floating particles/nodes
+const pointsGeom = new THREE.BufferGeometry();
+const pointsCount = 100;
+const positions = new Float32Array(pointsCount * 3);
+for(let i = 0; i < pointsCount * 3; i++) {
+    positions[i] = (Math.random() - 0.5) * 10;
+}
+pointsGeom.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+const pointsMat = new THREE.PointsMaterial({ color: 0xffffff, size: 0.03, transparent: true, opacity: 0.5 });
+const particles = new THREE.Points(pointsGeom, pointsMat);
+scene.add(particles);
+
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+scene.add(ambientLight);
+
+const pointLight = new THREE.PointLight(0x2d5bff, 2, 10);
+pointLight.position.set(5, 5, 5);
+scene.add(pointLight);
+
+function animate() {
+    requestAnimationFrame(animate);
+    group.rotation.y += 0.002;
+    group.rotation.x += 0.001;
+    particles.rotation.y -= 0.0005;
+    renderer.render(scene, camera);
+}
+
+animate();
+
+window.addEventListener('resize', () => {
+    const w = container.clientWidth || window.innerWidth;
+    const h = container.clientHeight || window.innerHeight;
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+    renderer.setSize(w, h);
+});
+})();
+</script>
+</div>
+<!-- STITCH_THREEJS_END:ANIMATION_3 -->
+</div>
+</div>
+</section>
+<!-- Trusted By -->
+<section class="py-20 border-y border-white/5 bg-surface-container-lowest">
+<div class="max-w-container-max mx-auto px-gutter">
+<p class="font-label-mono text-caption text-on-surface-variant/50 text-center uppercase tracking-widest mb-12">Trusted by industry titans</p>
+<div class="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+<span class="font-headline-md text-headline-md font-bold tracking-tighter">AETHER</span>
+<span class="font-headline-md text-headline-md font-bold tracking-tighter">VOLTAS</span>
+<span class="font-headline-md text-headline-md font-bold tracking-tighter">ZENITH</span>
+<span class="font-headline-md text-headline-md font-bold tracking-tighter">KINETIX</span>
+</div>
+</div>
+</section>
+<!-- Services Section -->
+<section class="py-section-padding-lg relative bg-surface">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="max-w-3xl mb-24 reveal">
+<h2 class="font-headline-lg text-headline-lg mb-6">Expertise at every layer of the stack.</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">We build resilient, distributed systems designed for the future of digital business.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Service 1 -->
+<div class="glass-panel p-8 rounded-2xl reveal stagger-1 group hover:border-primary/40 transition-colors">
+<div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-8">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">terminal</span>
+</div>
+<h3 class="font-headline-md text-[24px] mb-4">Product Engineering</h3>
+<p class="font-body-md text-on-surface-variant">Full-lifecycle development from architecture to deployment with rigorous testing.</p>
+</div>
+<!-- Service 2 -->
+<div class="glass-panel p-8 rounded-2xl reveal stagger-2 group hover:border-primary/40 transition-colors">
+<div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-8">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">neurology</span>
+</div>
+<h3 class="font-headline-md text-[24px] mb-4">AI Solutions</h3>
+<p class="font-body-md text-on-surface-variant">Implementing enterprise-grade machine learning models and predictive analytics.</p>
+</div>
+<!-- Service 3 -->
+<div class="glass-panel p-8 rounded-2xl reveal stagger-3 group hover:border-primary/40 transition-colors">
+<div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-8">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">cloud_done</span>
+</div>
+<h3 class="font-headline-md text-[24px] mb-4">Cloud Infrastructure</h3>
+<p class="font-body-md text-on-surface-variant">Robust, auto-scaling infrastructure designs using AWS, Azure, and GCP.</p>
+</div>
+<!-- Service 4 -->
+<div class="glass-panel p-8 rounded-2xl reveal stagger-1 group hover:border-primary/40 transition-colors">
+<div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-8">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">polyline</span>
+</div>
+<h3 class="font-headline-md text-[24px] mb-4">UI/UX Design</h3>
+<p class="font-body-md text-on-surface-variant">Precision design systems crafted for high-performance user interactions.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Featured Projects -->
+<section class="py-section-padding-lg bg-surface-container-lowest">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="flex justify-between items-end mb-16 reveal">
+<div>
+<span class="font-label-mono text-label-mono text-primary uppercase mb-4 block">Case Studies</span>
+<h2 class="font-headline-lg text-headline-lg">Selected Projects</h2>
+</div>
+<a class="font-label-mono text-label-mono hover:text-primary transition-colors pb-2 border-b border-white/20" href="#">View Gallery</a>
+</div>
+<div class="space-y-24">
+<!-- Project 1 -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center reveal">
+<div class="relative overflow-hidden rounded-2xl aspect-video group">
+<div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent opacity-60 z-10"></div>
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A futuristic and sleek dark-mode user interface for a digital banking platform. The UI features complex data visualizations, real-time stock charts, and a clean minimalist sidebar. The aesthetic is inspired by high-end engineering software with deep blacks, subtle glowing primary blue accents, and pristine typography. Cinematic lighting creates a sense of depth and elite quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuARaAxcYiXy9_C_Pom8ACy0679VgDHEkz_SB6qU3FymC3rYvOqAvyxa3er5zLYndXVgIRj8QYR3c6_wooFEJOAU5t4CkJMvWD4oynBYk-VqWfbvmyxs4kJP-BrIt1tNYgqtuDG4Z1r6MUketphbr3myGnjrZUMMMmtiHZeColwVxxVmNwKLP-ZyyQrUTOqv4BztPwdKisJVNBVZ-nXfBQQWULaNZjsQ1KVQ1wlQcbDBNQrEkROwdgj0"/>
+<div class="absolute bottom-8 left-8 z-20">
+<span class="bg-primary-container/20 text-primary-fixed-dim px-3 py-1 rounded-full text-caption font-label-mono backdrop-blur-md">Fintech Core</span>
+</div>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md mb-6">Scalable banking infrastructure for global markets.</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8">
+                                Re-architected a legacy banking core into a distributed, event-driven system capable of processing 10k transactions per second with sub-10ms latency.
+                            </p>
+<div class="flex flex-wrap gap-3 mb-10">
+<span class="font-label-mono text-[12px] bg-white/5 border border-white/10 px-3 py-1 rounded">Kubernetes</span>
+<span class="font-label-mono text-[12px] bg-white/5 border border-white/10 px-3 py-1 rounded">Go</span>
+<span class="font-label-mono text-[12px] bg-white/5 border border-white/10 px-3 py-1 rounded">Kafka</span>
+<span class="font-label-mono text-[12px] bg-white/5 border border-white/10 px-3 py-1 rounded">AWS</span>
+</div>
+<button class="font-body-md text-body-md font-bold flex items-center gap-2 group">
+                                Read Case Study
+                                <span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Project 2 -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center reveal">
+<div class="lg:order-2 relative overflow-hidden rounded-2xl aspect-video group">
+<div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent opacity-60 z-10"></div>
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A sophisticated dashboard for an enterprise artificial intelligence platform. The screen displays complex neural network structures and real-time training data streams. The design is high-contrast with dark grey surfaces and vibrant purple and blue glow effects. The mood is highly technical and modern, echoing the visual language of professional developer tools." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFNiJGyE_8iCxZP680_TocOXSgh_GKImtkcfjC0YbSO8s9ssMEO4xdbOnKoWqEPUwpOYFbkH9kAbkXXJW1mv7i_3m0xjG2wHyix7y40Ff4DiqYL1KPl1W80niL5rRggg33tgmnvPsl_fgkhQtl_Dej4UvenZoFpee23xwVr4067nLr3xy-QsCmnglovupDvbkNTHXTFoHfO0-1y6yFyxBHVIQUxbho9SxxnJPFwV3CV41E0en9gRjS"/>
+<div class="absolute bottom-8 left-8 z-20">
+<span class="bg-primary-container/20 text-primary-fixed-dim px-3 py-1 rounded-full text-caption font-label-mono backdrop-blur-md">Insight AI</span>
+</div>
+</div>
+<div class="lg:order-1">
+<h3 class="font-headline-md text-headline-md mb-6">Enterprise machine learning platform.</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8">
+                                Developed an end-to-end MLOps pipeline that reduced deployment time for predictive models from weeks to minutes for a Fortune 500 retailer.
+                            </p>
+<div class="flex flex-wrap gap-3 mb-10">
+<span class="font-label-mono text-[12px] bg-white/5 border border-white/10 px-3 py-1 rounded">Python</span>
+<span class="font-label-mono text-[12px] bg-white/5 border border-white/10 px-3 py-1 rounded">PyTorch</span>
+<span class="font-label-mono text-[12px] bg-white/5 border border-white/10 px-3 py-1 rounded">React</span>
+<span class="font-label-mono text-[12px] bg-white/5 border border-white/10 px-3 py-1 rounded">OpenAI</span>
+</div>
+<button class="font-body-md text-body-md font-bold flex items-center gap-2 group">
+                                Read Case Study
+                                <span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Development Process -->
+<section class="py-section-padding-lg bg-surface relative overflow-hidden">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="text-center mb-24 reveal">
+<span class="font-label-mono text-label-mono text-primary uppercase mb-4 block">Our Methodology</span>
+<h2 class="font-headline-lg text-headline-lg">How we ship excellence.</h2>
+</div>
+<div class="relative">
+<!-- Timeline Line -->
+<div class="hidden lg:block absolute top-1/2 left-0 w-full h-[1px] bg-white/10 -translate-y-1/2 z-0"></div>
+<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-12 relative z-10">
+<!-- Step 1 -->
+<div class="bg-surface p-8 border border-white/5 rounded-2xl reveal stagger-1 hover:border-primary/30 transition-all">
+<div class="font-label-mono text-primary mb-6">01. Discovery</div>
+<h4 class="font-headline-md text-[20px] mb-4">Understanding Scope</h4>
+<p class="font-body-md text-on-surface-variant text-sm">Deep dive into your business logic and technical requirements.</p>
+</div>
+<!-- Step 2 -->
+<div class="bg-surface p-8 border border-white/5 rounded-2xl reveal stagger-2 hover:border-primary/30 transition-all">
+<div class="font-label-mono text-primary mb-6">02. Planning</div>
+<h4 class="font-headline-md text-[20px] mb-4">Architecture Design</h4>
+<p class="font-body-md text-on-surface-variant text-sm">Defining the stack, infrastructure, and scalability roadmap.</p>
+</div>
+<!-- Step 3 -->
+<div class="bg-surface p-8 border border-white/5 rounded-2xl reveal stagger-3 hover:border-primary/30 transition-all">
+<div class="font-label-mono text-primary mb-6">03. Design</div>
+<h4 class="font-headline-md text-[20px] mb-4">Experience Craft</h4>
+<p class="font-body-md text-on-surface-variant text-sm">Crafting the visual interface and user journeys with precision.</p>
+</div>
+<!-- Step 4 -->
+<div class="bg-surface p-8 border border-white/5 rounded-2xl reveal stagger-1 hover:border-primary/30 transition-all">
+<div class="font-label-mono text-primary mb-6">04. Development</div>
+<h4 class="font-headline-md text-[20px] mb-4">Rigorous Coding</h4>
+<p class="font-body-md text-on-surface-variant text-sm">Sprint-based engineering with continuous CI/CD integration.</p>
+</div>
+<!-- Step 5 -->
+<div class="bg-surface p-8 border border-white/5 rounded-2xl reveal stagger-2 hover:border-primary/30 transition-all">
+<div class="font-label-mono text-primary mb-6">05. Deployment</div>
+<h4 class="font-headline-md text-[20px] mb-4">Global Launch</h4>
+<p class="font-body-md text-on-surface-variant text-sm">Auto-scaling launch with 24/7 infrastructure monitoring.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Tech Stack -->
+<section class="py-20 bg-surface-container-lowest border-y border-white/5">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="flex flex-wrap justify-center items-center gap-10 md:gap-20 opacity-40 hover:opacity-80 transition-opacity">
+<span class="font-label-mono text-label-mono">React</span>
+<span class="font-label-mono text-label-mono">Next.js</span>
+<span class="font-label-mono text-label-mono">TypeScript</span>
+<span class="font-label-mono text-label-mono">Node.js</span>
+<span class="font-label-mono text-label-mono">OpenAI</span>
+<span class="font-label-mono text-label-mono">AWS</span>
+<span class="font-label-mono text-label-mono">PostgreSQL</span>
+<span class="font-label-mono text-label-mono">Kubernetes</span>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="py-section-padding-lg bg-surface">
+<div class="max-w-container-max mx-auto px-gutter grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
+<div class="reveal">
+<h2 class="font-headline-lg text-headline-lg mb-8">Ready to build the next generation?</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-12">
+                        Whether you're a startup scaling fast or an enterprise modernizing core systems, our engineering team is ready.
+                    </p>
+<div class="space-y-6">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-sm">mail</span>
+</div>
+<span class="font-label-mono">hello@nexusengineering.io</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-sm">location_on</span>
+</div>
+<span class="font-label-mono">San Francisco • London • remote</span>
+</div>
+</div>
+</div>
+<div class="glass-panel p-10 rounded-2xl reveal stagger-2">
+<form class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<label class="font-label-mono text-caption uppercase text-on-surface-variant mb-2 block">Full Name</label>
+<input class="w-full bg-black border border-white/20 rounded-lg px-4 py-3 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all text-white" placeholder="John Doe" type="text"/>
+</div>
+<div>
+<label class="font-label-mono text-caption uppercase text-on-surface-variant mb-2 block">Email Address</label>
+<input class="w-full bg-black border border-white/20 rounded-lg px-4 py-3 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all text-white" placeholder="john@company.com" type="email"/>
+</div>
+</div>
+<div>
+<label class="font-label-mono text-caption uppercase text-on-surface-variant mb-2 block">Service Required</label>
+<select class="w-full bg-black border border-white/20 rounded-lg px-4 py-3 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all text-white appearance-none">
+<option>Product Engineering</option>
+<option>AI &amp; Machine Learning</option>
+<option>Cloud &amp; DevOps</option>
+<option>UX/UI Strategy</option>
+</select>
+</div>
+<div>
+<label class="font-label-mono text-caption uppercase text-on-surface-variant mb-2 block">Project Details</label>
+<textarea class="w-full bg-black border border-white/20 rounded-lg px-4 py-3 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all text-white" placeholder="Tell us about your project goals..." rows="4"></textarea>
+</div>
+<button class="w-full bg-[#2D5BFF] text-white py-4 rounded-xl font-body-md text-body-md font-bold hover:shadow-[0_0_20px_rgba(45,91,255,0.4)] transition-all flex items-center justify-center gap-2">
+                            Send Proposal
+                            <span class="material-symbols-outlined text-sm">send</span>
+</button>
+</form>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface border-t border-white/5 py-section-padding-lg">
+<div class="max-w-container-max mx-auto px-gutter flex flex-col md:flex-row justify-between items-start gap-stack-gap-md">
+<div class="max-w-sm">
+<span class="font-headline-md text-headline-md font-bold text-on-surface mb-6 block">Nexus Engineering</span>
+<p class="font-body-md text-on-surface-variant mb-8">Crafting high-performance digital solutions for the innovators of tomorrow.</p>
+<div class="flex gap-6">
+<a class="text-on-surface-variant hover:text-white transition-colors font-label-mono text-sm" href="#">Github</a>
+<a class="text-on-surface-variant hover:text-white transition-colors font-label-mono text-sm" href="#">LinkedIn</a>
+<a class="text-on-surface-variant hover:text-white transition-colors font-label-mono text-sm" href="#">X (Twitter)</a>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-16">
+<div>
+<h5 class="font-label-mono text-caption text-white uppercase mb-6">Sitemap</h5>
+<ul class="space-y-4">
+<li><a class="text-on-surface-variant hover:text-white text-sm" href="#">Home</a></li>
+<li><a class="text-on-surface-variant hover:text-white text-sm" href="#">Services</a></li>
+<li><a class="text-on-surface-variant hover:text-white text-sm" href="#">Projects</a></li>
+<li><a class="text-on-surface-variant hover:text-white text-sm" href="#">About</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label-mono text-caption text-white uppercase mb-6">Legal</h5>
+<ul class="space-y-4">
+<li><a class="text-on-surface-variant hover:text-white text-sm" href="#">Privacy Policy</a></li>
+<li><a class="text-on-surface-variant hover:text-white text-sm" href="#">Terms of Service</a></li>
+<li><a class="text-on-surface-variant hover:text-white text-sm" href="#">Cookie Policy</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-gutter mt-24 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+<p class="font-label-mono text-caption text-on-surface-variant">© 2024 Nexus Engineering. All Systems Operational.</p>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+<span class="font-label-mono text-caption text-on-surface-variant">Systems Operational</span>
+</div>
+</div>
+</footer>
+<script>
+        // Simple Intersection Observer for reveal animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Smooth scroll implementation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Sticky nav transition
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('h-16', 'shadow-2xl', 'shadow-black/40');
+                nav.classList.remove('h-20');
+            } else {
+                nav.classList.remove('h-16', 'shadow-2xl', 'shadow-black/40');
+                nav.classList.add('h-20');
+            }
+        });
+    </script>
+</body></html>

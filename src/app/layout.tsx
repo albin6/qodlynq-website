@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Playfair_Display, JetBrains_Mono } from "next/font/google";
+import { Geist, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const playfair = Playfair_Display({
+const geist = Geist({
   subsets: ["latin"],
-  variable: "--font-playfair",
+  variable: "--font-geist",
 });
 
 const jetbrains = JetBrains_Mono({
@@ -13,32 +13,8 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: {
-    default: "QODLYNQ | Precision Software Systems",
-    template: "%s | QODLYNQ",
-  },
-  description: "We architect precision software systems, immutable infrastructure, and enterprise-grade APIs. Designing resilient blueprints for scalable workflows.",
-  keywords: ["Software Architecture", "Infrastructure as Code", "API Design", "Distributed Systems", "Enterprise Tech"],
-  authors: [{ name: "QODLYNQ Core" }],
-  creator: "QODLYNQ",
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: "https://qodlynq.com",
-    title: "QODLYNQ | Precision Software Systems",
-    description: "Deploying structural integrity across complex technical environments. We engineer digital concrete.",
-    siteName: "QODLYNQ",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "QODLYNQ | Precision Software Systems",
-    description: "Deploying structural integrity across complex technical environments. We engineer digital concrete.",
-    creator: "@qodlynq",
-  },
-  robots: {
-    index: true,
-    follow: true,
-  }
+  title: "Qodlynq | Engineering Studio",
+  description: "We solve complex engineering problems.",
 };
 
 export default function RootLayout({
@@ -47,16 +23,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="dark scroll-smooth">
+      <head>
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+      </head>
       <body
         suppressHydrationWarning
-        className={`${playfair.variable} ${jetbrains.variable} bg-background text-primary font-body-md antialiased min-h-screen relative overflow-x-hidden selection:bg-primary selection:text-vellum flex flex-col`}
+        className={`${geist.variable} ${jetbrains.variable} bg-background text-on-background font-geist antialiased min-h-screen relative overflow-x-hidden selection:bg-on-background selection:text-background flex flex-col`}
       >
-        {/* Global Grid Overlay */}
-        <div className="col-lines fixed">
-          <div /><div /><div /><div /><div /><div />
-          <div /><div /><div /><div /><div /><div />
-        </div>
         {children}
       </body>
     </html>

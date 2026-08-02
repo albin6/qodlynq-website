@@ -1,14 +1,17 @@
 import dynamic from "next/dynamic";
 import { Header } from "@/components/layout/Header";
-import { Hero } from "@/components/sections/Hero";
+import { HeroEditorial } from "@/components/sections/HeroEditorial";
 
-const Services = dynamic(() => import("@/components/sections/Services").then((mod) => mod.Services), {
+const Manifesto = dynamic(() => import("@/components/sections/Manifesto").then((mod) => mod.Manifesto), {
   loading: () => <div className="w-full min-h-[50vh] bg-background" />,
 });
-const Work = dynamic(() => import("@/components/sections/Work").then((mod) => mod.Work), {
+const EngineeringApproach = dynamic(() => import("@/components/sections/EngineeringApproach").then((mod) => mod.EngineeringApproach), {
   loading: () => <div className="w-full min-h-[50vh] bg-background" />,
 });
-const AboutContact = dynamic(() => import("@/components/sections/AboutContact").then((mod) => mod.AboutContact), {
+const EditorialWork = dynamic(() => import("@/components/sections/EditorialWork").then((mod) => mod.EditorialWork), {
+  loading: () => <div className="w-full min-h-[50vh] bg-background" />,
+});
+const HumanContact = dynamic(() => import("@/components/sections/HumanContact").then((mod) => mod.HumanContact), {
   loading: () => <div className="w-full min-h-[50vh] bg-background" />,
 });
 const Footer = dynamic(() => import("@/components/layout/Footer").then((mod) => mod.Footer));
@@ -18,10 +21,11 @@ export default function Home() {
     <>
       <Header />
       <main className="relative z-10 w-full">
-        <Hero />
-        <Services />
-        <Work />
-        <AboutContact />
+        <HeroEditorial />
+        <Manifesto />
+        <EngineeringApproach />
+        <EditorialWork />
+        <HumanContact />
       </main>
       <Footer />
     </>
