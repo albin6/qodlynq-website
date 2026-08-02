@@ -1,53 +1,37 @@
 "use client";
 
 import { Reveal } from "../ui/Reveal";
-import { MagneticLink } from "../ui/MagneticLink";
 
 export function Contact() {
   return (
-    <section className="py-64 px-margin-mobile md:px-margin-desktop bg-surface" id="about">
-      <div className="max-w-[1600px] mx-auto editorial-grid">
-        <div className="col-span-12 md:col-span-5 mb-24 md:mb-0">
-          <Reveal>
-            <h2 className="font-display-lg text-7xl mb-24 text-balance">Let's discuss<br/>your project.</h2>
-          </Reveal>
-          
-          <Reveal delay={200}>
-            <div className="space-y-16">
-              <div className="group cursor-pointer">
-                <p className="font-label-sm uppercase tracking-widest opacity-40 mb-4">Email</p>
-                <a className="text-3xl font-display-lg block hover:opacity-50 transition-opacity" href="mailto:hello@qodlynq.com">hello@qodlynq.com</a>
-              </div>
-              <div>
-                <p className="font-label-sm uppercase tracking-widest opacity-40 mb-4">Base</p>
-                <p className="text-3xl font-display-lg">London, SE1</p>
-              </div>
-            </div>
-          </Reveal>
-        </div>
-
-        <form className="col-span-12 md:col-span-6 md:col-start-7 space-y-20">
-          <Reveal delay={300}>
-            <div className="border-b border-outline-variant/30 py-6 focus-within:border-primary transition-colors">
-              <label className="font-label-sm uppercase tracking-widest opacity-40 mb-4 block">Name</label>
-              <input className="w-full bg-transparent border-none focus:ring-0 py-4 px-0 text-2xl font-display-lg placeholder:opacity-20" placeholder="Your Name" type="text" />
-            </div>
-            
-            <div className="border-b border-outline-variant/30 py-6 focus-within:border-primary transition-colors">
-              <label className="font-label-sm uppercase tracking-widest opacity-40 mb-4 block">Email</label>
-              <input className="w-full bg-transparent border-none focus:ring-0 py-4 px-0 text-2xl font-display-lg placeholder:opacity-20" placeholder="Your Email" type="email" />
-            </div>
-            
-            <div className="border-b border-outline-variant/30 py-6 focus-within:border-primary transition-colors">
-              <label className="font-label-sm uppercase tracking-widest opacity-40 mb-4 block">Brief</label>
-              <textarea className="w-full bg-transparent border-none focus:ring-0 py-4 px-0 text-2xl font-display-lg placeholder:opacity-20" placeholder="Tell us about your goals..." rows={3}></textarea>
-            </div>
-            
-            <MagneticLink className="bg-primary text-surface px-16 py-6 font-label-sm uppercase tracking-[0.25em] hover:bg-neutral-800 transition-all mt-12 block text-center">
-              Start the Conversation
-            </MagneticLink>
-          </Reveal>
-        </form>
+    <section className="py-[var(--spacing-section-gap)] px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)] bg-surface-container-lowest border-t border-outline-variant/30" id="contact">
+      <div className="max-w-2xl mx-auto text-center">
+        <Reveal>
+          <h2 className="font-display-mobile md:font-display text-[40px] md:text-[64px] font-semibold tracking-[-0.02em] leading-[1.1] text-primary mb-6">
+            Ready to build?
+          </h2>
+        </Reveal>
+        <Reveal delay={100}>
+          <p className="font-body-lg text-[18px] text-on-surface-variant mb-10 leading-[1.6]">
+            Reach out to discuss your next technical challenge. We typically respond within 24 hours.
+          </p>
+        </Reveal>
+        <Reveal delay={200}>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <a 
+              className="inline-flex items-center justify-center px-8 py-4 bg-primary text-on-primary font-label-sm text-[14px] font-medium rounded hover:bg-primary/90 transition-all duration-300 motion-safe:hover:scale-105 shadow-md hover:shadow-lg" 
+              href="mailto:hello@qodlynq.com"
+            >
+              hello@qodlynq.com
+            </a>
+            <a 
+              className="inline-flex items-center justify-center px-8 py-4 bg-surface-container-lowest text-primary border border-outline-variant font-label-sm text-[14px] font-medium rounded hover:bg-surface-container-low transition-all duration-300 motion-safe:hover:scale-105 shadow-sm hover:shadow-md" 
+              href="#"
+            >
+              Schedule a call
+            </a>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

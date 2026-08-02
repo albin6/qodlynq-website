@@ -4,45 +4,39 @@ import { Reveal } from "../ui/Reveal";
 
 export function Process() {
   return (
-    <section className="py-64 bg-inverse-surface text-surface overflow-hidden" id="process">
-      <div className="px-margin-mobile md:px-margin-desktop mb-48 editorial-grid">
-        <div className="col-span-12 md:col-span-12 border-b border-surface/10 pb-20">
-          <Reveal>
-            <h2 className="font-display-lg text-[8vw] leading-none">Our Process.</h2>
-          </Reveal>
-        </div>
-      </div>
-
-      <div className="editorial-grid px-margin-mobile md:px-margin-desktop items-start">
-        <div className="col-span-12 md:col-span-4 border-l border-surface/10 pl-8 pt-8">
-          <Reveal delay={0}>
-            <span className="font-display-lg text-4xl opacity-10 block mb-12">01</span>
-            <h3 className="font-headline-md mb-8">1. Audit</h3>
-            <p className="font-body-md opacity-60 leading-relaxed text-pretty">
-              We review your current systems to figure out exactly what is slowing your business down. No guesswork, just clear diagnostics.
-            </p>
-          </Reveal>
-        </div>
-
-        <div className="col-span-12 md:col-span-4 border-l border-surface/10 pl-8 pt-8">
-          <Reveal delay={200}>
-            <span className="font-display-lg text-4xl opacity-10 block mb-12">02</span>
-            <h3 className="font-headline-md mb-8">2. Plan</h3>
-            <p className="font-body-md opacity-60 leading-relaxed text-pretty">
-              We design a clear, step-by-step solution that aligns perfectly with your business goals. We ensure you understand what we are building before we start.
-            </p>
-          </Reveal>
-        </div>
-
-        <div className="col-span-12 md:col-span-4 border-l border-surface/10 pl-8 pt-8">
-          <Reveal delay={400}>
-            <span className="font-display-lg text-4xl opacity-10 block mb-12">03</span>
-            <h3 className="font-headline-md mb-8">3. Build</h3>
-            <p className="font-body-md opacity-60 leading-relaxed text-pretty">
-              We write the code, test it thoroughly, and launch it safely without interrupting your daily operations.
-            </p>
-          </Reveal>
-        </div>
+    <section className="py-[var(--spacing-section-gap)] px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)] bg-surface-container-low border-y border-outline-variant/30" id="process">
+      <div className="max-w-[var(--spacing-container-max)] mx-auto text-center">
+        <Reveal>
+          <h2 className="font-headline-lg text-[32px] font-medium tracking-[-0.01em] text-primary mb-12">How We Work</h2>
+        </Reveal>
+        
+        <Reveal delay={100}>
+          <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8">
+            <div className="flex items-center text-on-surface-variant">
+              <span className="font-label-sm text-[14px] font-medium uppercase tracking-[0.02em]">Understand</span>
+              <span className="material-symbols-outlined mx-4 hidden md:block text-outline" data-icon="arrow_forward">arrow_forward</span>
+              <span className="material-symbols-outlined my-2 md:hidden text-outline" data-icon="arrow_downward">arrow_downward</span>
+            </div>
+            <div className="flex items-center text-on-surface-variant">
+              <span className="font-label-sm text-[14px] font-medium uppercase tracking-[0.02em]">Strategize</span>
+              <span className="material-symbols-outlined mx-4 hidden md:block text-outline" data-icon="arrow_forward">arrow_forward</span>
+              <span className="material-symbols-outlined my-2 md:hidden text-outline" data-icon="arrow_downward">arrow_downward</span>
+            </div>
+            <div className="flex items-center text-primary font-medium">
+              <span className="font-label-sm text-[14px] uppercase tracking-[0.02em] active-step-glow">Build</span>
+              <span className="material-symbols-outlined mx-4 hidden md:block text-outline" data-icon="arrow_forward">arrow_forward</span>
+              <span className="material-symbols-outlined my-2 md:hidden text-outline" data-icon="arrow_downward">arrow_downward</span>
+            </div>
+            <div className="flex items-center text-on-surface-variant">
+              <span className="font-label-sm text-[14px] font-medium uppercase tracking-[0.02em]">Refine</span>
+              <span className="material-symbols-outlined mx-4 hidden md:block text-outline" data-icon="arrow_forward">arrow_forward</span>
+              <span className="material-symbols-outlined my-2 md:hidden text-outline" data-icon="arrow_downward">arrow_downward</span>
+            </div>
+            <div className="flex items-center text-on-surface-variant">
+              <span className="font-label-sm text-[14px] font-medium uppercase tracking-[0.02em]">Support</span>
+            </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

@@ -1,36 +1,36 @@
 "use client";
 
-import { ThreeJSBackground } from "../ui/ThreeJSBackground";
 import { Reveal } from "../ui/Reveal";
-import { MagneticLink } from "../ui/MagneticLink";
 
 export function Hero() {
   return (
-    <header className="relative w-full h-screen flex items-center px-margin-mobile md:px-margin-desktop overflow-hidden border-b border-outline-variant/10">
-      <ThreeJSBackground />
-      <div className="relative z-10 w-full max-w-[1600px] mx-auto">
-        <div className="editorial-grid items-end">
-          <div className="col-span-12 md:col-span-10">
-            <Reveal delay={100}>
-              <h1 className="font-display-hero text-display-hero text-balance">
-                Software that<br />
-                <span className="md:ml-32">drives growth.</span>
-              </h1>
-            </Reveal>
-          </div>
-          <div className="col-span-12 md:col-span-4 md:col-start-8 mt-12 md:mt-0">
-            <Reveal delay={500}>
-              <p className="font-body-lg text-secondary mb-10 border-l border-primary/20 pl-8 text-pretty">
-                We build digital products that help your business scale. No technical jargon, just reliable engineering that works.
-              </p>
-              <MagneticLink href="#work" className="group inline-flex items-center gap-6 font-label-sm uppercase tracking-widest border-b border-primary pb-3 hover:pb-4 transition-all">
-                See Our Work
-                <span className="material-symbols-outlined text-sm">arrow_outward</span>
-              </MagneticLink>
-            </Reveal>
-          </div>
-        </div>
+    <section className="relative min-h-[90vh] flex items-center justify-center px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)] overflow-hidden pt-10 mb-12">
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="/images/blueprint.png" 
+          className="absolute w-[600px] h-[600px] object-cover opacity-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none animate-float"
+          alt="Blueprint"
+        />
       </div>
-    </header>
+      <div className="relative z-10 max-w-[var(--spacing-container-max)] mx-auto text-center w-full">
+        <Reveal>
+          <h1 className="font-display-mobile md:font-display text-[40px] md:text-[64px] font-semibold tracking-[-0.02em] leading-[1.1] text-primary max-w-4xl mx-auto mb-6">
+            Reliable software, built for growth.
+          </h1>
+        </Reveal>
+        <Reveal delay={100}>
+          <p className="font-body-lg text-[18px] text-on-surface-variant max-w-2xl mx-auto mb-10">
+            We partner with startups and established businesses to build scalable web and mobile applications that stand the test of time.
+          </p>
+        </Reveal>
+        <Reveal delay={200}>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a className="w-full sm:w-auto px-8 py-4 bg-primary text-on-primary font-label-sm text-[14px] font-medium rounded hover:bg-primary/90 transition-all duration-300 motion-safe:hover:scale-105 shadow-md hover:shadow-lg" href="#contact">
+              Start a conversation
+            </a>
+          </div>
+        </Reveal>
+      </div>
+    </section>
   );
 }

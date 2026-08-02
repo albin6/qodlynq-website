@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 
-export function Reveal({ children, className, type = "text", delay = 0 }: { children: React.ReactNode, className?: string, type?: "text" | "image", delay?: number }) {
+export function Reveal({ children, className, delay = 0 }: { children: React.ReactNode, className?: string, delay?: number }) {
   const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -30,11 +30,10 @@ export function Reveal({ children, className, type = "text", delay = 0 }: { chil
     };
   }, [delay]);
 
-  const baseClass = type === "image" ? "image-mask" : "reveal-clip";
-  const activeClass = isVisible ? "active" : "";
+  const activeClass = isVisible ? "is-visible" : "";
 
   return (
-    <div ref={ref} className={`${baseClass} ${activeClass} ${className || ""}`}>
+    <div ref={ref} className={`fade-in-up ${activeClass} ${className || ""}`}>
       {children}
     </div>
   );

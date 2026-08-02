@@ -1,23 +1,22 @@
 import type { Metadata } from "next";
-import { Hanken_Grotesk, Inter } from "next/font/google";
+import { Inter, IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
-import { CustomCursor } from "@/components/ui/CustomCursor";
-
-const hanken = Hanken_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-hanken-grotesk",
-  weight: ["400", "500", "600", "800"]
-});
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
-  weight: ["400", "500", "600"]
+  weight: ["400", "500", "600", "700"]
+});
+
+const ibmPlexSans = IBM_Plex_Sans({
+  subsets: ["latin"],
+  variable: "--font-ibm-plex-sans",
+  weight: ["400", "500", "600", "700"]
 });
 
 export const metadata: Metadata = {
-  title: "STUDIO_ARCH | Business-Driven Software Engineering",
-  description: "Structural Engineering for Software",
+  title: "Qodlynq - Agency Portfolio",
+  description: "Reliable software, built for growth.",
 };
 
 export default function RootLayout({
@@ -32,9 +31,8 @@ export default function RootLayout({
       </head>
       <body
         suppressHydrationWarning
-        className={`${hanken.variable} ${inter.variable} bg-surface text-on-surface font-body-md antialiased min-h-screen relative selection:bg-primary selection:text-on-primary flex flex-col`}
+        className={`${inter.variable} ${ibmPlexSans.variable} bg-surface text-on-surface font-body-md antialiased overflow-x-hidden selection:bg-secondary selection:text-on-secondary`}
       >
-        <CustomCursor />
         {children}
       </body>
     </html>
