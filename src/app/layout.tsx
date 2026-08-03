@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
-
+import { ShaderBackground } from "@/components/ui/ShaderBackground";
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
@@ -31,8 +31,9 @@ export default function RootLayout({
       </head>
       <body
         suppressHydrationWarning
-        className={`${inter.variable} ${ibmPlexSans.variable} bg-surface text-on-surface font-body-md antialiased overflow-x-hidden selection:bg-secondary selection:text-on-secondary`}
+        className={`${inter.variable} ${ibmPlexSans.variable} bg-transparent text-on-surface font-body-md antialiased overflow-x-hidden selection:bg-secondary selection:text-on-secondary`}
       >
+        <ShaderBackground />
         {children}
       </body>
     </html>

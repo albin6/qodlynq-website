@@ -35,7 +35,7 @@ export function Services() {
   ];
 
   return (
-    <section className="py-[var(--spacing-section-gap)] px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)] bg-surface" id="services">
+    <section className="py-[var(--spacing-section-gap)] px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)] bg-transparent" id="services">
       <div className="max-w-[var(--spacing-container-max)] mx-auto">
         <Reveal>
           <div className="mb-16">
@@ -45,7 +45,7 @@ export function Services() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-[var(--spacing-gutter)]">
           {services.map((service, idx) => (
             <Reveal key={idx} delay={service.delay}>
-              <div className="p-8 md:p-10 bg-surface-container-lowest border border-outline-variant/50 rounded-lg shadow-[0_4px_20px_rgba(0,0,0,0.03)] h-full transition-all duration-300 motion-safe:hover:scale-[1.02] hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)]">
+              <div className="p-8 md:p-10 bg-surface-container-lowest/80 backdrop-blur-md border border-outline-variant/50 rounded-lg shadow-[0_4px_20px_rgba(0,0,0,0.03)] h-full transition-all duration-300 motion-safe:hover:scale-[1.02] hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)]">
                 <img 
                   alt={service.title} 
                   className="w-24 h-24 mb-6 animate-float object-contain" 

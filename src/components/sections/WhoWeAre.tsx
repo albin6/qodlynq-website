@@ -4,7 +4,7 @@ import { Reveal } from "../ui/Reveal";
 
 export function WhoWeAre() {
   return (
-    <section className="px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)] bg-surface-container-lowest pt-10 pb-16" id="about">
+    <section className="px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)] bg-surface-container-lowest/50 backdrop-blur-sm pt-10 pb-16" id="about">
       <div className="max-w-[var(--spacing-container-max)] mx-auto grid grid-cols-1 md:grid-cols-12 gap-[var(--spacing-gutter)]">
         <div className="md:col-span-5">
           <Reveal>

@@ -4,7 +4,7 @@ import { Reveal } from "../ui/Reveal";
 
 export function Process() {
   return (
-    <section className="py-[var(--spacing-section-gap)] px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)] bg-surface-container-low border-y border-outline-variant/30" id="process">
+    <section className="py-[var(--spacing-section-gap)] px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)] bg-surface-container-low/50 backdrop-blur-md border-y border-outline-variant/30" id="process">
       <div className="max-w-[var(--spacing-container-max)] mx-auto text-center">
         <Reveal>
           <h2 className="font-headline-lg text-[32px] font-medium tracking-[-0.01em] text-primary mb-12">How We Work</h2>

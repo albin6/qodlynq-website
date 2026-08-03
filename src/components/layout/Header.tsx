@@ -21,7 +21,6 @@ export function Header() {
       <div className="hidden md:flex gap-8">
         <a className="font-body-md text-[14px] font-medium text-on-surface-variant hover:text-secondary transition-all duration-300 cursor-pointer active:opacity-70" href="#services">Services</a>
         <a className="font-body-md text-[14px] font-medium text-on-surface-variant hover:text-secondary transition-all duration-300 cursor-pointer active:opacity-70" href="#process">Process</a>
-        <a className="font-body-md text-[14px] font-medium text-on-surface-variant hover:text-secondary transition-all duration-300 cursor-pointer active:opacity-70" href="#work">Work</a>
         <a className="font-body-md text-[14px] font-medium text-on-surface-variant hover:text-secondary transition-all duration-300 cursor-pointer active:opacity-70" href="#contact">Contact</a>
       </div>
       <a className="hidden md:inline-flex items-center justify-center px-6 py-3 bg-primary text-on-primary font-label-sm text-[14px] rounded hover:bg-primary/90 transition-all duration-300 motion-safe:hover:scale-105 shadow-md hover:shadow-lg" href="#contact">

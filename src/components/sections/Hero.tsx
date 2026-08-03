@@ -1,18 +1,13 @@
 "use client";
 
 import { Reveal } from "../ui/Reveal";
-import { DotPattern } from "../ui/dot-pattern";
+import { ThreeJSCube } from "../ui/ThreeJSCube";
 import { cn } from "@/lib/utils";
 
 export function Hero() {
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)] overflow-hidden pt-10 mb-12">
-      <DotPattern
-        className={cn(
-          "[mask-image:radial-gradient(800px_circle_at_center,white,transparent)]",
-          "opacity-40"
-        )}
-      />
+      <ThreeJSCube />
       <div className="relative z-10 max-w-[var(--spacing-container-max)] mx-auto text-center w-full">
         <Reveal>
           <h1 className="font-display-mobile md:font-display text-[40px] md:text-[64px] font-semibold tracking-[-0.02em] leading-[1.1] text-primary max-w-4xl mx-auto mb-6">
