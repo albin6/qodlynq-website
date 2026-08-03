@@ -22,10 +22,7 @@ export function ThreeJSCube() {
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     container.appendChild(renderer.domElement);
 
-    // Engineering-inspired geometry: A wireframe structure composed of nested cubes
-    const group = new THREE.Group();
-    scene.add(group);
-
+    // Base Material
     const material = new THREE.MeshPhongMaterial({
       color: 0x475569, // Slate 600
       wireframe: true,
@@ -33,17 +30,38 @@ export function ThreeJSCube() {
       opacity: 0.6,
     });
 
-    const innerCube = new THREE.Mesh(
-      new THREE.BoxGeometry(1.2, 1.2, 1.2),
-      material
-    );
-    group.add(innerCube);
+    // Helper to create a cube group
+    const createCubeGroup = (scale: number, posX: number, posZ: number, opacity: number) => {
+      const g = new THREE.Group();
+      
+      const mat = material.clone();
+      mat.opacity = opacity;
 
-    const outerCube = new THREE.Mesh(
-      new THREE.BoxGeometry(2, 2, 2),
-      material
-    );
-    group.add(outerCube);
+      const innerCube = new THREE.Mesh(
+        new THREE.BoxGeometry(1.2 * scale, 1.2 * scale, 1.2 * scale),
+        mat
+      );
+      g.add(innerCube);
+
+      const outerCube = new THREE.Mesh(
+        new THREE.BoxGeometry(2 * scale, 2 * scale, 2 * scale),
+        mat
+      );
+      g.add(outerCube);
+
+      g.position.set(posX, 0, posZ);
+      scene.add(g);
+      
+      return { group: g, mat, innerCube, outerCube };
+    };
+
+    // Create 3 cubes: Center (main), Left (smaller), Right (smaller)
+    // On narrower screens, the left/right might be partially off-screen, which creates a nice abstract effect
+    const centerCube = createCubeGroup(1, 0, 0, 0.6);
+    const leftCube = createCubeGroup(0.6, -2.2, -1, 0.4);
+    const rightCube = createCubeGroup(0.6, 2.2, -1, 0.4);
+
+    const allCubes = [centerCube, leftCube, rightCube];
 
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
     scene.add(ambientLight);
@@ -75,15 +93,22 @@ export function ThreeJSCube() {
     function animate(t: number) {
       animationFrameId = requestAnimationFrame(animate);
 
-      group.rotation.y += 0.005;
-      group.rotation.x += 0.003;
+      allCubes.forEach((c, i) => {
+        const { group } = c;
+        
+        // Slightly different rotation speeds/directions for left/right
+        const dir = i === 1 ? -1 : 1; 
+        
+        group.rotation.y += 0.005 * dir;
+        group.rotation.x += 0.003;
 
-      // Subtle reaction to mouse
-      group.rotation.y += mouseX * 0.05;
-      group.rotation.x += mouseY * 0.05;
+        // Subtle reaction to mouse
+        group.rotation.y += mouseX * 0.05 * dir;
+        group.rotation.x += mouseY * 0.05;
 
-      // Floating motion
-      group.position.y = Math.sin(t * 0.001) * 0.2;
+        // Floating motion with slight offset for each cube
+        group.position.y = Math.sin(t * 0.001 + i) * 0.2;
+      });
 
       renderer.render(scene, camera);
     }
@@ -96,8 +121,11 @@ export function ThreeJSCube() {
       container.removeChild(renderer.domElement);
       renderer.dispose();
       material.dispose();
-      innerCube.geometry.dispose();
-      outerCube.geometry.dispose();
+      allCubes.forEach((c) => {
+        c.mat.dispose();
+        c.innerCube.geometry.dispose();
+        c.outerCube.geometry.dispose();
+      });
     };
   }, []);
 
