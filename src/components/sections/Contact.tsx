@@ -38,20 +38,28 @@ export function Contact() {
         </div>
 
         {/* Footer Links */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 pt-12 border-t border-white/10 text-white/60 w-full mt-auto">
-          <div className="col-span-1 sm:col-span-2 md:col-span-2">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 pt-12 border-t border-white/10 text-white/60 w-full mt-auto">
+          <div className="col-span-2 sm:col-span-3 md:col-span-2 mb-4 md:mb-0">
              <div className="font-headline-md text-[24px] font-bold text-white mb-2">QODLYNQ</div>
              <p className="font-body-md text-[14px]">© {new Date().getFullYear()} Qodlynq. Built for technical rigor.</p>
           </div>
-          <div className="col-span-1 flex flex-col gap-3">
+          <div className="flex flex-col gap-3">
+             <div className="font-label-sm text-white mb-2 uppercase tracking-widest text-xs">Navigation</div>
              <a href="#services" className="font-body-md text-[16px] hover:text-white transition-colors">Services</a>
              <a href="#process" className="font-body-md text-[16px] hover:text-white transition-colors">Process</a>
              <a href="#work" className="font-body-md text-[16px] hover:text-white transition-colors">Work</a>
           </div>
-          <div className="col-span-1 flex flex-col gap-3">
-             <a href="#contact" className="font-body-md text-[16px] hover:text-white transition-colors">Contact</a>
+          <div className="flex flex-col gap-3">
+             <div className="font-label-sm text-white mb-2 uppercase tracking-widest text-xs">Legal</div>
+             <a href="mailto:albinpariyarathu@gmail.com" className="font-body-md text-[16px] hover:text-white transition-colors">Contact</a>
              <a href="#" className="font-body-md text-[16px] hover:text-white transition-colors">Privacy</a>
              <a href="#" className="font-body-md text-[16px] hover:text-white transition-colors">Terms</a>
+          </div>
+          <div className="flex flex-col gap-3">
+             <div className="font-label-sm text-white mb-2 uppercase tracking-widest text-xs">Social</div>
+             <a href="https://linkedin.com/company/qodlynq" target="_blank" rel="noopener noreferrer" className="font-body-md text-[16px] hover:text-white transition-colors">LinkedIn</a>
+             <a href="https://twitter.com/qodlynq" target="_blank" rel="noopener noreferrer" className="font-body-md text-[16px] hover:text-white transition-colors">Twitter / X</a>
+             <a href="https://instagram.com/qodlynq" target="_blank" rel="noopener noreferrer" className="font-body-md text-[16px] hover:text-white transition-colors">Instagram</a>
           </div>
         </div>
       </motion.div>

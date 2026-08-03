@@ -74,6 +74,23 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "Qodlynq",
+              url: "https://qodlynq.albinaji.space",
+              logo: "https://qodlynq.albinaji.space/icon.png",
+              sameAs: [
+                "https://twitter.com/qodlynq",
+                "https://linkedin.com/company/qodlynq",
+                "https://instagram.com/qodlynq"
+              ]
+            })
+          }}
+        />
       </head>
       <body
         suppressHydrationWarning
