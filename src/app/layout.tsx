@@ -29,19 +29,19 @@ export const metadata: Metadata = {
   keywords: ["software development", "web applications", "mobile apps", "engineering studio", "technical consulting", "product engineering"],
   authors: [{ name: "Qodlynq" }],
   creator: "Qodlynq",
-  metadataBase: new URL("https://qodlynq.com"),
+  metadataBase: new URL("https://qodlynq.albinaji.space"),
   openGraph: {
     title: "Qodlynq | Premium Software Studio",
     description: "Reliable software, built for growth. We engineer scalable web and mobile applications for modern businesses.",
-    url: "https://qodlynq.com",
+    url: "https://qodlynq.albinaji.space",
     siteName: "Qodlynq",
     type: "website",
     locale: "en_US",
     images: [
       {
-        url: "/images/og-image.png", // Will default if missing, but good practice
-        width: 1200,
-        height: 630,
+        url: "./icon.png",
+        width: 512,
+        height: 512,
         alt: "Qodlynq Software Studio",
       }
     ],
