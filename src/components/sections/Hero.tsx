@@ -21,7 +21,7 @@ export function Hero() {
       <ThreeJSCube />
       <motion.div 
         style={{ y, opacity, scale }}
-        className="relative z-10 max-w-container-max mx-auto text-center w-full"
+        className="relative z-10 max-w-container-max mx-auto text-center w-full -mt-28 md:-mt-36"
       >
         <Reveal>
           <div className="bg-surface-container-lowest/50 backdrop-blur-sm border border-outline-variant/30 text-secondary font-label-sm uppercase tracking-widest text-[12px] px-4 py-1.5 rounded-full mb-8 inline-block shadow-sm">
