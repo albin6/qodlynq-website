@@ -4,6 +4,7 @@ import { Hero } from "@/components/sections/Hero";
 import { WhoWeAre } from "@/components/sections/WhoWeAre";
 import { Services } from "@/components/sections/Services";
 import { Process } from "@/components/sections/Process";
+import { ParallaxComponent } from "@/components/ui/parallax-scrolling";
 import { Contact } from "@/components/sections/Contact";
 
 export default function Home() {
@@ -15,6 +16,7 @@ export default function Home() {
         <WhoWeAre />
         <Services />
         <Process />
+        <ParallaxComponent />
         <Contact />
       </main>
       <Footer />

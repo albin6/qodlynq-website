@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 
-export function Reveal({ children, className, delay = 0 }: { children: React.ReactNode, className?: string, delay?: number }) {
+export function Reveal({ children, className, delay = 0, type }: { children: React.ReactNode, className?: string, delay?: number, type?: string }) {
   const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 
