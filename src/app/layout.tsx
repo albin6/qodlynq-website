@@ -1,7 +1,9 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
 import { ShaderBackground } from "@/components/ui/ShaderBackground";
+import { SmoothScrollProvider } from "@/components/providers/SmoothScrollProvider";
+
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
@@ -14,12 +16,25 @@ const ibmPlexSans = IBM_Plex_Sans({
   weight: ["400", "500", "600", "700"]
 });
 
-export const metadata: Metadata = {
-  title: "Qodlynq - Agency Portfolio",
-  description: "Reliable software, built for growth.",
+export const viewport: Viewport = {
+  themeColor: "#faf9f7",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
 };
 
-import { SmoothScrollProvider } from "@/components/providers/SmoothScrollProvider";
+export const metadata: Metadata = {
+  title: "Qodlynq - Premium Software Studio",
+  description: "Reliable software, built for growth. We engineer scalable web and mobile applications for modern businesses.",
+  keywords: ["software development", "web applications", "mobile apps", "engineering studio"],
+  openGraph: {
+    title: "Qodlynq",
+    description: "Reliable software, built for growth.",
+    url: "https://qodlynq.com",
+    siteName: "Qodlynq",
+    type: "website",
+  },
+};
 
 export default function RootLayout({
   children,

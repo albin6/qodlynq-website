@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import Image from "next/image";
 
 export function Services() {
   const targetRef = useRef<HTMLDivElement>(null);
@@ -52,10 +53,12 @@ export function Services() {
               key={idx} 
               className="w-[300px] md:w-[420px] h-[380px] md:h-[440px] shrink-0 flex flex-col p-8 md:p-10 bg-surface-container-lowest/80 backdrop-blur-md border border-outline-variant/30 rounded-3xl shadow-[0_8px_40px_rgba(0,0,0,0.04)] transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_16px_60px_rgba(0,0,0,0.08)] cursor-pointer"
             >
-              <img 
+              <Image 
                 alt={service.title} 
                 className="w-16 h-16 md:w-20 md:h-20 mb-6 object-contain mix-blend-multiply opacity-90" 
-                src={service.image} 
+                src={service.image}
+                width={80}
+                height={80}
               />
               <h3 className="font-headline-md text-[22px] md:text-[28px] font-semibold text-primary mb-3 leading-tight">{service.title}</h3>
               <p className="font-body-md text-[14px] md:text-[16px] text-on-surface-variant leading-relaxed">{service.description}</p>

@@ -3,7 +3,11 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Reveal } from "../ui/Reveal";
-import { ThreeJSCube } from "../ui/ThreeJSCube";
+import dynamic from "next/dynamic";
+
+const ThreeJSCube = dynamic(() => import("../ui/ThreeJSCube").then((mod) => mod.ThreeJSCube), {
+  ssr: false,
+});
 
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
