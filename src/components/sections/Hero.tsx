@@ -24,7 +24,7 @@ export function Hero() {
         className="relative z-10 max-w-container-max mx-auto text-center w-full"
       >
         <Reveal>
-          <div className="font-label-sm text-[12px] font-medium uppercase tracking-widest text-secondary mb-4">
+          <div className="bg-surface-container-lowest/50 backdrop-blur-sm border border-outline-variant/30 text-secondary font-label-sm uppercase tracking-widest text-[12px] px-4 py-1.5 rounded-full mb-8 inline-block shadow-sm">
             Premium Software Studio
           </div>
           <h1 className="font-display-mobile md:font-display text-[40px] md:text-[64px] font-semibold tracking-[-0.02em] leading-[1.1] text-primary max-w-4xl mx-auto mb-6">
@@ -38,7 +38,7 @@ export function Hero() {
         </Reveal>
         <Reveal delay={200}>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a className="w-full sm:w-auto px-8 py-4 bg-primary text-on-primary font-label-sm text-[14px] font-medium rounded hover:bg-primary/90 transition-all duration-300 motion-safe:hover:scale-105 shadow-md hover:shadow-lg" href="#contact">
+            <a className="w-full sm:w-auto px-8 py-4 bg-primary text-on-primary font-label-sm text-[14px] font-medium rounded-full hover:bg-primary/90 transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5" href="#contact">
               Start a project
             </a>
           </div>

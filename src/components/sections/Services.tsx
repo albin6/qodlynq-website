@@ -28,7 +28,7 @@ export function Services() {
     {
       title: "Application Modernization",
       description: "Upgrading legacy systems for modern security, speed, and scale.",
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBXqWHOhf0RQfTwMxhbu5rZvis6T1POfTtvPrdPy63Sqh3NBf4Z9-m11vOP6xpqR6yELv3Mvi8EwBpAxJ2ya6NAurKhnz6ykQoRmaX_IBY5uLkZpbN4CG3RpSSXqHmAcKQwuUYGrH9T1tJv0U0p2YP6HK5PrDTYAxI2_8YQEbCkAlVt9jNvFGHOXpn8ubAP8x1fe4Z_wpEkNOfEqejhf6V_itpZsu2as7KoEn1zLoQwCLwBLVNcFgX8",
+      image: "/images/blueprint.png",
     },
     {
       title: "Technical Consulting",
@@ -50,15 +50,15 @@ export function Services() {
           {services.map((service, idx) => (
             <div 
               key={idx} 
-              className="w-[320px] md:w-[480px] shrink-0 p-8 md:p-12 bg-surface-container-lowest/80 backdrop-blur-md border border-outline-variant/30 rounded-3xl shadow-[0_8px_40px_rgba(0,0,0,0.04)]"
+              className="w-[300px] md:w-[420px] h-[380px] md:h-[440px] shrink-0 flex flex-col p-8 md:p-10 bg-surface-container-lowest/80 backdrop-blur-md border border-outline-variant/30 rounded-3xl shadow-[0_8px_40px_rgba(0,0,0,0.04)] transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_16px_60px_rgba(0,0,0,0.08)] cursor-pointer"
             >
               <img 
                 alt={service.title} 
-                className="w-20 h-20 md:w-24 md:h-24 mb-8 object-contain opacity-80 mix-blend-luminosity" 
+                className="w-16 h-16 md:w-20 md:h-20 mb-6 object-contain mix-blend-multiply opacity-90" 
                 src={service.image} 
               />
-              <h3 className="font-headline-md text-[28px] md:text-[36px] font-medium text-primary mb-4">{service.title}</h3>
-              <p className="font-body-md text-[16px] text-on-surface-variant leading-relaxed">{service.description}</p>
+              <h3 className="font-headline-md text-[22px] md:text-[28px] font-semibold text-primary mb-3 leading-tight">{service.title}</h3>
+              <p className="font-body-md text-[14px] md:text-[16px] text-on-surface-variant leading-relaxed">{service.description}</p>
             </div>
           ))}
         </motion.div>
