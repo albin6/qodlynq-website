@@ -1,6 +1,7 @@
 import dynamic from "next/dynamic";
 import { Header } from "@/components/layout/Header";
 import { Hero } from "@/components/sections/Hero";
+import { LoadingScreen } from "@/components/ui/LoadingScreen";
 
 const WhoWeAre = dynamic(() => import("@/components/sections/WhoWeAre").then(mod => mod.WhoWeAre));
 const Services = dynamic(() => import("@/components/sections/Services").then(mod => mod.Services));
@@ -10,6 +11,7 @@ const Contact = dynamic(() => import("@/components/sections/Contact").then(mod =
 export default function Home() {
   return (
     <>
+      <LoadingScreen />
       <Header />
       <main className="flex-1 w-full flex flex-col bg-surface">
         <Hero />

@@ -21,7 +21,7 @@ export function Contact() {
             Get in Touch
           </div>
           
-          <h2 className="font-headline-lg text-[56px] sm:text-[80px] md:text-[140px] leading-[0.9] font-bold tracking-tighter text-white mb-8">
+          <h2 className="font-headline-lg text-[clamp(40px,12vw,140px)] leading-[0.9] font-bold tracking-tighter text-white mb-8">
             HAVE AN IDEA?
           </h2>
           

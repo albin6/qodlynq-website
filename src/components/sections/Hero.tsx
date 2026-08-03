@@ -21,17 +21,17 @@ export function Hero() {
   const scale = useTransform(scrollYProgress, [0, 1], [1, 0.9]);
 
   return (
-    <section ref={ref} className="relative min-h-[100vh] flex items-center justify-center px-(--spacing-margin-mobile) md:px-(--spacing-margin-desktop) overflow-hidden pt-10">
+    <section ref={ref} className="relative min-h-[100vh] flex items-center justify-center px-6 md:px-12 lg:px-24 overflow-hidden pt-20 md:pt-10">
       <ThreeJSCube />
       <motion.div 
         style={{ y, opacity, scale }}
-        className="relative z-10 max-w-container-max mx-auto text-center w-full -mt-28 md:-mt-36"
+        className="relative z-10 max-w-container-max mx-auto text-center w-full -mt-10 sm:-mt-20 md:-mt-36 px-4"
       >
         <Reveal>
-          <div className="bg-surface-container-lowest/50 backdrop-blur-sm border border-outline-variant/30 text-secondary font-label-sm uppercase tracking-widest text-[12px] px-4 py-1.5 rounded-full mb-8 inline-block shadow-sm">
+          <div className="bg-surface-container-lowest/50 backdrop-blur-sm border border-outline-variant/30 text-secondary font-label-sm uppercase tracking-widest text-[10px] sm:text-[12px] px-3 py-1 sm:px-4 sm:py-1.5 rounded-full mb-6 md:mb-8 inline-block shadow-sm">
             Premium Software Studio
           </div>
-          <h1 className="font-display-mobile md:font-display text-[40px] md:text-[64px] font-semibold tracking-[-0.02em] leading-[1.1] text-primary max-w-4xl mx-auto mb-6">
+          <h1 className="font-display-mobile md:font-display text-[44px] sm:text-[56px] md:text-[72px] lg:text-[88px] font-semibold tracking-[-0.02em] leading-[1.05] text-primary max-w-5xl mx-auto mb-6">
             Reliable software, built for growth.
           </h1>
         </Reveal>

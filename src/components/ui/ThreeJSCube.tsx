@@ -55,11 +55,15 @@ export function ThreeJSCube() {
       return { group: g, mat, innerCube, outerCube };
     };
 
-    // Create 3 cubes: Center (main), Left (smaller), Right (smaller)
-    // On narrower screens, the left/right might be partially off-screen, which creates a nice abstract effect
-    const centerCube = createCubeGroup(1, 0, 0, 0.6);
-    const leftCube = createCubeGroup(0.6, -2.2, -1, 0.4);
-    const rightCube = createCubeGroup(0.6, 2.2, -1, 0.4);
+    // Dynamic scaling based on screen size
+    const isMobile = width < 768;
+    const centerScale = isMobile ? 0.8 : 1;
+    const sideScale = isMobile ? 0.4 : 0.6;
+    const sideOffset = isMobile ? 1.5 : 2.2;
+
+    const centerCube = createCubeGroup(centerScale, 0, 0, 0.6);
+    const leftCube = createCubeGroup(sideScale, -sideOffset, -1, 0.4);
+    const rightCube = createCubeGroup(sideScale, sideOffset, -1, 0.4);
 
     const allCubes = [centerCube, leftCube, rightCube];
 
