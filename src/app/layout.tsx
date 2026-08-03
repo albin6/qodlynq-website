@@ -19,13 +19,15 @@ export const metadata: Metadata = {
   description: "Reliable software, built for growth.",
 };
 
+import { SmoothScrollProvider } from "@/components/providers/SmoothScrollProvider";
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en">
       <head>
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
       </head>
@@ -33,8 +35,10 @@ export default function RootLayout({
         suppressHydrationWarning
         className={`${inter.variable} ${ibmPlexSans.variable} bg-transparent text-on-surface font-body-md antialiased overflow-x-hidden selection:bg-secondary selection:text-on-secondary`}
       >
-        <ShaderBackground />
-        {children}
+        <SmoothScrollProvider>
+          <ShaderBackground />
+          {children}
+        </SmoothScrollProvider>
       </body>
     </html>
   );

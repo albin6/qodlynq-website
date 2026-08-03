@@ -1,13 +1,28 @@
 "use client";
 
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Reveal } from "../ui/Reveal";
 import { ThreeJSCube } from "../ui/ThreeJSCube";
 
 export function Hero() {
+  const ref = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"]
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.9]);
+
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center px-(--spacing-margin-mobile) md:px-(--spacing-margin-desktop) overflow-hidden pt-10 mb-12">
+    <section ref={ref} className="relative min-h-[100vh] flex items-center justify-center px-(--spacing-margin-mobile) md:px-(--spacing-margin-desktop) overflow-hidden pt-10">
       <ThreeJSCube />
-      <div className="relative z-10 max-w-container-max mx-auto text-center w-full">
+      <motion.div 
+        style={{ y, opacity, scale }}
+        className="relative z-10 max-w-container-max mx-auto text-center w-full"
+      >
         <Reveal>
           <div className="font-label-sm text-[12px] font-medium uppercase tracking-widest text-secondary mb-4">
             Premium Software Studio
@@ -28,7 +43,7 @@ export function Hero() {
             </a>
           </div>
         </Reveal>
-      </div>
+      </motion.div>
     </section>
   );
 }
