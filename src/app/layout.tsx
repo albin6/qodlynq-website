@@ -24,15 +24,44 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Qodlynq - Premium Software Studio",
+  title: "Qodlynq | Premium Software Studio",
   description: "Reliable software, built for growth. We engineer scalable web and mobile applications for modern businesses.",
-  keywords: ["software development", "web applications", "mobile apps", "engineering studio"],
+  keywords: ["software development", "web applications", "mobile apps", "engineering studio", "technical consulting", "product engineering"],
+  authors: [{ name: "Qodlynq" }],
+  creator: "Qodlynq",
+  metadataBase: new URL("https://qodlynq.com"),
   openGraph: {
-    title: "Qodlynq",
-    description: "Reliable software, built for growth.",
+    title: "Qodlynq | Premium Software Studio",
+    description: "Reliable software, built for growth. We engineer scalable web and mobile applications for modern businesses.",
     url: "https://qodlynq.com",
     siteName: "Qodlynq",
     type: "website",
+    locale: "en_US",
+    images: [
+      {
+        url: "/images/og-image.png", // Will default if missing, but good practice
+        width: 1200,
+        height: 630,
+        alt: "Qodlynq Software Studio",
+      }
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Qodlynq | Premium Software Studio",
+    description: "Reliable software, built for growth.",
+    creator: "@qodlynq",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 };
 
