@@ -3,6 +3,7 @@ import { Inter, IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
 import { ShaderBackground } from "@/components/ui/ShaderBackground";
 import { SmoothScrollProvider } from "@/components/providers/SmoothScrollProvider";
+import { GoogleAnalytics } from '@next/third-parties/google';
 
 const inter = Inter({
   subsets: ["latin"],
@@ -29,11 +30,11 @@ export const metadata: Metadata = {
   keywords: ["software development", "web applications", "mobile apps", "engineering studio", "technical consulting", "product engineering"],
   authors: [{ name: "Qodlynq" }],
   creator: "Qodlynq",
-  metadataBase: new URL("https://qodlynq.albinaji.space"),
+  metadataBase: new URL("https://qodlynq.agency"),
   openGraph: {
     title: "Qodlynq | Premium Software Studio",
     description: "Reliable software, built for growth. We engineer scalable web and mobile applications for modern businesses.",
-    url: "https://qodlynq.albinaji.space",
+    url: "https://qodlynq.agency",
     siteName: "Qodlynq",
     type: "website",
     locale: "en_US",
@@ -81,8 +82,8 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Organization",
               name: "Qodlynq",
-              url: "https://qodlynq.albinaji.space",
-              logo: "https://qodlynq.albinaji.space/icon.png",
+              url: "https://qodlynq.agency",
+              logo: "https://qodlynq.agency/icon.png",
               sameAs: [
                 "https://twitter.com/qodlynq",
                 "https://linkedin.com/company/qodlynq",
@@ -100,6 +101,7 @@ export default function RootLayout({
           <ShaderBackground />
           {children}
         </SmoothScrollProvider>
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || ''} />
       </body>
     </html>
   );
