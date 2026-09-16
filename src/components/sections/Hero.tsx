@@ -42,7 +42,7 @@ export function Hero() {
         </Reveal>
         <Reveal delay={200}>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a className="w-full sm:w-auto px-8 py-4 bg-primary text-on-primary font-label-sm text-[14px] font-medium rounded-full hover:bg-primary/90 transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5" href="mailto:albinpariyarathu@gmail.com">
+            <a className="w-full sm:w-auto px-8 py-4 bg-primary text-on-primary font-label-sm text-[14px] font-medium rounded-full hover:bg-primary/90 transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5" href="/contact">
               Start a project
             </a>
           </div>

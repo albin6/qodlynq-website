@@ -3,7 +3,6 @@ import { Inter, IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
 import { ShaderBackground } from "@/components/ui/ShaderBackground";
 import { SmoothScrollProvider } from "@/components/providers/SmoothScrollProvider";
-import { GoogleAnalytics } from '@next/third-parties/google';
 
 const inter = Inter({
   subsets: ["latin"],
@@ -101,7 +100,6 @@ export default function RootLayout({
           <ShaderBackground />
           {children}
         </SmoothScrollProvider>
-        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || ''} />
       </body>
     </html>
   );

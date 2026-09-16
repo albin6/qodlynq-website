@@ -21,10 +21,10 @@ export function HumanContact() {
               Direct Engineering Line
             </span>
             <a 
-              href="mailto:engineering@qodlynq.com"
+              href="mailto:qodlynq.agency@gmail.com"
               className="font-geist text-2xl md:text-4xl hover:text-on-surface-variant transition-colors"
             >
-              engineering@qodlynq.com
+              qodlynq.agency@gmail.com
             </a>
           </div>
 

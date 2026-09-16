@@ -38,14 +38,14 @@ export default function ContactPage() {
                 <div className="flex flex-col gap-8 p-8 bg-surface-container-lowest/50 backdrop-blur-md border border-outline-variant/30 rounded-3xl shadow-sm">
                   <div>
                     <h3 className="font-label-sm text-[12px] uppercase tracking-widest text-on-surface-variant mb-2">Email</h3>
-                    <a href="mailto:albinpariyarathu@gmail.com" className="font-headline-md text-[20px] font-medium text-primary hover:text-secondary transition-colors">
-                      albinpariyarathu@gmail.com
+                    <a href="mailto:qodlynq.agency@gmail.com" className="font-headline-md text-[20px] font-medium text-primary hover:text-secondary transition-colors">
+                      qodlynq.agency@gmail.com
                     </a>
                   </div>
                   
                   <div>
                     <h3 className="font-label-sm text-[12px] uppercase tracking-widest text-on-surface-variant mb-2">WhatsApp</h3>
-                    <a href="https://wa.me/910000000000" target="_blank" rel="noopener noreferrer" className="font-headline-md text-[20px] font-medium text-primary hover:text-secondary transition-colors inline-flex items-center gap-2 group">
+                    <a href="https://wa.me/919037150655" target="_blank" rel="noopener noreferrer" className="font-headline-md text-[20px] font-medium text-primary hover:text-secondary transition-colors inline-flex items-center gap-2 group">
                       Chat on WhatsApp
                       <span className="material-symbols-outlined text-[20px] transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">arrow_outward</span>
                     </a>
