@@ -24,6 +24,9 @@ export function CustomSelect({
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState<string>("");
   const [focusedIndex, setFocusedIndex] = useState(-1);
+  const [dropdownDirection, setDropdownDirection] = useState<"down" | "up">("down");
+  const [dropdownMaxHeight, setDropdownMaxHeight] = useState<number>(240);
+
   const containerRef = useRef<HTMLDivElement>(null);
   const listboxRef = useRef<HTMLUListElement>(null);
 
@@ -40,6 +43,23 @@ export function CustomSelect({
     }
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isOpen]);
+
+  // Handle page resize by closing dropdown to recalculate properly next open
+  useEffect(() => {
+    function handleResize() {
+      if (isOpen) {
+        setIsOpen(false);
+      }
+    }
+
+    if (isOpen) {
+      window.addEventListener("resize", handleResize);
+    }
+    
+    return () => {
+      window.removeEventListener("resize", handleResize);
     };
   }, [isOpen]);
 
@@ -68,6 +88,26 @@ export function CustomSelect({
     if (!isOpen) {
       const index = selectedOption ? options.indexOf(selectedOption) : 0;
       setFocusedIndex(index !== -1 ? index : 0);
+      
+      // Calculate viewport space to determine direction
+      if (containerRef.current) {
+        const rect = containerRef.current.getBoundingClientRect();
+        const spaceBelow = window.innerHeight - rect.bottom;
+        const spaceAbove = rect.top;
+        
+        // Desired max height for the dropdown panel
+        const desiredHeight = 240; 
+        const margin = 16; // Margin from screen edge
+
+        // Default to down, unless spaceBelow is insufficient AND spaceAbove is larger
+        if (spaceBelow < desiredHeight + margin && spaceAbove > spaceBelow) {
+          setDropdownDirection("up");
+          setDropdownMaxHeight(Math.min(desiredHeight, spaceAbove - margin));
+        } else {
+          setDropdownDirection("down");
+          setDropdownMaxHeight(Math.min(desiredHeight, spaceBelow - margin));
+        }
+      }
     }
     setIsOpen(!isOpen);
   };
@@ -81,9 +121,7 @@ export function CustomSelect({
     if (!isOpen) {
       if (e.key === "Enter" || e.key === " " || e.key === "ArrowDown" || e.key === "ArrowUp") {
         e.preventDefault();
-        setIsOpen(true);
-        const index = selectedOption ? options.indexOf(selectedOption) : 0;
-        setFocusedIndex(index !== -1 ? index : 0);
+        toggleDropdown();
       }
       return;
     }
@@ -153,17 +191,21 @@ export function CustomSelect({
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -4 }}
+            initial={{ opacity: 0, y: dropdownDirection === "down" ? -4 : 4 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -4 }}
+            exit={{ opacity: 0, y: dropdownDirection === "down" ? -4 : 4 }}
             transition={{ duration: 0.2, ease: "easeInOut" }}
-            className="absolute z-50 w-full mt-2 bg-surface-container-lowest/95 backdrop-blur-xl border border-outline-variant/30 rounded-2xl shadow-xl overflow-hidden"
+            style={{
+               [dropdownDirection === "down" ? "top" : "bottom"]: "calc(100% + 8px)"
+            }}
+            className="absolute z-50 w-full bg-surface-container-lowest/95 backdrop-blur-xl border border-outline-variant/30 rounded-2xl shadow-xl overflow-hidden"
           >
             <ul
               id={`${id}-listbox`}
               role="listbox"
               ref={listboxRef}
-              className="max-h-60 overflow-y-auto py-2 scrollbar-thin outline-none"
+              style={{ maxHeight: dropdownMaxHeight }}
+              className="overflow-y-auto py-2 scrollbar-thin outline-none"
               tabIndex={-1}
             >
               {options.map((option, index) => (
