@@ -61,13 +61,15 @@ export default function WorkPage() {
                     {project.description}
                   </p>
                   
-                  <div className="flex flex-wrap gap-2 mb-8">
-                    {project.technologies.map(tech => (
-                      <span key={tech} className="bg-surface-variant/50 text-on-surface-variant font-label-sm text-[12px] px-3 py-1 rounded-full border border-outline-variant/30">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
+                  {project.technologies && project.technologies.length > 0 && (
+                    <div className="flex flex-wrap gap-2 mb-8">
+                      {project.technologies.map(tech => (
+                        <span key={tech} className="bg-surface-variant/50 text-on-surface-variant font-label-sm text-[12px] px-3 py-1 rounded-full border border-outline-variant/30">
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  )}
                 </div>
 
                 <div className="shrink-0 pt-2">
