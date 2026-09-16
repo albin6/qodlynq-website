@@ -82,6 +82,65 @@ export function CustomSelect({
     };
   }, [isOpen]);
 
+  // Prevent scroll chaining and isolate dropdown scroll
+  useEffect(() => {
+    const listbox = listboxRef.current;
+    if (!listbox || !isOpen) return;
+
+    let touchStartY = 0;
+
+    const handleTouchStart = (e: TouchEvent) => {
+      touchStartY = e.touches[0].clientY;
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
+      const isScrollable = listbox.scrollHeight > listbox.clientHeight;
+      if (!isScrollable) {
+        e.preventDefault();
+        return;
+      }
+
+      const touchY = e.touches[0].clientY;
+      const deltaY = touchStartY - touchY;
+      
+      const isAtTop = listbox.scrollTop === 0;
+      const isAtBottom = Math.abs(listbox.scrollHeight - listbox.scrollTop - listbox.clientHeight) < 1;
+
+      if (deltaY < 0 && isAtTop) {
+        e.preventDefault();
+      } else if (deltaY > 0 && isAtBottom) {
+        e.preventDefault();
+      }
+    };
+
+    const handleWheel = (e: WheelEvent) => {
+      const isScrollable = listbox.scrollHeight > listbox.clientHeight;
+      if (!isScrollable) {
+        e.preventDefault();
+        return;
+      }
+      
+      const isAtTop = listbox.scrollTop === 0;
+      const isAtBottom = Math.abs(listbox.scrollHeight - listbox.scrollTop - listbox.clientHeight) < 1;
+
+      if (e.deltaY < 0 && isAtTop) {
+        e.preventDefault();
+      } else if (e.deltaY > 0 && isAtBottom) {
+        e.preventDefault();
+      }
+    };
+
+    listbox.addEventListener("touchstart", handleTouchStart, { passive: true });
+    listbox.addEventListener("touchmove", handleTouchMove, { passive: false });
+    listbox.addEventListener("wheel", handleWheel, { passive: false });
+
+    return () => {
+      listbox.removeEventListener("touchstart", handleTouchStart);
+      listbox.removeEventListener("touchmove", handleTouchMove);
+      listbox.removeEventListener("wheel", handleWheel);
+    };
+  }, [isOpen]);
+
   // Scroll focused item into view
   useEffect(() => {
     if (isOpen && focusedIndex >= 0 && listboxRef.current) {
@@ -234,7 +293,7 @@ export function CustomSelect({
                 role="listbox"
                 ref={listboxRef}
                 style={{ maxHeight: dropdownMaxHeight }}
-                className="overflow-y-auto py-2 scrollbar-thin outline-none"
+                className="overflow-y-auto overscroll-contain py-2 scrollbar-thin outline-none"
                 tabIndex={-1}
               >
                 {options.map((option, index) => (
