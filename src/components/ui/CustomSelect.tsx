@@ -25,6 +25,7 @@ export function CustomSelect({
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState<string>("");
   const [focusedIndex, setFocusedIndex] = useState(-1);
+  const [dropdownDirection, setDropdownDirection] = useState<"down" | "up">("down");
   const [dropdownMaxHeight, setDropdownMaxHeight] = useState<number>(240);
   const [dropdownStyle, setDropdownStyle] = useState<React.CSSProperties>({});
   const [mounted, setMounted] = useState(false);
