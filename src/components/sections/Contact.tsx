@@ -31,7 +31,7 @@ export function Contact() {
           
           <a 
             className="inline-flex items-center justify-center px-10 py-5 md:px-12 md:py-6 bg-white text-primary font-label-sm text-[16px] md:text-[18px] font-bold rounded-full hover:bg-surface-container transition-all duration-300 shadow-2xl hover:shadow-[0_0_40px_rgba(255,255,255,0.3)] hover:-translate-y-2" 
-            href="mailto:albinpariyarathu@gmail.com"
+            href="/contact"
           >
             Start a Project
           </a>
@@ -51,7 +51,7 @@ export function Contact() {
           </div>
           <div className="flex flex-col gap-3">
              <div className="font-label-sm text-white mb-2 uppercase tracking-widest text-xs">Legal</div>
-             <a href="mailto:albinpariyarathu@gmail.com" className="font-body-md text-[16px] hover:text-white transition-colors">Contact</a>
+             <a href="/contact" className="font-body-md text-[16px] hover:text-white transition-colors">Contact</a>
              <a href="#" className="font-body-md text-[16px] hover:text-white transition-colors">Privacy</a>
              <a href="#" className="font-body-md text-[16px] hover:text-white transition-colors">Terms</a>
           </div>
