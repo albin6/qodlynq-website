@@ -11,15 +11,34 @@ export interface LeadData {
   message: string;
 }
 
+function cleanEnvVar(val: string | undefined): string | undefined {
+  if (!val) return undefined;
+  let cleaned = val.trim();
+  if (
+    (cleaned.startsWith('"') && cleaned.endsWith('"')) ||
+    (cleaned.startsWith("'") && cleaned.endsWith("'"))
+  ) {
+    cleaned = cleaned.slice(1, -1).trim();
+  }
+  return cleaned;
+}
+
 export async function appendLeadToSheet(data: LeadData): Promise<void> {
-  const spreadsheetId = process.env.GOOGLE_SHEETS_SPREADSHEET_ID;
-  const clientEmail = process.env.GOOGLE_SHEETS_CLIENT_EMAIL;
-  // Safely handle newlines in the private key when loaded from environment variables
-  const privateKey = process.env.GOOGLE_SHEETS_PRIVATE_KEY?.replace(/\\n/g, "\n");
+  const spreadsheetId = cleanEnvVar(process.env.GOOGLE_SHEETS_SPREADSHEET_ID);
+  const clientEmail = cleanEnvVar(process.env.GOOGLE_SHEETS_CLIENT_EMAIL);
+  let privateKey = cleanEnvVar(process.env.GOOGLE_SHEETS_PRIVATE_KEY);
+  if (privateKey) {
+    // Safely handle newlines in the private key when loaded from environment variables
+    privateKey = privateKey.replace(/\\n/g, "\n");
+  }
 
   if (!spreadsheetId || !clientEmail || !privateKey) {
-    console.error("Missing Google Sheets environment variables");
-    throw new Error("Server misconfiguration");
+    const missing: string[] = [];
+    if (!spreadsheetId) missing.push("GOOGLE_SHEETS_SPREADSHEET_ID");
+    if (!clientEmail) missing.push("GOOGLE_SHEETS_CLIENT_EMAIL");
+    if (!privateKey) missing.push("GOOGLE_SHEETS_PRIVATE_KEY");
+    console.error(`Missing Google Sheets environment variables: ${missing.join(", ")}`);
+    throw new Error(`Server misconfiguration: missing environment variables (${missing.join(", ")})`);
   }
 
   // Create Google Auth Client
