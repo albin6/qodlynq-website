@@ -27,7 +27,7 @@ export function Header() {
         className="relative z-50 flex justify-between items-center px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)] h-20 w-full"
       >
         <div className="font-headline-md text-[24px] font-bold tracking-tighter text-primary z-50 relative">
-          <a href="#">QODLYNQ</a>
+          <a href="/">QODLYNQ</a>
         </div>
         <div className="hidden md:flex gap-8">
           <a className="font-body-md text-[14px] font-medium text-on-surface-variant hover:text-secondary transition-all duration-300 cursor-pointer active:opacity-70" href="/#services">Services</a>
