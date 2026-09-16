@@ -1,5 +1,7 @@
 "use server";
 
+import { appendLeadToSheet } from "@/lib/googleSheets";
+
 export type ContactFormState = {
   success: boolean;
   error?: string;
@@ -10,18 +12,30 @@ export async function submitContactForm(
   formData: FormData
 ): Promise<ContactFormState> {
   try {
-    const name = formData.get("name") as string;
-    const email = formData.get("email") as string;
-    const company = formData.get("company") as string;
-    const phone = formData.get("phone") as string;
-    const projectType = formData.get("projectType") as string;
-    const budget = formData.get("budget") as string;
-    const description = formData.get("description") as string;
-    const timeline = formData.get("timeline") as string;
+    // Spam protection: check honeypot field
+    const honeypot = formData.get("website") as string;
+    if (honeypot && honeypot.length > 0) {
+      // Silently discard spam
+      return { success: true };
+    }
+
+    // Extract and normalize values
+    const name = (formData.get("name") as string)?.trim() || "";
+    const email = (formData.get("email") as string)?.trim() || "";
+    const company = (formData.get("company") as string)?.trim() || "";
+    const phone = (formData.get("phone") as string)?.trim() || "";
+    const projectType = formData.get("projectType") as string || "";
+    const budget = formData.get("budget") as string || "";
+    const timeline = formData.get("timeline") as string || "";
+    const description = (formData.get("description") as string)?.trim() || "";
 
     // Server-side validation
     if (!name || !email || !description) {
       return { success: false, error: "Name, email, and description are required." };
+    }
+
+    if (name.length > 100 || email.length > 150 || description.length > 5000) {
+      return { success: false, error: "Form submission exceeds maximum length limits." };
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -29,27 +43,21 @@ export async function submitContactForm(
       return { success: false, error: "Please provide a valid email address." };
     }
 
-    // Mock sending email or processing enquiry
-    // In a production environment, this is where you would integrate with an email provider (e.g., Resend, SendGrid)
-    // using process.env.EMAIL_API_KEY and avoiding exposing credentials.
-    
-    console.log("--- New Project Enquiry ---");
-    console.log(`Name: ${name}`);
-    console.log(`Email: ${email}`);
-    console.log(`Company: ${company || "N/A"}`);
-    console.log(`Phone: ${phone || "N/A"}`);
-    console.log(`Project Type: ${projectType || "N/A"}`);
-    console.log(`Budget: ${budget || "N/A"}`);
-    console.log(`Timeline: ${timeline || "N/A"}`);
-    console.log(`Description: ${description}`);
-    console.log("---------------------------");
-
-    // Simulate network delay for realistic UX
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    // Append to Google Sheets
+    await appendLeadToSheet({
+      name,
+      email,
+      phone,
+      company,
+      projectType,
+      budget,
+      timeline,
+      message: description,
+    });
 
     return { success: true };
   } catch (error) {
     console.error("Error submitting contact form:", error);
-    return { success: false, error: "Something went wrong. Please try again or contact us directly." };
+    return { success: false, error: "We couldn't send your message right now. Please try again or contact us directly." };
   }
 }

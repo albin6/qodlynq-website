@@ -76,6 +76,12 @@ export function ContactForm() {
                 {errorMessage}
               </motion.div>
             )}
+
+            {/* Honeypot field for spam protection */}
+            <div className="hidden" aria-hidden="true" style={{ display: 'none' }}>
+              <label htmlFor="website">Website</label>
+              <input type="text" id="website" name="website" tabIndex={-1} autoComplete="off" />
+            </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="flex flex-col gap-2">
