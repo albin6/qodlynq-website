@@ -258,18 +258,20 @@ export function CustomSelect({
         tabIndex={0}
         onClick={toggleDropdown}
         className={cn(
-          "w-full bg-surface-container-lowest/80 backdrop-blur-md border rounded-2xl px-5 py-4 font-body-md text-primary focus:outline-none transition-colors shadow-sm cursor-pointer flex justify-between items-center group",
-          isOpen ? "border-primary/50" : "border-outline-variant/30 focus:border-primary/50 hover:border-outline-variant/60",
-          !selectedOption && "text-outline"
+          "w-full bg-surface-container-lowest/90 hover:bg-surface-container-lowest focus:bg-surface-container-lowest backdrop-blur-sm border rounded-2xl px-4 py-3.5 sm:px-5 sm:py-4 font-body-md text-[15px] sm:text-[16px] text-primary focus:outline-none transition-all duration-200 shadow-xs cursor-pointer flex justify-between items-center group select-none",
+          isOpen
+            ? "border-primary ring-4 ring-primary/5 shadow-sm"
+            : "border-outline-variant/40 hover:border-outline-variant/80 focus:border-primary focus:ring-4 focus:ring-primary/5",
+          !selectedOption && "text-on-surface-variant/50"
         )}
       >
-        <span className="block truncate">
+        <span className="block truncate font-normal">
           {selectedOption || placeholder}
         </span>
         <motion.span
           animate={{ rotate: isOpen ? 180 : 0 }}
-          transition={{ duration: 0.3, ease: "easeInOut" }}
-          className="material-symbols-outlined text-on-surface-variant pointer-events-none"
+          transition={{ duration: 0.25, ease: "easeInOut" }}
+          className="material-symbols-outlined text-on-surface-variant/70 group-hover:text-primary pointer-events-none transition-colors ml-2 flex-shrink-0"
         >
           expand_more
         </motion.span>
@@ -281,19 +283,19 @@ export function CustomSelect({
           {isOpen && (
             <motion.div
               ref={portalRef}
-              initial={{ opacity: 0, y: dropdownDirection === "down" ? -4 : 4 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: dropdownDirection === "down" ? -4 : 4 }}
-              transition={{ duration: 0.2, ease: "easeInOut" }}
+              initial={{ opacity: 0, y: dropdownDirection === "down" ? -6 : 6, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: dropdownDirection === "down" ? -6 : 6, scale: 0.98 }}
+              transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
               style={dropdownStyle}
-              className="bg-surface-container-lowest/95 backdrop-blur-xl border border-outline-variant/30 rounded-2xl shadow-xl overflow-hidden"
+              className="bg-surface-container-lowest/98 backdrop-blur-2xl border border-outline-variant/40 rounded-2xl shadow-2xl overflow-hidden ring-1 ring-black/5"
             >
               <ul
                 id={`${id}-listbox`}
                 role="listbox"
                 ref={listboxRef}
                 style={{ maxHeight: dropdownMaxHeight }}
-                className="overflow-y-auto overscroll-contain py-2 scrollbar-thin outline-none"
+                className="overflow-y-auto overscroll-contain py-1.5 scrollbar-thin outline-none"
                 tabIndex={-1}
               >
                 {options.map((option, index) => (
@@ -307,16 +309,16 @@ export function CustomSelect({
                     }}
                     onMouseEnter={() => setFocusedIndex(index)}
                     className={cn(
-                      "px-5 py-3 font-body-md cursor-pointer flex items-center justify-between transition-colors",
+                      "px-4 py-2.5 sm:px-5 sm:py-3 font-body-md text-[14px] sm:text-[15px] cursor-pointer flex items-center justify-between transition-colors",
                       focusedIndex === index
                         ? "bg-primary/5 text-primary"
                         : "text-on-surface-variant",
-                      selectedOption === option ? "text-primary font-medium" : ""
+                      selectedOption === option ? "text-primary font-semibold bg-primary/10" : ""
                     )}
                   >
                     <span className="truncate">{option}</span>
                     {selectedOption === option && (
-                      <span className="material-symbols-outlined text-[18px]">check</span>
+                      <span className="material-symbols-outlined text-[18px] text-primary">check</span>
                     )}
                   </li>
                 ))}

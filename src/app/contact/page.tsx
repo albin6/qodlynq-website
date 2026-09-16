@@ -13,60 +13,123 @@ export default function ContactPage() {
   return (
     <>
       <Header />
-      <main className="flex-1 w-full flex flex-col bg-surface pt-32 md:pt-48">
-        <section className="px-6 md:px-24 mb-24 max-w-container-max mx-auto w-full">
-          <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
+      <main className="flex-1 w-full flex flex-col bg-surface pt-28 sm:pt-32 md:pt-40 lg:pt-44 pb-16 md:pb-24 overflow-x-hidden">
+        <section className="px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20 max-w-7xl mx-auto w-full mb-16 md:mb-24">
+          <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 xl:gap-20 items-start">
             
-            {/* Left Column: Intro & Info */}
-            <div className="flex-1 lg:max-w-md flex flex-col">
+            {/* Left Column: Intro & Contact Details (Sticky on desktop) */}
+            <div className="w-full lg:w-5/12 lg:sticky lg:top-32 flex flex-col self-start">
               <motion.div
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
               >
-                <div className="bg-surface-container-lowest/50 backdrop-blur-sm border border-outline-variant/30 text-secondary font-label-sm uppercase tracking-widest text-[12px] px-4 py-1.5 rounded-full mb-8 shadow-sm inline-block">
-                  Let's Build Something
+                {/* Live Status Pill Badge */}
+                <div className="inline-flex items-center gap-2 bg-surface-container-lowest/90 backdrop-blur-md border border-outline-variant/30 px-3.5 py-1.5 rounded-full shadow-xs mb-6">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                  </span>
+                  <span className="text-secondary font-label-sm uppercase tracking-widest text-[11px] font-semibold">
+                    Taking on new projects
+                  </span>
                 </div>
-                <h1 className="font-headline-lg text-[clamp(48px,8vw,96px)] leading-[1.1] font-bold tracking-tighter text-primary mb-6 uppercase">
+
+                {/* Primary Page Heading */}
+                <h1 className="font-headline-lg text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-primary mb-4 sm:mb-6 uppercase leading-[1.05]">
                   Have an idea?
                 </h1>
-                <p className="font-body-lg text-[18px] md:text-[22px] text-on-surface-variant mb-12">
-                  Let's talk. Tell us what you're building, what you're trying to solve, or where you need help. We'll get back to you and explore how we can turn it into something real.
+
+                {/* Body Text */}
+                <p className="font-body-lg text-[16px] sm:text-[18px] md:text-[20px] text-on-surface-variant mb-8 sm:mb-10 leading-relaxed">
+                  Tell us what you're building, what problem you're solving, or where your existing systems need an upgrade. We'll explore the right architecture and turn it into reality.
                 </p>
 
-                {/* Contact Info Panel */}
-                <div className="flex flex-col gap-8 p-8 bg-surface-container-lowest/50 backdrop-blur-md border border-outline-variant/30 rounded-3xl shadow-sm">
-                  <div>
-                    <h3 className="font-label-sm text-[12px] uppercase tracking-widest text-on-surface-variant mb-2">Email</h3>
-                    <a href="mailto:qodlynq.agency@gmail.com" className="font-headline-md text-[20px] font-medium text-primary hover:text-secondary transition-colors">
-                      qodlynq.agency@gmail.com
-                    </a>
+                {/* Contact Information & Channels Card */}
+                <div className="bg-surface-container-lowest/80 backdrop-blur-xl border border-outline-variant/30 rounded-3xl p-6 sm:p-7 shadow-xs flex flex-col gap-5">
+                  <div className="text-[11px] font-label-sm uppercase tracking-widest text-on-surface-variant/70 font-semibold mb-1">
+                    Direct Channels
                   </div>
-                  
-                  <div>
-                    <h3 className="font-label-sm text-[12px] uppercase tracking-widest text-on-surface-variant mb-2">WhatsApp</h3>
-                    <a href="https://wa.me/919037150655" target="_blank" rel="noopener noreferrer" className="font-headline-md text-[20px] font-medium text-primary hover:text-secondary transition-colors inline-flex items-center gap-2 group">
-                      Chat on WhatsApp
-                      <span className="material-symbols-outlined text-[20px] transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">arrow_outward</span>
-                    </a>
+
+                  {/* Channel: Email */}
+                  <a 
+                    href="mailto:qodlynq.agency@gmail.com"
+                    className="group flex items-center justify-between p-3.5 sm:p-4 rounded-2xl bg-surface-container-low/50 hover:bg-surface-container-low transition-all duration-200 border border-transparent hover:border-outline-variant/40"
+                  >
+                    <div className="flex items-center gap-3.5 min-w-0">
+                      <div className="w-10 h-10 rounded-xl bg-primary/5 text-primary flex items-center justify-center flex-shrink-0 group-hover:bg-primary group-hover:text-on-primary transition-colors">
+                        <span className="material-symbols-outlined text-[20px]">mail</span>
+                      </div>
+                      <div className="min-w-0">
+                        <div className="text-[11px] uppercase tracking-wider text-on-surface-variant/70 font-medium">Email</div>
+                        <div className="text-[14px] sm:text-[15px] font-medium text-primary truncate">
+                          qodlynq.agency@gmail.com
+                        </div>
+                      </div>
+                    </div>
+                    <span className="material-symbols-outlined text-[18px] text-on-surface-variant/50 group-hover:text-primary group-hover:translate-x-1 transition-all flex-shrink-0 ml-2">
+                      arrow_forward
+                    </span>
+                  </a>
+
+                  {/* Channel: WhatsApp */}
+                  <a 
+                    href="https://wa.me/919037150655" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="group flex items-center justify-between p-3.5 sm:p-4 rounded-2xl bg-surface-container-low/50 hover:bg-surface-container-low transition-all duration-200 border border-transparent hover:border-outline-variant/40"
+                  >
+                    <div className="flex items-center gap-3.5 min-w-0">
+                      <div className="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-600 flex items-center justify-center flex-shrink-0 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+                        <span className="material-symbols-outlined text-[20px]">chat</span>
+                      </div>
+                      <div className="min-w-0">
+                        <div className="text-[11px] uppercase tracking-wider text-on-surface-variant/70 font-medium">WhatsApp</div>
+                        <div className="text-[14px] sm:text-[15px] font-medium text-primary flex items-center gap-1.5">
+                          <span>Chat with our team</span>
+                          <span className="material-symbols-outlined text-[14px]">arrow_outward</span>
+                        </div>
+                      </div>
+                    </div>
+                    <span className="material-symbols-outlined text-[18px] text-on-surface-variant/50 group-hover:text-primary group-hover:translate-x-1 transition-all flex-shrink-0 ml-2">
+                      arrow_forward
+                    </span>
+                  </a>
+
+                  {/* Channel: Location */}
+                  <div className="flex items-center gap-3.5 p-3.5 sm:p-4 rounded-2xl bg-surface-container-low/30 border border-transparent">
+                    <div className="w-10 h-10 rounded-xl bg-primary/5 text-primary flex items-center justify-center flex-shrink-0">
+                      <span className="material-symbols-outlined text-[20px]">location_on</span>
+                    </div>
+                    <div>
+                      <div className="text-[11px] uppercase tracking-wider text-on-surface-variant/70 font-medium">Headquarters</div>
+                      <div className="text-[14px] sm:text-[15px] font-medium text-primary">
+                        Kerala, India • Global Clients
+                      </div>
+                    </div>
                   </div>
-                  
-                  <div>
-                    <h3 className="font-label-sm text-[12px] uppercase tracking-widest text-on-surface-variant mb-2">Location</h3>
-                    <p className="font-headline-md text-[20px] font-medium text-primary">
-                      Kerala, India
-                    </p>
+
+                  {/* Trust & Response Badge */}
+                  <div className="pt-2 border-t border-outline-variant/20 flex items-center justify-between text-[12px] text-on-surface-variant/80">
+                    <span className="flex items-center gap-1.5">
+                      <span className="material-symbols-outlined text-[16px] text-secondary">bolt</span>
+                      <span>Avg response: &lt; 24h</span>
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <span className="material-symbols-outlined text-[16px] text-on-surface-variant/60">verified_user</span>
+                      <span>NDA available</span>
+                    </span>
                   </div>
                 </div>
               </motion.div>
             </div>
 
-            {/* Right Column: Form */}
-            <div className="flex-[1.5] w-full">
+            {/* Right Column: Interactive Form */}
+            <div className="w-full lg:w-7/12 flex-1">
               <motion.div
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
               >
                 <ContactForm />
               </motion.div>
