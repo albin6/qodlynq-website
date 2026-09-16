@@ -3,6 +3,36 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { submitContactForm } from "@/app/actions/contact";
+import { CustomSelect } from "@/components/ui/CustomSelect";
+
+const PROJECT_TYPES = [
+  "Website",
+  "Web Application",
+  "Mobile Application",
+  "SaaS Product",
+  "AI Solution",
+  "E-commerce",
+  "UI/UX Design",
+  "Custom Software",
+  "Other",
+];
+
+const BUDGETS = [
+  "Under ₹50K",
+  "₹50K – ₹1L",
+  "₹1L – ₹3L",
+  "₹3L – ₹5L",
+  "₹5L+",
+  "Not sure yet",
+];
+
+const TIMELINES = [
+  "As soon as possible",
+  "Within 1 month",
+  "1–3 months",
+  "3–6 months",
+  "Just exploring",
+];
 
 export function ContactForm() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
@@ -134,64 +164,35 @@ export function ContactForm() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-2 relative z-20">
                 <label htmlFor="projectType" className="font-label-sm text-[12px] uppercase tracking-widest text-on-surface-variant ml-1">Project Type</label>
-                <div className="relative">
-                  <select 
-                    id="projectType" 
-                    name="projectType" 
-                    className="w-full bg-surface-container-lowest/80 backdrop-blur-md border border-outline-variant/30 rounded-2xl px-5 py-4 font-body-md text-primary appearance-none focus:outline-none focus:border-primary/50 transition-colors shadow-sm cursor-pointer"
-                  >
-                    <option value="Website">Website</option>
-                    <option value="Web Application">Web Application</option>
-                    <option value="Mobile Application">Mobile Application</option>
-                    <option value="SaaS Product">SaaS Product</option>
-                    <option value="AI Solution">AI Solution</option>
-                    <option value="E-commerce">E-commerce</option>
-                    <option value="UI/UX Design">UI/UX Design</option>
-                    <option value="Custom Software">Custom Software</option>
-                    <option value="Other">Other</option>
-                  </select>
-                  <span className="material-symbols-outlined absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant">expand_more</span>
-                </div>
+                <CustomSelect 
+                  id="projectType" 
+                  name="projectType" 
+                  options={PROJECT_TYPES} 
+                  placeholder="Select project type" 
+                />
               </div>
               
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-2 relative z-10">
                 <label htmlFor="budget" className="font-label-sm text-[12px] uppercase tracking-widest text-on-surface-variant ml-1">Budget</label>
-                <div className="relative">
-                  <select 
-                    id="budget" 
-                    name="budget" 
-                    className="w-full bg-surface-container-lowest/80 backdrop-blur-md border border-outline-variant/30 rounded-2xl px-5 py-4 font-body-md text-primary appearance-none focus:outline-none focus:border-primary/50 transition-colors shadow-sm cursor-pointer"
-                  >
-                    <option value="Under ₹50K">Under ₹50K</option>
-                    <option value="₹50K – ₹1L">₹50K – ₹1L</option>
-                    <option value="₹1L – ₹3L">₹1L – ₹3L</option>
-                    <option value="₹3L – ₹5L">₹3L – ₹5L</option>
-                    <option value="₹5L+">₹5L+</option>
-                    <option value="Not sure yet">Not sure yet</option>
-                  </select>
-                  <span className="material-symbols-outlined absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant">expand_more</span>
-                </div>
+                <CustomSelect 
+                  id="budget" 
+                  name="budget" 
+                  options={BUDGETS} 
+                  placeholder="Select budget" 
+                />
               </div>
             </div>
 
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-2 relative z-0">
               <label htmlFor="timeline" className="font-label-sm text-[12px] uppercase tracking-widest text-on-surface-variant ml-1">Timeline</label>
-              <div className="relative">
-                <select 
-                  id="timeline" 
-                  name="timeline" 
-                  className="w-full bg-surface-container-lowest/80 backdrop-blur-md border border-outline-variant/30 rounded-2xl px-5 py-4 font-body-md text-primary appearance-none focus:outline-none focus:border-primary/50 transition-colors shadow-sm cursor-pointer"
-                >
-                  <option value="As soon as possible">As soon as possible</option>
-                  <option value="Within 1 month">Within 1 month</option>
-                  <option value="1–3 months">1–3 months</option>
-                  <option value="3–6 months">3–6 months</option>
-                  <option value="Just exploring">Just exploring</option>
-                </select>
-                <span className="material-symbols-outlined absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant">expand_more</span>
-              </div>
+              <CustomSelect 
+                id="timeline" 
+                name="timeline" 
+                options={TIMELINES} 
+                placeholder="Select timeline" 
+              />
             </div>
 
             <div className="flex flex-col gap-2">
