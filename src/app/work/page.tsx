@@ -1,7 +1,7 @@
 import { Header } from "@/components/layout/Header";
 import { Contact } from "@/components/sections/Contact";
 import { projects } from "@/data/projects";
-import Image from "next/image";
+import { LiveProjectPreview } from "@/components/ui/LiveProjectPreview";
 import * as motion from "framer-motion/client";
 
 export default function WorkPage() {
@@ -37,17 +37,7 @@ export default function WorkPage() {
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               className="flex flex-col gap-8 md:gap-12"
             >
-              <div className="group relative w-full aspect-[4/3] md:aspect-[16/9] overflow-hidden rounded-3xl md:rounded-[40px] bg-surface-container-lowest border border-outline-variant/20 shadow-[0_8px_40px_rgba(0,0,0,0.04)] block cursor-pointer">
-                <Image 
-                  src={project.image} 
-                  alt={project.title} 
-                  fill 
-                  className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
-                  priority={index === 0}
-                />
-                <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              </div>
+              <LiveProjectPreview project={project} priority={index === 0} />
               
               <div className="flex flex-col md:flex-row gap-6 md:gap-16 justify-between items-start">
                 <div className="flex-1 max-w-2xl">
