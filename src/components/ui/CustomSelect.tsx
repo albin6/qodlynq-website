@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect, KeyboardEvent } from "react";
+import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 
@@ -24,16 +25,26 @@ export function CustomSelect({
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState<string>("");
   const [focusedIndex, setFocusedIndex] = useState(-1);
-  const [dropdownDirection, setDropdownDirection] = useState<"down" | "up">("down");
   const [dropdownMaxHeight, setDropdownMaxHeight] = useState<number>(240);
+  const [dropdownStyle, setDropdownStyle] = useState<React.CSSProperties>({});
+  const [mounted, setMounted] = useState(false);
 
   const containerRef = useRef<HTMLDivElement>(null);
+  const portalRef = useRef<HTMLDivElement>(null);
   const listboxRef = useRef<HTMLUListElement>(null);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Handle clicking outside to close
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
-      if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
+      const target = event.target as Node;
+      const isOutsideContainer = containerRef.current && !containerRef.current.contains(target);
+      const isOutsidePortal = portalRef.current && !portalRef.current.contains(target);
+      
+      if (isOutsideContainer && isOutsidePortal) {
         setIsOpen(false);
       }
     }
@@ -46,20 +57,27 @@ export function CustomSelect({
     };
   }, [isOpen]);
 
-  // Handle page resize by closing dropdown to recalculate properly next open
+  // Handle page resize and scroll by closing dropdown
   useEffect(() => {
-    function handleResize() {
-      if (isOpen) {
-        setIsOpen(false);
+    function handleGlobalChange(e: Event) {
+      if (!isOpen) return;
+      
+      // If we are scrolling inside the listbox, don't close
+      if (e.type === "scroll" && listboxRef.current && listboxRef.current.contains(e.target as Node)) {
+        return;
       }
+      
+      setIsOpen(false);
     }
 
     if (isOpen) {
-      window.addEventListener("resize", handleResize);
+      window.addEventListener("scroll", handleGlobalChange, true);
+      window.addEventListener("resize", handleGlobalChange);
     }
     
     return () => {
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("scroll", handleGlobalChange, true);
+      window.removeEventListener("resize", handleGlobalChange);
     };
   }, [isOpen]);
 
@@ -89,7 +107,7 @@ export function CustomSelect({
       const index = selectedOption ? options.indexOf(selectedOption) : 0;
       setFocusedIndex(index !== -1 ? index : 0);
       
-      // Calculate viewport space to determine direction
+      // Calculate viewport space to determine direction and position
       if (containerRef.current) {
         const rect = containerRef.current.getBoundingClientRect();
         const spaceBelow = window.innerHeight - rect.bottom;
@@ -99,14 +117,24 @@ export function CustomSelect({
         const desiredHeight = 240; 
         const margin = 16; // Margin from screen edge
 
+        const style: React.CSSProperties = {
+          position: "fixed",
+          left: rect.left,
+          width: rect.width,
+          zIndex: 50,
+        };
+
         // Default to down, unless spaceBelow is insufficient AND spaceAbove is larger
         if (spaceBelow < desiredHeight + margin && spaceAbove > spaceBelow) {
           setDropdownDirection("up");
           setDropdownMaxHeight(Math.min(desiredHeight, spaceAbove - margin));
+          style.bottom = window.innerHeight - rect.top + 8;
         } else {
           setDropdownDirection("down");
           setDropdownMaxHeight(Math.min(desiredHeight, spaceBelow - margin));
+          style.top = rect.bottom + 8;
         }
+        setDropdownStyle(style);
       }
     }
     setIsOpen(!isOpen);
@@ -187,52 +215,57 @@ export function CustomSelect({
         </motion.span>
       </div>
 
-      {/* Dropdown Panel */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: dropdownDirection === "down" ? -4 : 4 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: dropdownDirection === "down" ? -4 : 4 }}
-            transition={{ duration: 0.2, ease: "easeInOut" }}
-            style={{
-               [dropdownDirection === "down" ? "top" : "bottom"]: "calc(100% + 8px)"
-            }}
-            className="absolute z-50 w-full bg-surface-container-lowest/95 backdrop-blur-xl border border-outline-variant/30 rounded-2xl shadow-xl overflow-hidden"
-          >
-            <ul
-              id={`${id}-listbox`}
-              role="listbox"
-              ref={listboxRef}
-              style={{ maxHeight: dropdownMaxHeight }}
-              className="overflow-y-auto py-2 scrollbar-thin outline-none"
-              tabIndex={-1}
+      {/* Dropdown Panel Portaled to Document Body */}
+      {mounted && createPortal(
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              ref={portalRef}
+              initial={{ opacity: 0, y: dropdownDirection === "down" ? -4 : 4 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: dropdownDirection === "down" ? -4 : 4 }}
+              transition={{ duration: 0.2, ease: "easeInOut" }}
+              style={dropdownStyle}
+              className="bg-surface-container-lowest/95 backdrop-blur-xl border border-outline-variant/30 rounded-2xl shadow-xl overflow-hidden"
             >
-              {options.map((option, index) => (
-                <li
-                  key={option}
-                  role="option"
-                  aria-selected={selectedOption === option}
-                  onClick={() => handleSelect(option)}
-                  onMouseEnter={() => setFocusedIndex(index)}
-                  className={cn(
-                    "px-5 py-3 font-body-md cursor-pointer flex items-center justify-between transition-colors",
-                    focusedIndex === index
-                      ? "bg-primary/5 text-primary"
-                      : "text-on-surface-variant",
-                    selectedOption === option ? "text-primary font-medium" : ""
-                  )}
-                >
-                  <span className="truncate">{option}</span>
-                  {selectedOption === option && (
-                    <span className="material-symbols-outlined text-[18px]">check</span>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-        )}
-      </AnimatePresence>
+              <ul
+                id={`${id}-listbox`}
+                role="listbox"
+                ref={listboxRef}
+                style={{ maxHeight: dropdownMaxHeight }}
+                className="overflow-y-auto py-2 scrollbar-thin outline-none"
+                tabIndex={-1}
+              >
+                {options.map((option, index) => (
+                  <li
+                    key={option}
+                    role="option"
+                    aria-selected={selectedOption === option}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleSelect(option);
+                    }}
+                    onMouseEnter={() => setFocusedIndex(index)}
+                    className={cn(
+                      "px-5 py-3 font-body-md cursor-pointer flex items-center justify-between transition-colors",
+                      focusedIndex === index
+                        ? "bg-primary/5 text-primary"
+                        : "text-on-surface-variant",
+                      selectedOption === option ? "text-primary font-medium" : ""
+                    )}
+                  >
+                    <span className="truncate">{option}</span>
+                    {selectedOption === option && (
+                      <span className="material-symbols-outlined text-[18px]">check</span>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          )}
+        </AnimatePresence>,
+        document.body
+      )}
     </div>
   );
 }
