@@ -30,9 +30,10 @@ export function Header() {
           <a href="#">QODLYNQ</a>
         </div>
         <div className="hidden md:flex gap-8">
-          <a className="font-body-md text-[14px] font-medium text-on-surface-variant hover:text-secondary transition-all duration-300 cursor-pointer active:opacity-70" href="#services">Services</a>
-          <a className="font-body-md text-[14px] font-medium text-on-surface-variant hover:text-secondary transition-all duration-300 cursor-pointer active:opacity-70" href="#process">Process</a>
-          <a className="font-body-md text-[14px] font-medium text-on-surface-variant hover:text-secondary transition-all duration-300 cursor-pointer active:opacity-70" href="#contact">Contact</a>
+          <a className="font-body-md text-[14px] font-medium text-on-surface-variant hover:text-secondary transition-all duration-300 cursor-pointer active:opacity-70" href="/#services">Services</a>
+          <a className="font-body-md text-[14px] font-medium text-on-surface-variant hover:text-secondary transition-all duration-300 cursor-pointer active:opacity-70" href="/#process">Process</a>
+          <a className="font-body-md text-[14px] font-medium text-on-surface-variant hover:text-secondary transition-all duration-300 cursor-pointer active:opacity-70" href="/work">Work</a>
+          <a className="font-body-md text-[14px] font-medium text-on-surface-variant hover:text-secondary transition-all duration-300 cursor-pointer active:opacity-70" href="/#contact">Contact</a>
         </div>
         <a className="hidden md:inline-flex items-center justify-center px-6 py-3 bg-primary text-on-primary font-label-sm text-[14px] rounded-full hover:bg-primary/90 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5" href="mailto:albinpariyarathu@gmail.com">
           Get in touch
@@ -65,7 +66,7 @@ export function Header() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1, duration: 0.4 }}
               className="font-headline-md text-4xl font-medium text-on-surface-variant hover:text-primary transition-colors" 
-              href="#services"
+              href="/#services"
               onClick={() => setMenuOpen(false)}
             >
               Services
@@ -75,7 +76,7 @@ export function Header() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.4 }}
               className="font-headline-md text-4xl font-medium text-on-surface-variant hover:text-primary transition-colors" 
-              href="#process"
+              href="/#process"
               onClick={() => setMenuOpen(false)}
             >
               Process
@@ -85,7 +86,17 @@ export function Header() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.4 }}
               className="font-headline-md text-4xl font-medium text-on-surface-variant hover:text-primary transition-colors" 
-              href="#contact"
+              href="/work"
+              onClick={() => setMenuOpen(false)}
+            >
+              Work
+            </motion.a>
+            <motion.a 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.4 }}
+              className="font-headline-md text-4xl font-medium text-on-surface-variant hover:text-primary transition-colors" 
+              href="/#contact"
               onClick={() => setMenuOpen(false)}
             >
               Contact
@@ -93,7 +104,7 @@ export function Header() {
             <motion.a 
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.4, duration: 0.4 }}
+              transition={{ delay: 0.5, duration: 0.4 }}
               className="mt-8 px-10 py-4 w-full max-w-[280px] text-center bg-primary text-on-primary font-label-sm text-[16px] rounded-full hover:bg-primary/90 transition-all duration-300 shadow-xl" 
               href="mailto:albinpariyarathu@gmail.com"
               onClick={() => setMenuOpen(false)}

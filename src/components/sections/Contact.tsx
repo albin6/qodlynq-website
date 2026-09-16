@@ -45,9 +45,9 @@ export function Contact() {
           </div>
           <div className="flex flex-col gap-3">
              <div className="font-label-sm text-white mb-2 uppercase tracking-widest text-xs">Navigation</div>
-             <a href="#services" className="font-body-md text-[16px] hover:text-white transition-colors">Services</a>
-             <a href="#process" className="font-body-md text-[16px] hover:text-white transition-colors">Process</a>
-             <a href="#work" className="font-body-md text-[16px] hover:text-white transition-colors">Work</a>
+             <a href="/#services" className="font-body-md text-[16px] hover:text-white transition-colors">Services</a>
+             <a href="/#process" className="font-body-md text-[16px] hover:text-white transition-colors">Process</a>
+             <a href="/work" className="font-body-md text-[16px] hover:text-white transition-colors">Work</a>
           </div>
           <div className="flex flex-col gap-3">
              <div className="font-label-sm text-white mb-2 uppercase tracking-widest text-xs">Legal</div>
