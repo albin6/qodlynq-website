@@ -13,7 +13,7 @@ export default function ContactPage() {
   return (
     <>
       <Header />
-      <main className="flex-1 w-full flex flex-col bg-surface pt-28 sm:pt-32 md:pt-40 lg:pt-44 pb-16 md:pb-24 overflow-x-hidden">
+      <main className="flex-1 w-full flex flex-col bg-surface pt-28 sm:pt-32 md:pt-40 lg:pt-44 overflow-x-hidden">
         <section className="px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20 max-w-7xl mx-auto w-full mb-16 md:mb-24">
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 xl:gap-20 items-start">
             
