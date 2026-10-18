@@ -124,8 +124,8 @@ export function ContactForm() {
                     <p className="font-semibold text-red-950 text-[14px]">{errorMessage}</p>
                     <p className="text-[12px] text-red-800/80 mt-1">
                       You can also connect with us directly via{" "}
-                      <a href="mailto:qodlynq.agency@gmail.com" className="underline font-medium hover:text-red-950">
-                        qodlynq.agency@gmail.com
+                      <a href="mailto:albinpariyarathu@gmail.com" className="underline font-medium hover:text-red-950">
+                        email
                       </a>{" "}
                       or{" "}
                       <a href="https://wa.me/919037150655" target="_blank" rel="noopener noreferrer" className="underline font-medium hover:text-red-950">
